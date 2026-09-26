@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Waffleswithsyruppp | Official Website</title>
+  <meta name="description" content="Official website of Waffleswithsyruppp. Music, merch, Waffle Talk and more.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff7fb;
+      color: #211820;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 7%;
+      background: rgba(255, 247, 251, 0.95);
+      border-bottom: 1px solid #ffd3e6;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 22px;
+      color: #ff4fa3;
+    }
+
+    nav a {
+      color: #211820;
+      text-decoration: none;
+      margin-left: 24px;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: #ff4fa3;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      background:
+        radial-gradient(circle at top, #ffd5e8 0%, transparent 45%),
+        linear-gradient(180deg, #fff7fb, #ffffff);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      color: #ff4fa3;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 8vw, 90px);
+      line-height: .95;
+      margin-bottom: 24px;
+    }
+
+    .pink {
+      color: #ff4fa3;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      font-size: 19px;
+      line-height: 1.7;
+      color: #665a63;
+    }
+
+    .buttons {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 25px;
+      border-radius: 999px;
+      background: #ff4fa3;
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .button.secondary {
+      background: white;
+      color: #ff4fa3;
+      border: 2px solid #ff4fa3;
+    }
+
+    section {
+      padding: 90px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #776a73;
+      margin-bottom: 45px;
+    }
+
+    .cards {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #ffd7e8;
+      border-radius: 24px;
+      padding: 35px;
+      box-shadow: 0 10px 35px rgba(255, 79, 163, .08);
+    }
+
+    .card h3 {
+      color: #ff4fa3;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #70636c;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .card a {
+      color: #ff4fa3;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .about {
+      background: #ffebf4;
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #665a63;
+    }
+
+    .cta {
+      text-align: center;
+      background: #ff4fa3;
+      color: white;
+    }
+
+    .cta h2 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    .cta .button {
+      background: white;
+      color: #ff4fa3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      background: #1e171c;
+      color: #cdbfc8;
+    }
+
+    @media (max-width: 750px) {
+      nav {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      nav a {
+        margin: 0 8px;
+        font-size: 14px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">WAFFLESWITHSYRUPPP</div>
+
+  <div>
+    <a href="#merch">Merch</a>
+    <a href="#music">Music</a>
+    <a href="#about">About</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+
+    <div class="eyebrow">Independent Artist • Creator</div>
+
+    <h1>
+      SWEET<br>
+      <span class="pink">& DRIPPY</span>
+    </h1>
+
+    <p>
+      Welcome to the official home of Waffleswithsyruppp.
+      Music, creativity, Waffle Talk and everything Waffles.
+    </p>
+
+    <div class="buttons">
+      <a class="button" href="#music">Listen Now</a>
+      <a class="button secondary" href="#merch">Shop Merch</a>
+    </div>
+
+  </div>
+</header>
+
+<section id="merch">
+
+  <h2 class="section-title">Merch</h2>
+  <p class="section-subtitle">Sweet & Drippy.</p>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Sweet & Drippy</h3>
+      <p>
+        Official Waffles Creative apparel and limited drops.
+      </p>
+      <a href="#">Coming Soon →</a>
+    </div>
+
+    <div class="card">
+      <h3>Waffles Creative</h3>
+      <p>
+        Original pieces built around the Waffles universe.
+      </p>
+      <a href="#">Coming Soon →</a>
+    </div>
+
+    <div class="card">
+      <h3>Waffle Gang</h3>
+      <p>
+        For the people who've been here for the journey.
+      </p>
+      <a href="#">Coming Soon →</a>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="music">
+
+  <h2 class="section-title">Music</h2>
+
+  <p class="section-subtitle">
+    Listen to Waffleswithsyruppp.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Spotify</h3>
+      <p>Stream the latest releases on Spotify.</p>
+      <a href="#">Listen →</a>
+    </div>
+
+    <div class="card">
+      <h3>Apple Music</h3>
+      <p>Listen on Apple Music.</p>
+      <a href="#">Listen →</a>
+    </div>
+
+    <div class="card">
+      <h3>YouTube Music</h3>
+      <p>Music and videos from Waffleswithsyruppp.</p>
+      <a href="#">Watch →</a>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="about" class="about">
+
+  <h2 class="section-title">Meet Waffles</h2>
+
+  <p>
+    Waffleswithsyruppp is an independent artist and creator
+    blending raw storytelling, confidence, faith and humor.
+    Waffles Creative is the home for the music, ideas and
+    creative world surrounding the artist.
+  </p>
+
+</section>
+
+<section class="cta">
+
+  <h2>Welcome to Waffle Gang.</h2>
+
+  <p>
+    Stay sweet. Stay weird. Keep creating.
+  </p>
+
+  <a class="button" href="#music">
+    Listen to Waffles
+  </a>
+
+</section>
+
+<footer>
+  © 2026 Waffles Creative • wafflescreative.com
+</footer>
+
+</body>
+</html>
