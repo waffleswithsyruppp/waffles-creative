@@ -186,9 +186,25 @@
       text-decoration: underline;
     }
 
-    .music-cards {
-      grid-template-columns: repeat(4, 1fr);
-    }
+.music-cards {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  max-width: 1400px;
+  gap: 15px;
+}
+
+.music-cards .card {
+  text-align: center;
+  padding: 30px 15px;
+}
+
+.music-cards .card h3 {
+  font-size: 22px;
+  min-height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 
     .music-cards .card {
       text-align: center;
@@ -226,11 +242,23 @@
       color: #cdbfc8;
     }
 
-    @media (max-width: 900px) {
-      .music-cards {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+@media (max-width: 1100px) {
+  .music-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 750px) {
+  .music-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 450px) {
+  .music-cards {
+    grid-template-columns: 1fr;
+  }
+}
 
     @media (max-width: 750px) {
       nav {
