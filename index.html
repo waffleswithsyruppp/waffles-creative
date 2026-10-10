@@ -5,16 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Waffleswithsyruppp | Official Website</title>
-  <meta name="description" content="Official website of Waffleswithsyruppp. Music, merch, Waffle Talk and more.">
+
+  <meta
+    name="description"
+    content="Official website of Waffleswithsyruppp. Music, merch, Waffle Talk and more."
+  >
 
   <style>
-    .hero-logo {
-  display: block;
-  width: min(800px, 95%);
-  height: auto;
-  margin: 0 auto 30px;
-  }
-    
     * {
       box-sizing: border-box;
       margin: 0;
@@ -69,11 +66,19 @@
       padding: 80px 20px;
       background:
         radial-gradient(circle at top, #ffd5e8 0%, transparent 45%),
-        linear-gradient(180deg, #fff7fb, #ffffff);
+        linear-gradient(180deg, #fff7fb, #fff);
     }
 
     .hero-content {
       max-width: 850px;
+      width: 100%;
+    }
+
+    .hero-logo {
+      display: block;
+      width: min(800px, 95%);
+      height: auto;
+      margin: 0 auto 30px;
     }
 
     .eyebrow {
@@ -87,7 +92,7 @@
 
     h1 {
       font-size: clamp(45px, 8vw, 90px);
-      line-height: .95;
+      line-height: 0.95;
       margin-bottom: 24px;
     }
 
@@ -156,7 +161,7 @@
       border: 1px solid #ffd7e8;
       border-radius: 24px;
       padding: 35px;
-      box-shadow: 0 10px 35px rgba(255, 79, 163, .08);
+      box-shadow: 0 10px 35px rgba(255, 79, 163, 0.08);
     }
 
     .card h3 {
@@ -177,6 +182,22 @@
       text-decoration: none;
     }
 
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .music-cards {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .music-cards .card {
+      text-align: center;
+    }
+
+    .music-cards .card h3 {
+      margin-bottom: 22px;
+    }
+
     .about {
       background: #ffebf4;
       text-align: center;
@@ -190,25 +211,12 @@
       color: #665a63;
     }
 
-    .cta {
-      text-align: center;
-      background: #ff4fa3;
-      color: white;
+    #contact .cards {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .cta h2 {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
-
-    .cta p {
-      margin-bottom: 30px;
-      font-size: 18px;
-    }
-
-    .cta .button {
-      background: white;
-      color: #ff4fa3;
+    #contact .section-title {
+      margin-bottom: 45px;
     }
 
     footer {
@@ -216,6 +224,12 @@
       padding: 35px 20px;
       background: #1e171c;
       color: #cdbfc8;
+    }
+
+    @media (max-width: 900px) {
+      .music-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 750px) {
@@ -229,12 +243,31 @@
         font-size: 14px;
       }
 
-      .cards {
+      .cards,
+      .music-cards,
+      #contact .cards {
         grid-template-columns: 1fr;
       }
 
       section {
         padding: 65px 6%;
+      }
+
+      .section-title {
+        font-size: 34px;
+      }
+
+      .hero {
+        min-height: 75vh;
+        padding: 60px 20px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .logo {
+        font-size: 19px;
       }
     }
   </style>
@@ -242,171 +275,263 @@
 
 <body>
 
-<nav>
-  <div class="logo">WAFFLESWITHSYRUPPP</div>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">WAFFLESWITHSYRUPPP</div>
 
-  <div>
-    <a href="#merch">Merch</a>
-    <a href="#music">Music</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+    <div>
+      <a href="#merch">Merch</a>
+      <a href="#music">Music</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-<header class="hero">
-  <div class="hero-content">
 
-    <div class="eyebrow">Independent Artist • Creator</div>
+  <!-- HOMEPAGE -->
+  <header class="hero">
+    <div class="hero-content">
 
-<img
-  src="waffles-creative-logo.png"
-  alt="Waffles Creative"
-  class="hero-logo"
->
+      <div class="eyebrow">
+        Independent Artist • Creator
+      </div>
 
-    <p>
-      Welcome to the official home of Waffleswithsyruppp.
-      Music, creativity, Waffle Talk and everything Waffles.
+      <!-- NEW LOGO -->
+      <img
+        src="logo.png"
+        alt="Waffles Creative"
+        class="hero-logo"
+      >
+
+      <p>
+        Welcome to the official home of Waffleswithsyruppp.
+        Music, creativity, Waffle Talk and everything Waffles.
+      </p>
+
+      <div class="buttons">
+        <a class="button" href="#music">
+          Listen Now
+        </a>
+
+        <a class="button secondary" href="#merch">
+          Shop Merch
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- MERCH -->
+  <section id="merch">
+
+    <h2 class="section-title">
+      Merch
+    </h2>
+
+    <p class="section-subtitle">
+      Sweet & Drippy.
     </p>
 
-    <div class="buttons">
-      <a class="button" href="#music">Listen Now</a>
-      <a class="button secondary" href="#merch">Shop Merch</a>
+    <div class="cards">
+
+      <div class="card">
+        <h3>Sweet & Drippy</h3>
+
+        <p>
+          Waffles Creative apparel and limited drops.
+        </p>
+
+        <a href="#">
+          Coming Soon →
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>Good Girls Love Killers</h3>
+
+        <p>
+          Official merch for the Good Girls Love Killers album.
+        </p>
+
+        <a href="#">
+          Coming Soon →
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>Waffle Gang</h3>
+
+        <p>
+          For the people who've been here for the journey.
+        </p>
+
+        <a href="#">
+          Coming Soon →
+        </a>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</header>
 
-<section id="merch">
+  <!-- MUSIC -->
+  <section id="music">
 
-  <h2 class="section-title">Merch</h2>
-  <p class="section-subtitle">Sweet & Drippy.</p>
+    <h2 class="section-title">
+      Music
+    </h2>
 
-  <div class="cards">
+    <p class="section-subtitle">
+      Listen to Waffleswithsyruppp.
+    </p>
 
-    <div class="card">
-      <h3>Sweet & Drippy</h3>
-      <p>
-        Waffles Creative apparel and limited drops.
-      </p>
-      <a href="#">Coming Soon →</a>
+    <div class="cards music-cards">
+
+      <!-- SPOTIFY -->
+      <div class="card">
+        <h3>Spotify</h3>
+
+        <a
+          href="https://open.spotify.com/artist/4bYsG1gHXpAekhbJbzeJYT?si=t75gnzSrSme0EtAyePISZQ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Listen →
+        </a>
+      </div>
+
+
+      <!-- APPLE MUSIC -->
+      <div class="card">
+        <h3>Apple Music</h3>
+
+        <a
+          href="https://music.apple.com/us/artist/waffleswithsyruppp/1857855440"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Listen →
+        </a>
+      </div>
+
+
+      <!-- YOUTUBE MUSIC -->
+      <div class="card">
+        <h3>YouTube Music</h3>
+
+        <a
+          href="https://music.youtube.com/channel/UCw68eotsrsTR2X8kgJ6QlQw?si=yfCYgBcouQni3MZx"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Listen →
+        </a>
+      </div>
+
+
+      <!-- TIDAL -->
+      <div class="card">
+        <h3>Tidal</h3>
+
+        <a
+          href="https://tidal.com/artist/70621150/u"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Listen →
+        </a>
+      </div>
+
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Good Girls Love Killers</h3>
-      <p>
-        Official merch for the Good Girls Love Killers album.
-      </p>
-      <a href="#">Coming Soon →</a>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+
+    <h2 class="section-title">
+      Meet Waffles
+    </h2>
+
+    <p>
+      Waffleswithsyruppp is an independent artist and creator
+      blending raw storytelling, confidence, faith and humor.
+      Waffles Creative is the home for the music, ideas and
+      creative world surrounding the artist.
+    </p>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <h2 class="section-title">
+      Stay Connected
+    </h2>
+
+    <div class="cards">
+
+      <!-- SOCIAL MEDIA -->
+      <div class="card">
+
+        <h3>Socials</h3>
+
+        <a
+          href="https://www.instagram.com/waffleswithsyruppp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram →
+        </a>
+
+        <br><br>
+
+        <a
+          href="https://www.tiktok.com/@waffleswithsyruppp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          TikTok →
+        </a>
+
+        <br><br>
+
+        <a
+          href="https://www.youtube.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          YouTube →
+        </a>
+
+      </div>
+
+
+      <!-- BUSINESS INQUIRIES -->
+      <div class="card">
+
+        <h3>Business Inquiries</h3>
+
+        <p>
+          Booking, collaborations, press and business inquiries.
+        </p>
+
+        <a href="mailto:contact@WafflesCreative.com">
+          Email →
+        </a>
+
+      </div>
+
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Waffle Gang</h3>
-      <p>
-        For the people who've been here for the journey.
-      </p>
-      <a href="#">Coming Soon →</a>
-    </div>
 
-  </div>
-
-</section>
-
-<section id="music">
-
-  <h2 class="section-title">Music</h2>
-
-  <p class="section-subtitle">
-    Listen to Waffleswithsyruppp.
-  </p>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>Spotify</h3>
-      <p>Stream the latest releases on Spotify.</p>
-      <a href="https://open.spotify.com/artist/4bYsG1gHXpAekhbJbzeJYT?si=t75gnzSrSme0EtAyePISZQ">Listen →</a>
-    </div>
-
-    <div class="card">
-      <h3>Apple Music</h3>
-      <p>Listen on Apple Music.</p>
-      <a href="https://music.apple.com/us/artist/waffleswithsyruppp/1857855440">Listen →</a>
-    </div>
-
-    <div class="card">
-      <h3>YouTube Music</h3>
-      <p>Music and videos from Waffleswithsyruppp.</p>
-      <a href="https://music.youtube.com/channel/UCw68eotsrsTR2X8kgJ6QlQw?si=yfCYgBcouQni3MZx">Watch →</a>
-    </div>
-
-  </div>
-
-</section>
-
-<section id="about" class="about">
-
-  <h2 class="section-title">Meet Waffles</h2>
-
-  <p>
-    Waffleswithsyruppp is an independent artist and creator
-    blending raw storytelling, confidence, faith and humor.
-    Waffles Creative is the home for the music, ideas and
-    creative world surrounding the artist.
-  </p>
-
-</section>
-
-<section id="contact">
-
-  <h2 class="section-title">Stay Connected</h2>
-  <p class="section-subtitle">
-    Follow Waffleswithsyruppp & get in touch.
-  </p>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>Socials</h3>
-      <p>
-        Follow Waffleswithsyruppp.
-      </p>
-
-      <a href="https://www.instagram.com/waffleswithsyruppp" target="_blank">Instagram →</a>
-      <br><br>
-      <a href="https://www.tiktok.com/@waffleswithsyruppp" target="_blank">TikTok →</a>
-    </div>
-
-    <div class="card">
-      <h3>Business Inquiries</h3>
-      <p>
-        Booking, collaborations, press and business inquiries.
-      </p>
-
-      <a href="mailto:contact@WafflesCreative.com">Email →</a>
-    </div>
-
-  </div>
-
-</section>
-  
-<section class="cta">
-
-  <h2>Welcome to Waffle Gang.</h2>
-
-  <p>
-    Stay sweet. Stay drippy. Keep creating.
-  </p>
-
-  <a class="button" href="#music">
-    Listen to Waffles
-  </a>
-
-</section>
-
-<footer>
-  © 2026 Waffles Creative • wafflescreative.com
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Waffles Creative • wafflescreative.com
+  </footer>
 
 </body>
 </html>
