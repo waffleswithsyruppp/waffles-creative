@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ffffff">
 <title>Waffles Creative | Designer Clothing Made By Real Artists</title>
+<meta name="description" content="Waffles Creative — designer clothing made by real artists. Shop Sweet and Drippy, discover the artists, and follow our playlist.">
 
 <style>
 :root {
@@ -15,12 +16,13 @@
   --border:#f0e1e9;
   --text:#252025;
   --muted:#777;
+  --white:#fff;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  background:#fff;
+  background:white;
   color:var(--text);
   font-family:Arial,Helvetica,sans-serif;
   overflow-x:hidden;
@@ -28,76 +30,97 @@ body{
 button,input,textarea,select{font:inherit}
 button{cursor:pointer}
 a{text-decoration:none;color:inherit}
-button:focus-visible,a:focus-visible,input:focus-visible,
-textarea:focus-visible,select:focus-visible{
+button:focus-visible,a:focus-visible,
+input:focus-visible,textarea:focus-visible,
+select:focus-visible{
   outline:2px solid var(--dark);
   outline-offset:3px;
 }
+svg{display:block}
 
 /* HEADER */
 header{
-  background:#fff;
+  background:white;
   border-bottom:1px solid var(--border);
   position:sticky;
   top:0;
   z-index:20;
 }
 .header-inner{
-  max-width:1250px;
+  max-width:1280px;
   margin:auto;
-  padding:18px 24px;
+  padding:17px 24px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:18px;
+  gap:22px;
 }
 .brand{
-  font-size:19px;
-  font-weight:900;
-  letter-spacing:1px;
   color:var(--dark);
+  font-weight:900;
+  font-size:19px;
+  letter-spacing:1px;
   white-space:nowrap;
 }
 nav{
   display:flex;
-  justify-content:center;
+  align-items:center;
   flex-wrap:wrap;
+  justify-content:center;
   gap:20px;
 }
 nav button{
-  background:none;
   border:0;
+  border-bottom:2px solid transparent;
+  background:none;
   padding:9px 0;
   text-transform:uppercase;
   font-size:11px;
-  font-weight:bold;
   letter-spacing:1px;
-  border-bottom:2px solid transparent;
+  font-weight:bold;
 }
 nav button.active,nav button:hover{
   color:var(--dark);
   border-bottom-color:var(--pink);
 }
-.cart-toggle{
-  background:none;
-  border:0;
-  position:relative;
-  font-size:23px;
-  padding:8px;
+.header-actions{
+  display:flex;
+  gap:13px;
+  align-items:center;
 }
-.cart-count{
+.icon-btn{
+  width:37px;
+  height:37px;
+  padding:7px;
+  border:none;
+  background:transparent;
+  display:grid;
+  place-items:center;
+  position:relative;
+}
+.icon-btn svg{
+  width:23px;
+  height:23px;
+  fill:none;
+  stroke:#242024;
+  stroke-width:1.65;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.icon-btn:hover svg{stroke:var(--dark)}
+.icon-count{
   position:absolute;
-  right:-5px;
-  top:-4px;
+  top:-5px;
+  right:-7px;
   background:var(--pink);
-  color:#fff;
+  color:white;
   border-radius:50%;
-  min-width:19px;
-  height:19px;
+  font-size:10px;
+  min-width:18px;
+  height:18px;
   padding:2px;
   display:grid;
   place-items:center;
-  font-size:11px;
 }
 
 /* GENERAL */
@@ -105,24 +128,24 @@ nav button.active,nav button:hover{
 .page.active{display:block}
 .eyebrow{
   color:var(--dark);
-  font-size:11px;
-  font-weight:bold;
-  letter-spacing:3px;
   text-transform:uppercase;
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:bold;
   line-height:1.8;
 }
 .btn{
   display:inline-block;
   background:var(--pink);
-  color:#fff;
   border:1px solid var(--pink);
-  border-radius:0;
-  padding:15px 27px;
+  color:white;
+  padding:15px 28px;
   font-size:11px;
-  letter-spacing:1.4px;
-  text-transform:uppercase;
   font-weight:bold;
+  text-transform:uppercase;
+  letter-spacing:1.4px;
   text-align:center;
+  border-radius:0;
 }
 .btn:hover{
   background:var(--dark);
@@ -136,37 +159,30 @@ nav button.active,nav button:hover{
   background:var(--light);
   color:var(--dark);
 }
-.btn:disabled{
-  opacity:.55;
-  cursor:not-allowed;
-}
-.muted{
-  color:var(--muted);
-  line-height:1.9;
-}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.muted{color:var(--muted);line-height:1.9}
 .container{
-  width:100%;
   max-width:1200px;
   margin:auto;
   padding:0 25px;
 }
 
-/* HOMEPAGE */
+/* HOME */
 .hero{
-  width:100%;
   min-height:370px;
+  width:100%;
   padding:55px 20px;
+  background:white;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   text-align:center;
   overflow:hidden;
-  background:white;
 }
 .hero-content{
   width:100%;
-  min-width:0;
   max-width:850px;
+  min-width:0;
   margin:auto;
 }
 .hero-logo{
@@ -179,9 +195,9 @@ nav button.active,nav button:hover{
   margin:22px auto 27px;
 }
 .hero-description{
+  color:var(--muted);
   font-size:12px;
   letter-spacing:2px;
-  color:var(--muted);
   margin:20px 0 30px;
 }
 .collection{
@@ -204,21 +220,21 @@ nav button.active,nav button:hover{
 .product-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:25px;
-  padding-bottom:90px;
+  gap:26px;
+  padding-bottom:95px;
 }
 .product-card{text-align:center}
 .product-photo{
+  position:relative;
   width:100%;
   aspect-ratio:4/5;
-  background:white;
-  border:1px solid var(--border);
   display:flex;
   justify-content:center;
   align-items:center;
   padding:0;
+  border:1px solid var(--border);
+  background:white;
   overflow:hidden;
-  position:relative;
 }
 .product-photo:hover{border-color:var(--pink)}
 .product-photo img,.detail-photo img{
@@ -226,10 +242,7 @@ nav button.active,nav button:hover{
   height:100%;
   object-fit:contain;
 }
-.product-art{
-  width:75%;
-  height:75%;
-}
+.product-art{width:75%;height:75%}
 .product-tag{
   position:absolute;
   top:12px;
@@ -237,23 +250,43 @@ nav button.active,nav button:hover{
   padding:8px 10px;
   background:var(--light);
   color:var(--dark);
+  text-transform:uppercase;
   font-size:10px;
   font-weight:bold;
-  text-transform:uppercase;
 }
 .product-card h3{
   font-size:14px;
-  text-transform:uppercase;
   letter-spacing:1px;
-  margin:21px 0 8px;
+  margin:20px 0 8px;
+  text-transform:uppercase;
 }
 .product-card p{
   color:var(--muted);
   font-size:13px;
 }
 .product-card .btn{margin-top:10px}
+.like-product{
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:white;
+  border:1px solid var(--border);
+  width:37px;
+  height:37px;
+  display:grid;
+  place-items:center;
+  z-index:2;
+}
+.like-product svg{
+  width:21px;
+  height:21px;
+  stroke:var(--dark);
+  stroke-width:1.8;
+  fill:none;
+}
+.like-product.liked svg{fill:var(--pink)}
 
-/* PRODUCT DETAIL */
+/* PRODUCT DETAILS */
 .product-detail{
   max-width:1100px;
   margin:auto;
@@ -264,8 +297,8 @@ nav button.active,nav button:hover{
 }
 .detail-photo{
   aspect-ratio:4/5;
-  background:white;
   border:1px solid var(--border);
+  background:white;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -280,10 +313,10 @@ nav button.active,nav button:hover{
 }
 .detail-info label{
   display:block;
+  margin:25px 0 12px;
   font-size:12px;
   font-weight:bold;
   text-transform:uppercase;
-  margin:25px 0 12px;
 }
 .size-options{
   display:flex;
@@ -293,30 +326,45 @@ nav button.active,nav button:hover{
 .size-btn{
   min-width:48px;
   padding:12px;
-  border:1px solid #ddd;
   background:white;
+  border:1px solid #ddd;
 }
 .size-btn.selected{
+  color:var(--dark);
   border-color:var(--pink);
   background:var(--light);
-  color:var(--dark);
 }
 .qty-input{
-  width:90px;
   padding:12px;
+  width:90px;
   border:1px solid #ddd;
 }
 .back-link{
-  background:none;
   border:0;
-  color:var(--dark);
   padding:0;
+  background:none;
+  color:var(--dark);
 }
 .status{color:var(--dark)!important}
 
+/* LIKED ITEMS */
+.favorites-heading{
+  padding:85px 20px 35px;
+  text-align:center;
+}
+.favorites-heading h1{
+  font-size:clamp(38px,6vw,62px);
+  letter-spacing:-2px;
+}
+.empty-state{
+  text-align:center;
+  padding:70px 20px;
+}
+.empty-state h2{font-size:27px}
+
 /* CONTENT PAGES */
 .page-heading{
-  padding:90px 20px 40px;
+  padding:88px 20px 42px;
   text-align:center;
 }
 .page-heading h1{
@@ -325,27 +373,27 @@ nav button.active,nav button:hover{
   margin:14px 0;
 }
 .page-heading p{
-  max-width:650px;
+  max-width:640px;
   margin:15px auto;
   color:var(--muted);
   line-height:1.9;
 }
 .content{
-  max-width:830px;
+  max-width:840px;
   margin:auto;
   padding:20px 25px 90px;
 }
 .feature{
   background:var(--light);
-  text-align:center;
   padding:60px 35px;
+  text-align:center;
 }
-.feature h2{font-size:32px}
+.feature h2{font-size:34px}
 .feature p{
-  max-width:600px;
-  margin:20px auto 27px;
-  line-height:1.9;
+  max-width:580px;
+  margin:20px auto 28px;
   color:#695963;
+  line-height:1.9;
 }
 .content-block{
   text-align:center;
@@ -355,23 +403,107 @@ nav button.active,nav button:hover{
   color:var(--muted);
   line-height:1.9;
 }
-.info-box{
-  border:1px solid var(--border);
+
+/* REDESIGNED PLAYLIST PAGE */
+.playlist-hero{
+  padding:85px 25px 60px;
   text-align:center;
-  padding:40px;
-  margin-bottom:20px;
 }
-.info-box p{
+.playlist-hero h1{
+  font-size:clamp(42px,7vw,76px);
+  letter-spacing:-3px;
+  line-height:1.08;
+  margin:15px auto 25px;
+  max-width:800px;
+}
+.playlist-hero p{
   color:var(--muted);
+  max-width:600px;
+  margin:0 auto;
+  font-size:15px;
   line-height:1.9;
 }
+.playlist-main{
+  max-width:1030px;
+  margin:0 auto;
+  padding:10px 25px 90px;
+}
+.playlist-feature{
+  border:1px solid var(--border);
+  display:grid;
+  grid-template-columns:42% 58%;
+  min-height:340px;
+  overflow:hidden;
+}
+.playlist-art{
+  background:var(--light);
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+.playlist-art svg{
+  width:60px;
+  height:60px;
+  fill:none;
+  stroke:var(--dark);
+  stroke-width:1.5;
+}
+.playlist-art h2{
+  color:var(--dark);
+  font-size:clamp(28px,4vw,44px);
+  line-height:1.1;
+  letter-spacing:-1px;
+  margin:25px 0 10px;
+}
+.playlist-art p{
+  color:var(--dark);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:10px;
+  font-weight:bold;
+}
+.playlist-copy{
+  padding:48px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+}
+.playlist-copy h2{
+  font-size:31px;
+  line-height:1.25;
+  margin:12px 0;
+}
+.playlist-copy p{
+  font-size:14px;
+  line-height:1.95;
+  color:var(--muted);
+  margin-bottom:27px;
+}
+.playlist-bottom{
+  text-align:center;
+  padding:70px 20px 20px;
+}
+.playlist-bottom h2{
+  font-size:30px;
+  letter-spacing:-1px;
+}
+.playlist-bottom p{
+  max-width:550px;
+  margin:15px auto 25px;
+  line-height:1.9;
+  color:var(--muted);
+}
 
-/* ARTIST PITCH FORM */
+/* FORM & CONTACT */
 .form-box{
   max-width:700px;
+  border:1px solid var(--border);
   margin:0 auto 90px;
   padding:40px;
-  border:1px solid var(--border);
 }
 .field{margin-bottom:23px}
 .field label{
@@ -384,20 +516,24 @@ nav button.active,nav button:hover{
 }
 .field input,.field textarea,.field select{
   width:100%;
-  padding:14px;
   border:1px solid #e5dbe1;
+  padding:14px;
   background:white;
   color:var(--text);
 }
-.field textarea{
-  min-height:135px;
-  resize:vertical;
-}
+.field textarea{min-height:135px;resize:vertical}
 .note{
-  font-size:12px;
   color:var(--muted);
+  font-size:12px;
   line-height:1.8;
 }
+.info-box{
+  border:1px solid var(--border);
+  padding:40px;
+  text-align:center;
+  margin-bottom:20px;
+}
+.info-box p{color:var(--muted);line-height:1.9}
 
 /* CART */
 .cart-overlay{
@@ -410,10 +546,10 @@ nav button.active,nav button:hover{
 .cart-overlay.open{display:block}
 .cart-drawer{
   position:absolute;
-  right:0;
   top:0;
+  right:0;
   bottom:0;
-  width:min(430px,100%);
+  width:min(440px,100%);
   background:white;
   padding:25px;
   display:flex;
@@ -422,15 +558,15 @@ nav button.active,nav button:hover{
 }
 .cart-header{
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   padding-bottom:18px;
   border-bottom:1px solid var(--border);
 }
 .cart-header h2{margin:0}
 .close-cart{
-  border:0;
   background:none;
+  border:0;
   font-size:29px;
 }
 .cart-items{flex:1}
@@ -441,9 +577,9 @@ nav button.active,nav button:hover{
   border-bottom:1px solid var(--border);
 }
 .cart-thumb{
-  flex-shrink:0;
   width:90px;
   height:110px;
+  flex-shrink:0;
   border:1px solid var(--border);
   display:grid;
   place-items:center;
@@ -454,28 +590,22 @@ nav button.active,nav button:hover{
   object-fit:contain;
 }
 .cart-thumb svg{width:80%;height:80%}
-.cart-item h3{
-  font-size:14px;
-  margin:4px 0;
-}
-.cart-item p{
-  font-size:12px;
-  color:var(--muted);
-}
+.cart-item h3{font-size:14px;margin:4px 0}
+.cart-item p{font-size:12px;color:var(--muted)}
 .cart-controls{
   display:flex;
-  flex-wrap:wrap;
   align-items:center;
+  flex-wrap:wrap;
   gap:9px;
 }
 .cart-controls button{
-  background:white;
   border:1px solid var(--border);
+  background:white;
   padding:6px 10px;
 }
 .cart-controls .remove{
-  color:var(--dark);
   border:0;
+  color:var(--dark);
   text-decoration:underline;
 }
 .cart-footer{
@@ -489,6 +619,7 @@ nav button.active,nav button:hover{
 .subtotal{
   display:flex;
   justify-content:space-between;
+  gap:12px;
   font-weight:bold;
 }
 body.cart-open{overflow:hidden}
@@ -500,10 +631,10 @@ footer{
   text-align:center;
 }
 .footer-brand{
-  font-size:20px;
-  font-weight:900;
   color:var(--dark);
+  font-weight:900;
   text-transform:uppercase;
+  font-size:20px;
 }
 .footer-links{
   display:flex;
@@ -522,19 +653,19 @@ footer{
 footer small{color:var(--muted)}
 
 /* MOBILE */
-@media(max-width:900px){
-  .header-inner{flex-direction:column}
+@media(max-width:950px){
+  .header-inner{flex-wrap:wrap}
+  nav{order:3;width:100%}
   .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .product-detail{gap:25px}
 }
-@media(max-width:600px){
-  .header-inner{padding:15px 10px}
-  nav{gap:10px 13px}
+@media(max-width:650px){
+  .header-inner{padding:14px}
+  nav{gap:10px 15px}
   nav button{font-size:10px}
-  .hero{
-    min-height:290px;
-    padding:40px 15px;
-  }
+  .brand{font-size:16px}
+  .header-actions{margin-left:auto}
+  .hero{min-height:300px;padding:40px 15px}
   .hero-logo{
     width:320px;
     max-width:90%;
@@ -542,15 +673,15 @@ footer small{color:var(--muted)}
   }
   .product-grid{grid-template-columns:1fr}
   .product-detail{grid-template-columns:1fr}
-  .form-box{
-    margin:0 15px 65px;
-    padding:24px;
-  }
+  .playlist-feature{grid-template-columns:1fr}
+  .playlist-art{min-height:240px}
+  .playlist-copy{padding:30px 25px}
+  .playlist-hero{padding-top:65px}
+  .form-box{margin:0 15px 70px;padding:25px}
   .feature{padding:40px 20px}
 }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -560,16 +691,33 @@ footer small{color:var(--muted)}
     <nav aria-label="Main navigation">
       <button data-page="home" class="active">Home</button>
       <button data-page="artists">About Our Artists</button>
-      <button data-page="playlist">Join Our Playlist</button>
+      <button data-page="playlist">Follow Our Playlist</button>
       <button data-page="pitch">Make a Pitch</button>
       <button data-page="contact">Contact</button>
     </nav>
 
-    <button class="cart-toggle" id="open-cart"
-      aria-label="Open shopping cart">
-      ♡
-      <span class="cart-count" id="cart-count">0</span>
-    </button>
+    <div class="header-actions">
+      <!-- LIKED ITEMS -->
+      <button id="favorites-button" class="icon-btn"
+        aria-label="View liked items" title="Liked Items">
+        <svg viewBox="0 0 24 24">
+          <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>
+        </svg>
+        <span class="icon-count" id="favorites-count">0</span>
+      </button>
+
+      <!-- SHOPPING CART -->
+      <button id="cart-button" class="icon-btn"
+        aria-label="View shopping cart" title="Shopping Cart">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 4h2l2.3 11.5a2 2 0 0 0 2 1.5H19"/>
+          <path d="M7 7h14l-2 7H8"/>
+          <circle cx="10" cy="20" r="1"/>
+          <circle cx="18" cy="20" r="1"/>
+        </svg>
+        <span class="icon-count" id="cart-count">0</span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -577,47 +725,53 @@ footer small{color:var(--muted)}
 
 <!-- HOME -->
 <section id="home" class="page active">
-
   <div class="hero">
     <div class="hero-content">
-
       <div class="eyebrow">
         Designer Clothing Made By Real Artists
       </div>
 
-      <img src="logo.png"
-        alt="Waffles Creative"
+      <img src="logo.png" alt="Waffles Creative"
         class="hero-logo">
 
       <p class="hero-description">
         ART. MUSIC. FASHION. CREATIVITY.
       </p>
 
-      <a href="#collection" class="btn">
-        Shop the Collection
-      </a>
-
+      <a href="#collection" class="btn">Shop the Collection</a>
     </div>
   </div>
 
   <div class="collection" id="collection">
     <div class="eyebrow">Collection 001</div>
     <h1>Sweet and Drippy</h1>
+    <p class="designer">designed by Waffleswithsyruppp</p>
     <p class="muted">Stay Sweet. Stay Drippy. Keep Creating.</p>
   </div>
 
   <div class="container">
     <div class="product-grid" id="product-grid"></div>
   </div>
-
 </section>
 
-<!-- PRODUCT DETAIL -->
+<!-- LIKED ITEMS PAGE -->
+<section id="favorites" class="page">
+  <div class="favorites-heading">
+    <div class="eyebrow">Your Personal Collection</div>
+    <h1>Liked Items</h1>
+    <p class="muted">Everything you love, all in one place.</p>
+  </div>
+  <div class="container">
+    <div id="favorites-grid" class="product-grid"></div>
+  </div>
+</section>
+
+<!-- PRODUCT DETAILS -->
 <section id="product" class="page">
   <div class="product-detail" id="product-detail"></div>
 </section>
 
-<!-- ABOUT ARTISTS -->
+<!-- ABOUT OUR ARTISTS -->
 <section id="artists" class="page">
   <div class="page-heading">
     <div class="eyebrow">The Creatives Behind the Clothing</div>
@@ -626,26 +780,23 @@ footer small{color:var(--muted)}
   </div>
 
   <div class="content">
-
     <div class="feature">
       <div class="eyebrow">Featured Designer</div>
       <h2>Waffleswithsyruppp</h2>
-
       <p>
         Artist and designer of the Sweet and Drippy collection.
         Bringing music, fashion, and original creative expression
         together through Waffles Creative.
       </p>
-
       <a href="#home" class="btn">Explore the Collection</a>
     </div>
 
     <div class="content-block">
       <h2>Made By Real Artists</h2>
       <p>
-        Waffles Creative is built on the idea that art shouldn't
-        be limited to a single medium. Every collection brings
-        original creative expression into clothing.
+        Waffles Creative is built on the idea that art shouldn't be
+        limited to a single medium. Every collection brings original
+        creative expression into clothing.
       </p>
     </div>
 
@@ -654,59 +805,74 @@ footer small{color:var(--muted)}
       <p>Introduce yourself and share what you're creating.</p>
       <a href="#pitch" class="btn">Make a Pitch</a>
     </div>
-
   </div>
 </section>
 
-<!-- PLAYLIST -->
+<!-- FOLLOW OUR PLAYLIST -->
 <section id="playlist" class="page">
 
-  <div class="page-heading">
-    <div class="eyebrow">Music Meets Fashion</div>
-    <h1>Join Our Playlist</h1>
-  </div>
-
-  <div class="content">
-
-    <div class="feature">
-      <h2>Don't Just Wear the Art. Get to Know the Artists Behind It.</h2>
-
-      <p>
-        Follow the Waffles Creative Playlist, discover the music
-        behind our designs, and support the independent artists
-        bringing our collections to life.
-      </p>
-
-      <button class="btn" id="playlist-button">
-        Follow the Playlist
-      </button>
-    </div>
-
-    <div class="content-block">
-      <h2>Apply to be a Featured Artist</h2>
-      <p>Have music you want us to hear? Introduce yourself.</p>
-      <a href="#pitch" class="btn btn-outline">Pitch Your Music</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ARTIST PITCH -->
-<section id="pitch" class="page">
-
-  <div class="page-heading">
-    <div class="eyebrow">Artist Submissions</div>
-    <h1>Make a Pitch</h1>
+  <div class="playlist-hero">
+    <div class="eyebrow">The Sound of Waffles Creative</div>
+    <h1>Follow Our Playlist</h1>
     <p>
-      Tell us who you are, what you create,
-      and why we should hear your work.
+      Don't just wear the art. Discover the artists behind it.
+      Hear their music, find something new, and support the
+      creatives who make Waffles Creative possible.
     </p>
   </div>
 
+  <div class="playlist-main">
+    <div class="playlist-feature">
+
+      <div class="playlist-art">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 18V5l12-2v13"/>
+          <ellipse cx="6" cy="18" rx="3" ry="2"/>
+          <ellipse cx="18" cy="16" rx="3" ry="2"/>
+        </svg>
+        <h2>Waffles<br>Creative</h2>
+        <p>Our Artist Playlist</p>
+      </div>
+
+      <div class="playlist-copy">
+        <div class="eyebrow">Curated for Creative Minds</div>
+        <h2>Meet the Music Behind the Clothing.</h2>
+        <p>
+          Every artist has a sound worth discovering.
+          Follow our playlist to connect with the musicians
+          behind our creative community and explore music
+          you might not find anywhere else.
+        </p>
+        <button id="playlist-button" class="btn">
+          Follow the Playlist
+        </button>
+      </div>
+
+    </div>
+
+    <div class="playlist-bottom">
+      <div class="eyebrow">For Independent Artists</div>
+      <h2>Have a Song We Should Hear?</h2>
+      <p>
+        We love discovering new music. Share your song
+        and introduce yourself to Waffles Creative.
+      </p>
+      <a href="#pitch" class="btn btn-outline">Pitch a Song</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- MAKE A PITCH -->
+<section id="pitch" class="page">
+  <div class="page-heading">
+    <div class="eyebrow">Artist Submissions</div>
+    <h1>Make a Pitch</h1>
+    <p>Tell us who you are, what you create, and why we should hear your work.</p>
+  </div>
+
   <div class="form-box">
-
     <form id="pitch-form">
-
       <div class="field">
         <label for="artist-name">Artist Name *</label>
         <input id="artist-name" name="artistName" required>
@@ -751,22 +917,19 @@ footer small{color:var(--muted)}
         <textarea id="artist-pitch" name="pitch" required></textarea>
       </div>
 
-      <button type="submit" class="btn" style="width:100%">
+      <button class="btn" type="submit" style="width:100%">
         Submit Artist Pitch
       </button>
-
       <p class="note">
         This opens your email application with your pitch prepared.
         Send the email to complete your submission.
       </p>
-
     </form>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="page">
-
   <div class="page-heading">
     <div class="eyebrow">Get in Touch</div>
     <h1>Contact</h1>
@@ -774,7 +937,6 @@ footer small{color:var(--muted)}
   </div>
 
   <div class="content">
-
     <div class="info-box">
       <h2>General Inquiries</h2>
       <p>For clothing questions, collaborations, and business opportunities.</p>
@@ -786,7 +948,6 @@ footer small{color:var(--muted)}
       <p>Want to introduce yourself or your music?</p>
       <a href="#pitch" class="btn btn-outline">Make a Pitch</a>
     </div>
-
   </div>
 </section>
 
@@ -796,11 +957,10 @@ footer small{color:var(--muted)}
 <div id="cart-overlay" class="cart-overlay">
   <div class="cart-drawer" role="dialog"
     aria-modal="true" aria-label="Shopping cart">
-
     <div class="cart-header">
-      <h2>Your Bag</h2>
+      <h2>Your Cart</h2>
       <button id="close-cart" class="close-cart"
-        aria-label="Close shopping cart">&times;</button>
+        aria-label="Close cart">&times;</button>
     </div>
 
     <div id="cart-items" class="cart-items"></div>
@@ -810,173 +970,214 @@ footer small{color:var(--muted)}
         <span>Subtotal</span>
         <span id="cart-subtotal">Prices pending</span>
       </div>
-
       <p class="note">
-        Shipping and taxes are not included.
-        Online checkout is not connected yet.
+        Shipping and taxes are calculated during checkout.
+        Payment checkout must be connected before orders can be placed.
       </p>
-
-      <button class="btn" disabled>Checkout Coming Soon</button>
+      <button class="btn" id="checkout-button" disabled>
+        Checkout Coming Soon
+      </button>
       <button class="btn btn-outline" id="continue-shopping">
         Continue Shopping
       </button>
     </div>
-
   </div>
 </div>
 
 <footer>
   <div class="footer-brand">Waffles Creative</div>
   <p class="designer">Designer Clothing Made By Real Artists</p>
-
   <div class="footer-links">
     <button data-page="home">Home</button>
     <button data-page="artists">About Our Artists</button>
-    <button data-page="playlist">Join Our Playlist</button>
+    <button data-page="playlist">Follow Our Playlist</button>
     <button data-page="pitch">Make a Pitch</button>
     <button data-page="contact">Contact</button>
   </div>
-
   <small>
-    &copy; <span id="year"></span>
-    Waffles Creative. All rights reserved.
+    &copy; <span id="year"></span> Waffles Creative.
+    All rights reserved.
   </small>
 </footer>
 
 <script>
-/* EDIT YOUR STORE SETTINGS HERE */
+/* CUSTOMIZE YOUR STORE HERE */
 const CONFIG = {
-  email: "YOUR_EMAIL@example.com",
-  playlistUrl: "",
-  products: [
+  email:"YOUR_EMAIL@example.com",
+  playlistUrl:"",
+  products:[
     {
-      id: "hoodie",
-      name: "Sweet and Drippy Hoodie",
-      description: "Pink oversized hoodie",
-      price: null,
-      image: "",
-      sizes: ["XS","S","M","L","XL","2XL","3XL"]
+      id:"hoodie",
+      name:"Sweet and Drippy Hoodie",
+      description:"Pink oversized hoodie",
+      price:null,
+      image:"",
+      sizes:["XS","S","M","L","XL","2XL","3XL"]
     },
     {
-      id: "pants",
-      name: "Sweet and Drippy Sweatpants",
-      description: "Pink relaxed-fit sweatpants",
-      price: null,
-      image: "",
-      sizes: ["XS","S","M","L","XL","2XL","3XL"]
+      id:"pants",
+      name:"Sweet and Drippy Sweatpants",
+      description:"Pink relaxed-fit sweatpants",
+      price:null,
+      image:"",
+      sizes:["XS","S","M","L","XL","2XL","3XL"]
     },
     {
-      id: "set",
-      name: "Sweet and Drippy Set",
-      description: "Matching pink hoodie and sweatpants",
-      price: null,
-      image: "",
-      sizes: ["XS","S","M","L","XL","2XL","3XL"],
-      isSet: true
+      id:"set",
+      name:"Sweet and Drippy Set",
+      description:"Matching pink hoodie and sweatpants",
+      price:null,
+      image:"",
+      sizes:["XS","S","M","L","XL","2XL","3XL"],
+      isSet:true
     }
   ]
 };
 
 const $ = id => document.getElementById(id);
+const products = CONFIG.products;
 let selectedProduct = null;
 let selectedSize = "";
 let selectedPantsSize = "";
 
-function escapeHTML(str) {
-  return String(str).replace(/[&<>"']/g, c => ({
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g,c=>({
     "&":"&amp;","<":"&lt;",">":"&gt;",
     '"':"&quot;","'":"&#39;"
   })[c]);
 }
-function money(value) {
-  return "$" + Number(value).toFixed(2);
-}
+function money(n) {return "$"+Number(n).toFixed(2)}
 function priceText(p) {
-  return typeof p.price === "number"
+  return typeof p.price==="number"
     ? money(p.price) : "Price coming soon";
 }
 
-/* PRODUCT ILLUSTRATIONS UNTIL PHOTOS ARE UPLOADED */
+/* PRODUCT ILLUSTRATIONS */
 function art(id) {
-  if (id === "pants") return `
-    <svg class="product-art" viewBox="0 0 300 350">
-      <path d="M77 32H223L250 319H173L150 162L127 319H50Z"
-        fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/>
-      <path d="M77 47H223" stroke="#d67ba6" stroke-width="8"/>
-      <text x="95" y="138" fill="white" font-size="13">SWEET</text>
-      <text x="95" y="157" fill="white" font-size="13">& DRIPPY</text>
-    </svg>`;
-
-  if (id === "set") return `
-    <svg class="product-art" viewBox="0 0 300 350">
-      <path d="M105 45Q150 0 195 45L245 78L275 173L230 188L211 125L214 234H86L89 125L70 188L25 173L55 78Z"
-        fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/>
-      <path d="M105 45Q150 110 195 45Q150 0 105 45Z"
-        fill="#f8b7d8" stroke="#db75a6" stroke-width="3"/>
-      <text x="150" y="151" text-anchor="middle"
-        fill="white" font-size="14">Waffles Creative</text>
-      <path d="M92 239H208L230 339H166L150 275L134 339H70Z"
-        fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/>
-    </svg>`;
-
+  if(id==="pants") return `
+  <svg class="product-art" viewBox="0 0 300 350" aria-label="Pink sweatpants">
+    <path d="M77 32H223L250 319H173L150 162L127 319H50Z"
+      fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/>
+    <path d="M77 47H223" stroke="#d67ba6" stroke-width="8"/>
+    <text x="95" y="138" fill="white" font-size="13">SWEET</text>
+    <text x="95" y="157" fill="white" font-size="13">& DRIPPY</text>
+  </svg>`;
+  if(id==="set") return `
+  <svg class="product-art" viewBox="0 0 300 350" aria-label="Pink matching set">
+    <path d="M105 45Q150 0 195 45L245 78L275 173L230 188L211 125L214 234H86L89 125L70 188L25 173L55 78Z"
+      fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/>
+    <path d="M105 45Q150 110 195 45Q150 0 105 45Z"
+      fill="#f8b7d8" stroke="#db75a6" stroke-width="3"/>
+    <text x="150" y="151" text-anchor="middle"
+      fill="white" font-size="14">Waffles Creative</text>
+    <path d="M92 239H208L230 339H166L150 275L134 339H70Z"
+      fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/>
+  </svg>`;
   return `
-    <svg class="product-art" viewBox="0 0 300 350">
-      <path d="M105 68Q150 9 195 68L250 96L285 245L233 260L216 167L224 324H76L84 167L67 260L15 245L50 96Z"
-        fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/>
-      <path d="M105 68Q150 149 195 68Q150 9 105 68Z"
-        fill="#f8b7d8" stroke="#db75a6" stroke-width="3"/>
-      <text x="150" y="205" text-anchor="middle"
-        fill="white" font-size="16">Waffles</text>
-      <text x="150" y="225" text-anchor="middle"
-        fill="white" font-size="16">Creative</text>
-    </svg>`;
+  <svg class="product-art" viewBox="0 0 300 350" aria-label="Pink hoodie">
+    <path d="M105 68Q150 9 195 68L250 96L285 245L233 260L216 167L224 324H76L84 167L67 260L15 245L50 96Z"
+      fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/>
+    <path d="M105 68Q150 149 195 68Q150 9 105 68Z"
+      fill="#f8b7d8" stroke="#db75a6" stroke-width="3"/>
+    <text x="150" y="205" text-anchor="middle"
+      fill="white" font-size="16">Waffles</text>
+    <text x="150" y="225" text-anchor="middle"
+      fill="white" font-size="16">Creative</text>
+  </svg>`;
+}
+function imageFor(p) {
+  return p.image
+    ? `<img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}">`
+    : art(p.id);
 }
 
-function imageFor(product) {
-  return product.image
-    ? `<img src="${escapeHTML(product.image)}"
-          alt="${escapeHTML(product.name)}">`
-    : art(product.id);
+/* SAVED LIKED ITEMS */
+function readSaved(key) {
+  try {
+    const data=JSON.parse(localStorage.getItem(key));
+    return Array.isArray(data)?data:[];
+  } catch {return []}
 }
+let liked=readSaved("waffles-liked-v1")
+  .filter(id=>products.some(p=>p.id===id));
+liked=[...new Set(liked)];
 
-/* PRODUCT GRID */
-function renderProducts() {
-  $("product-grid").innerHTML = CONFIG.products.map(p => `
-    <article class="product-card">
-      <button class="product-photo"
-        data-product="${p.id}"
+function saveLiked() {
+  try {
+    localStorage.setItem("waffles-liked-v1",JSON.stringify(liked));
+  } catch {}
+  renderProducts();
+  renderFavorites();
+}
+function toggleLike(id) {
+  if(liked.includes(id)) liked=liked.filter(x=>x!==id);
+  else liked.push(id);
+  saveLiked();
+}
+function heartSVG() {
+  return `<svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>
+  </svg>`;
+}
+function productCard(p) {
+  const isLiked=liked.includes(p.id);
+  return `
+  <article class="product-card">
+    <div style="position:relative">
+      <button class="product-photo" data-product="${p.id}"
         aria-label="View ${escapeHTML(p.name)}">
         <span class="product-tag">Sweet and Drippy</span>
         ${imageFor(p)}
       </button>
-      <h3>${escapeHTML(p.name)}</h3>
-      <p>${escapeHTML(p.description)}</p>
-      <p>${priceText(p)}</p>
-      <button class="btn btn-outline" data-product="${p.id}">
-        View Details
+      <button class="like-product ${isLiked?"liked":""}"
+        data-like="${p.id}"
+        aria-pressed="${isLiked}"
+        aria-label="${isLiked?"Unlike":"Like"} ${escapeHTML(p.name)}">
+        ${heartSVG()}
       </button>
-    </article>
-  `).join("");
+    </div>
+    <h3>${escapeHTML(p.name)}</h3>
+    <p>${escapeHTML(p.description)}</p>
+    <p>${priceText(p)}</p>
+    <button class="btn btn-outline" data-product="${p.id}">
+      View Details
+    </button>
+  </article>`;
+}
+function renderProducts() {
+  $("product-grid").innerHTML=products.map(productCard).join("");
+  $("favorites-count").textContent=liked.length;
+}
+function renderFavorites() {
+  $("favorites-count").textContent=liked.length;
+  const list=products.filter(p=>liked.includes(p.id));
+  $("favorites-grid").innerHTML=list.length
+    ? list.map(productCard).join("")
+    : `<div class="empty-state" style="grid-column:1/-1">
+        <h2>No Liked Items Yet</h2>
+        <p class="muted">Tap the heart on a clothing item to save it here.</p>
+        <a href="#collection" class="btn">Explore Sweet and Drippy</a>
+      </div>`;
 }
 
-function sizeButtons(p, group) {
+/* PRODUCT DETAILS */
+function sizeButtons(p,group) {
   return `<div class="size-options">
-    ${p.sizes.map(size => `
-      <button class="size-btn" type="button"
+    ${p.sizes.map(size=>`
+      <button type="button" class="size-btn"
         data-group="${group}" data-size="${size}"
         aria-pressed="false">${size}</button>
     `).join("")}
   </div>`;
 }
-
 function openProduct(id) {
-  const p = CONFIG.products.find(x => x.id === id);
-  if (!p) return;
-  selectedProduct = p;
-  selectedSize = "";
-  selectedPantsSize = "";
+  const p=products.find(x=>x.id===id);
+  if(!p)return;
+  selectedProduct=p;
+  selectedSize="";
+  selectedPantsSize="";
 
-  $("product-detail").innerHTML = `
+  $("product-detail").innerHTML=`
     <div class="detail-photo">${imageFor(p)}</div>
     <div class="detail-info">
       <button id="back-products" class="back-link">
@@ -988,13 +1189,18 @@ function openProduct(id) {
       <h2>${priceText(p)}</h2>
       <p>${escapeHTML(p.description)}</p>
 
-      <label>${p.isSet ? "Hoodie Size" : "Choose Your Size"}</label>
+      <button class="btn btn-outline" data-like="${p.id}"
+        style="margin:8px 0 20px">
+        ${liked.includes(p.id)?"♥ Saved to Liked Items":"♡ Add to Liked Items"}
+      </button>
+
+      <label>${p.isSet?"Hoodie Size":"Choose Your Size"}</label>
       ${sizeButtons(p,"main")}
 
-      ${p.isSet ? `
+      ${p.isSet?`
         <label>Sweatpants Size</label>
         ${sizeButtons(p,"pants")}
-      ` : ""}
+      `:""}
 
       <label for="quantity">Quantity</label>
       <input id="quantity" class="qty-input"
@@ -1006,254 +1212,254 @@ function openProduct(id) {
         </button>
       </div>
       <p id="add-status" class="status" role="status"></p>
-      <p class="note">Your bag is saved in this browser.
-        Online checkout is not available yet.</p>
-    </div>
-  `;
+      <p class="note">Your bag is saved on this device.</p>
+    </div>`;
 
-  location.hash = "product";
+  location.hash="product";
   showPage("product");
 }
-
-function chooseSize(group, size) {
-  if (group === "pants") selectedPantsSize = size;
-  else selectedSize = size;
-
-  document.querySelectorAll(`[data-group="${group}"]`)
-    .forEach(btn => {
-      const active = btn.dataset.size === size;
-      btn.classList.toggle("selected",active);
-      btn.setAttribute("aria-pressed",String(active));
-    });
+function chooseSize(group,size) {
+  if(group==="pants")selectedPantsSize=size;
+  else selectedSize=size;
+  document.querySelectorAll(`[data-group="${group}"]`).forEach(btn=>{
+    const active=btn.dataset.size===size;
+    btn.classList.toggle("selected",active);
+    btn.setAttribute("aria-pressed",String(active));
+  });
 }
 
-/* CART */
-function loadCart() {
-  try {
-    const items = JSON.parse(localStorage.getItem("waffles-cart-v2"));
-    if (!Array.isArray(items)) return [];
-    return items.filter(i =>
-      CONFIG.products.some(p => p.id === i.id) &&
-      typeof i.size === "string" &&
-      Number.isInteger(i.qty) &&
-      i.qty > 0
-    ).map(i => ({
-      id:i.id,size:i.size,
-      pantsSize:i.pantsSize || "",
-      qty:Math.min(i.qty,99)
-    }));
-  } catch { return []; }
-}
-let cart = loadCart();
+/* CART STORAGE */
+let cart=readSaved("waffles-cart-v3").filter(i=>
+  products.some(p=>p.id===i.id) &&
+  typeof i.size==="string" &&
+  Number.isInteger(i.qty) && i.qty>0
+).map(i=>({
+  id:i.id,
+  size:i.size,
+  pantsSize:i.pantsSize||"",
+  qty:Math.min(i.qty,99)
+}));
 
 function saveCart() {
   try {
-    localStorage.setItem("waffles-cart-v2",JSON.stringify(cart));
+    localStorage.setItem("waffles-cart-v3",JSON.stringify(cart));
   } catch {}
   renderCart();
 }
 function addToCart() {
-  if (!selectedProduct || !selectedSize ||
-      (selectedProduct.isSet && !selectedPantsSize)) {
-    $("add-status").textContent = "Please choose all required sizes.";
+  if(!selectedProduct || !selectedSize ||
+    (selectedProduct.isSet && !selectedPantsSize)) {
+    $("add-status").textContent="Please select all required sizes.";
     return;
   }
-  const qty = Number($("quantity").value);
-  if (!Number.isInteger(qty) || qty < 1 || qty > 99) {
-    $("add-status").textContent = "Choose a quantity from 1 to 99.";
+  const qty=Number($("quantity").value);
+  if(!Number.isInteger(qty)||qty<1||qty>99) {
+    $("add-status").textContent="Choose a quantity from 1 to 99.";
     return;
   }
-
-  const item = {
+  const item={
     id:selectedProduct.id,
     size:selectedSize,
-    pantsSize:selectedProduct.isSet ? selectedPantsSize : "",
+    pantsSize:selectedProduct.isSet?selectedPantsSize:"",
     qty
   };
-  const existing = cart.find(x =>
-    x.id === item.id &&
-    x.size === item.size &&
-    x.pantsSize === item.pantsSize
+  const existing=cart.find(x=>
+    x.id===item.id && x.size===item.size &&
+    x.pantsSize===item.pantsSize
   );
-  if (existing) existing.qty = Math.min(99,existing.qty + qty);
+  if(existing)existing.qty=Math.min(99,existing.qty+qty);
   else cart.push(item);
-
   saveCart();
-  $("add-status").textContent = "Added to your bag!";
+  $("add-status").textContent="Added to cart!";
   openCart();
 }
-
 function renderCart() {
-  $("cart-count").textContent =
-    cart.reduce((n,i) => n + i.qty,0);
+  $("cart-count").textContent=cart.reduce((n,i)=>n+i.qty,0);
+  $("cart-items").innerHTML=cart.length
+    ? cart.map((item,index)=>{
+      const p=products.find(x=>x.id===item.id);
+      if(!p)return "";
+      return `
+      <div class="cart-item">
+        <div class="cart-thumb">${imageFor(p)}</div>
+        <div>
+          <h3>${escapeHTML(p.name)}</h3>
+          <p>${p.isSet?"Hoodie":"Size"}: ${escapeHTML(item.size)}</p>
+          ${p.isSet?`<p>Pants: ${escapeHTML(item.pantsSize)}</p>`:""}
+          <p>${priceText(p)}</p>
+          <div class="cart-controls">
+            <button data-action="minus" data-index="${index}"
+              aria-label="Decrease quantity">−</button>
+            <span>${item.qty}</span>
+            <button data-action="plus" data-index="${index}"
+              aria-label="Increase quantity">+</button>
+            <button class="remove" data-action="remove"
+              data-index="${index}">Remove</button>
+          </div>
+        </div>
+      </div>`;
+    }).join("")
+    : `<div class="empty-state">
+        <p class="muted">Your cart is empty.</p>
+      </div>`;
 
-  $("cart-items").innerHTML = cart.length
-    ? cart.map((item,index) => {
-        const p = CONFIG.products.find(x => x.id === item.id);
-        if (!p) return "";
-        return `
-          <div class="cart-item">
-            <div class="cart-thumb">${imageFor(p)}</div>
-            <div>
-              <h3>${escapeHTML(p.name)}</h3>
-              <p>${p.isSet ? "Hoodie" : "Size"}:
-                ${escapeHTML(item.size)}</p>
-              ${p.isSet ? `<p>Pants:
-                ${escapeHTML(item.pantsSize)}</p>` : ""}
-              <p>${priceText(p)}</p>
-              <div class="cart-controls">
-                <button data-action="minus" data-index="${index}">−</button>
-                <span>${item.qty}</span>
-                <button data-action="plus" data-index="${index}">+</button>
-                <button class="remove" data-action="remove"
-                  data-index="${index}">Remove</button>
-              </div>
-            </div>
-          </div>`;
-      }).join("")
-    : `<p class="muted" style="text-align:center;padding:45px 0">
-         Your bag is empty.
-       </p>`;
-
-  const priced = cart.every(i =>
-    typeof CONFIG.products.find(p => p.id === i.id)?.price === "number"
+  const allPriced=cart.every(i=>
+    typeof products.find(p=>p.id===i.id)?.price==="number"
   );
-  const sum = cart.reduce((total,i) => {
-    const p = CONFIG.products.find(x => x.id === i.id);
-    return total + (p?.price || 0) * i.qty;
+  const total=cart.reduce((sum,i)=>{
+    const p=products.find(x=>x.id===i.id);
+    return sum+(p?.price||0)*i.qty;
   },0);
-  $("cart-subtotal").textContent =
-    cart.length && priced ? money(sum) : "Prices pending";
+  $("cart-subtotal").textContent=
+    cart.length && allPriced?money(total):"Prices pending";
 }
-
 function updateCart(index,action) {
-  if (!cart[index]) return;
-  if (action === "remove") cart.splice(index,1);
-  else if (action === "plus")
-    cart[index].qty = Math.min(99,cart[index].qty+1);
-  else if (action === "minus") {
+  if(!cart[index])return;
+  if(action==="remove")cart.splice(index,1);
+  else if(action==="plus")
+    cart[index].qty=Math.min(99,cart[index].qty+1);
+  else if(action==="minus"){
     cart[index].qty--;
-    if (cart[index].qty <= 0) cart.splice(index,1);
+    if(cart[index].qty<=0)cart.splice(index,1);
   }
   saveCart();
 }
-function openCart() {
+function openCart(){
   renderCart();
   $("cart-overlay").classList.add("open");
   document.body.classList.add("cart-open");
   $("close-cart").focus();
 }
-function closeCart() {
+function closeCart(){
   $("cart-overlay").classList.remove("open");
   document.body.classList.remove("cart-open");
-  $("open-cart").focus();
+  $("cart-button").focus();
 }
 
-/* NAVIGATION */
-const pages = ["home","product","artists","playlist","pitch","contact"];
+/* PAGE NAVIGATION */
+const pages=[
+  "home","favorites","product","artists",
+  "playlist","pitch","contact"
+];
 function showPage(id) {
-  document.querySelectorAll(".page").forEach(page =>
-    page.classList.toggle("active",page.id === id)
+  if(!pages.includes(id))id="home";
+  document.querySelectorAll(".page").forEach(p=>
+    p.classList.toggle("active",p.id===id)
   );
-  document.querySelectorAll("nav [data-page]").forEach(btn =>
-    btn.classList.toggle("active",btn.dataset.page === id)
+  document.querySelectorAll("nav [data-page]").forEach(btn=>
+    btn.classList.toggle("active",btn.dataset.page===id)
   );
   window.scrollTo(0,0);
 }
-function navigate() {
-  const hash = location.hash.slice(1);
-  if (hash === "collection") {
+function navigate(){
+  const hash=location.hash.slice(1);
+  if(hash==="collection"){
     showPage("home");
-    requestAnimationFrame(() =>
+    requestAnimationFrame(()=>
       $("collection").scrollIntoView({behavior:"smooth"})
     );
-  } else if (hash === "product" && selectedProduct) {
+  }else if(hash==="product"&&selectedProduct){
     showPage("product");
-  } else {
-    showPage(pages.includes(hash) && hash !== "product"
-      ? hash : "home");
+  }else{
+    showPage(pages.includes(hash)&&hash!=="product"?hash:"home");
   }
 }
 window.addEventListener("hashchange",navigate);
 
-document.addEventListener("click",e => {
-  const product = e.target.closest("[data-product]");
-  if (product) {
+/* BUTTON EVENTS */
+document.addEventListener("click",e=>{
+  const like=e.target.closest("[data-like]");
+  if(like){
+    const id=like.dataset.like;
+    toggleLike(id);
+    if(selectedProduct?.id===id &&
+      $("product").classList.contains("active")){
+      const button=$(`product-detail`).querySelector("[data-like]");
+      if(button)button.textContent=liked.includes(id)
+        ?"♥ Saved to Liked Items":"♡ Add to Liked Items";
+    }
+    return;
+  }
+  const product=e.target.closest("[data-product]");
+  if(product){
     openProduct(product.dataset.product);
     return;
   }
-  const size = e.target.closest("[data-group]");
-  if (size) {
+  const size=e.target.closest("[data-group]");
+  if(size){
     chooseSize(size.dataset.group,size.dataset.size);
     return;
   }
-  const cartAction = e.target.closest("[data-action]");
-  if (cartAction) {
-    updateCart(Number(cartAction.dataset.index),
-      cartAction.dataset.action);
+  const action=e.target.closest("[data-action]");
+  if(action){
+    updateCart(Number(action.dataset.index),action.dataset.action);
     return;
   }
-  const page = e.target.closest("[data-page]");
-  if (page) {
-    location.hash = page.dataset.page;
+  const page=e.target.closest("[data-page]");
+  if(page){
+    location.hash=page.dataset.page;
     navigate();
     return;
   }
-  if (e.target.id === "back-products") {
-    location.hash = "collection";
+  if(e.target.id==="back-products"){
+    location.hash="collection";
     navigate();
   }
-  if (e.target.id === "add-cart") addToCart();
+  if(e.target.id==="add-cart")addToCart();
 });
 
-$("open-cart").addEventListener("click",openCart);
+$("favorites-button").addEventListener("click",()=>{
+  location.hash="favorites";
+  navigate();
+});
+$("cart-button").addEventListener("click",openCart);
 $("close-cart").addEventListener("click",closeCart);
 $("continue-shopping").addEventListener("click",closeCart);
-$("cart-overlay").addEventListener("click",e => {
-  if (e.target === $("cart-overlay")) closeCart();
+$("cart-overlay").addEventListener("click",e=>{
+  if(e.target===$("cart-overlay"))closeCart();
 });
-document.addEventListener("keydown",e => {
-  if (e.key === "Escape" &&
-      $("cart-overlay").classList.contains("open")) closeCart();
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&$("cart-overlay").classList.contains("open"))
+    closeCart();
 });
 
 /* PLAYLIST */
-$("playlist-button").addEventListener("click",() => {
-  if (!CONFIG.playlistUrl) {
-    alert("The playlist URL has not been added yet.");
+$("playlist-button").addEventListener("click",()=>{
+  if(!CONFIG.playlistUrl){
+    alert("The playlist URL has not been configured yet.");
     return;
   }
   window.open(CONFIG.playlistUrl,"_blank","noopener,noreferrer");
 });
 
 /* CONTACT */
-$("contact-email").addEventListener("click",e => {
-  if (CONFIG.email === "YOUR_EMAIL@example.com") {
+$("contact-email").addEventListener("click",e=>{
+  if(CONFIG.email==="YOUR_EMAIL@example.com"){
     e.preventDefault();
     alert("Please configure your business email.");
     return;
   }
-  e.currentTarget.href = "mailto:" + CONFIG.email +
-    "?subject=" + encodeURIComponent("Waffles Creative Inquiry");
+  e.currentTarget.href="mailto:"+CONFIG.email+
+    "?subject="+encodeURIComponent("Waffles Creative Inquiry");
 });
 
 /* ARTIST PITCH */
-$("pitch-form").addEventListener("submit",e => {
+$("pitch-form").addEventListener("submit",e=>{
   e.preventDefault();
-  if (!e.currentTarget.reportValidity()) return;
-  if (CONFIG.email === "YOUR_EMAIL@example.com") {
+  if(!e.currentTarget.reportValidity())return;
+  if(CONFIG.email==="YOUR_EMAIL@example.com"){
     alert("Please configure your business email.");
     return;
   }
-  const d = new FormData(e.currentTarget);
-  const body = [
+  const d=new FormData(e.currentTarget);
+  const body=[
     "WAFFLES CREATIVE ARTIST PITCH",
     "",
-    "Artist: " + d.get("artistName"),
-    "Email: " + d.get("email"),
-    "Pitch Type: " + d.get("type"),
-    "Social: " + d.get("social"),
-    "Work Link: " + d.get("work"),
+    "Artist: "+d.get("artistName"),
+    "Email: "+d.get("email"),
+    "Pitch Type: "+d.get("type"),
+    "Social: "+d.get("social"),
+    "Work Link: "+d.get("work"),
     "",
     "ABOUT THE ARTIST:",
     d.get("bio"),
@@ -1261,19 +1467,17 @@ $("pitch-form").addEventListener("submit",e => {
     "THE PITCH:",
     d.get("pitch")
   ].join("\n");
-
-  location.href = "mailto:" + CONFIG.email +
-    "?subject=" + encodeURIComponent(
-      "Artist Pitch — " + d.get("artistName")) +
-    "&body=" + encodeURIComponent(body);
+  location.href="mailto:"+CONFIG.email+
+    "?subject="+encodeURIComponent("Artist Pitch — "+d.get("artistName"))+
+    "&body="+encodeURIComponent(body);
 });
 
-/* START */
-$("year").textContent = new Date().getFullYear();
+/* INITIALIZE */
+$("year").textContent=new Date().getFullYear();
 renderProducts();
+renderFavorites();
 renderCart();
 navigate();
 </script>
-
 </body>
 </html>
