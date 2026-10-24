@@ -8,6 +8,29 @@
 <title>Waffles Creative | Designer Clothing Made By Real Artists</title>
 <meta name="description" content="Discover Sweet and Drippy, designer clothing made by real artists.">
 
+  
+/* CLICKABLE CART PRODUCTS */
+.cart-product-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--ink);
+  font-size: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cart-product-link:hover {
+  color: var(--dark);
+  text-decoration: underline;
+}
+
+.cart-picture {
+  cursor: pointer;
+}
+
+  
 <style>
 :root {
   --pink:#f56aae;
@@ -1220,7 +1243,16 @@ function productCard(p,likedPage=false) {
         ${heartSVG()}
       </button>
     </div>
-    <h3>${esc(p.name)}</h3>
+
+<h3>
+  <button
+    type="button"
+    class="cart-product-link"
+    data-product="${p.id}">
+    ${esc(p.name)}
+  </button>
+</h3>
+
     <p>${esc(p.description)}</p>
     <p>${price(p)}</p>
 
@@ -1546,7 +1578,11 @@ function renderFullCart() {
       const p=products.find(x=>x.id===i.id);
       return `
       <article class="cart-row">
-        <div class="cart-picture">${photo(p)}</div>
+<button class="cart-picture"
+  data-product="${p.id}"
+  aria-label="View ${esc(p.name)}">
+  ${photo(p)}
+</button>
         <div class="cart-row-info">
           <h3>${esc(p.name)}</h3>
           <p>${p.isSet?"Hoodie":"Size"}: ${esc(i.size)}</p>
