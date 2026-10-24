@@ -3,88 +3,76 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#ffffff">
 <title>Waffles Creative | Designer Clothing Made By Real Artists</title>
-<meta name="description" content="Designer clothing made by real artists. Shop Sweet and Drippy and discover independent artists.">
+<meta name="description" content="Waffles Creative. Designer clothing made by real artists. Shop Sweet and Drippy and discover independent artists.">
 
 <style>
+/* ORIGINAL DESIGN — PURPLE COLOR THEME */
 :root {
-  --black:#000000;
-  --white:#ffffff;
-  --pink:#000000;
-  --dark:#000000;
-  --light:#ffffff;
-  --line:#000000;
-  --ink:#000000;
-  --gray:#000000;
+  --pink:#4B176D;
+  --dark:#2B0A46;
+  --medium:#7945A0;
+  --light:#F3E6FA;
+  --line:#E5D5ED;
+  --ink:#292329;
+  --gray:#777078;
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body {
   margin:0;
   background:#fff;
-  color:#000;
+  color:var(--ink);
   font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
 }
 body.no-scroll { overflow:hidden; }
 button,input,select,textarea { font:inherit; }
 button { cursor:pointer; }
-button:disabled { cursor:not-allowed; }
+button:disabled { opacity:.55;cursor:not-allowed; }
 a { text-decoration:none;color:inherit; }
 svg { display:block; }
 button:focus-visible,a:focus-visible,
 input:focus-visible,select:focus-visible,
 textarea:focus-visible {
-  outline:2px solid #000;
+  outline:2px solid var(--dark);
   outline-offset:3px;
 }
 .btn {
   display:inline-block;
   padding:14px 25px;
-  background:#000;
+  background:var(--pink);
+  border:1px solid var(--pink);
   color:#fff;
-  border:1px solid #000;
   font-size:11px;
   font-weight:700;
   letter-spacing:1.2px;
   text-transform:uppercase;
   text-align:center;
-  transition:background .2s,color .2s;
+  transition:background .2s,border-color .2s;
 }
 .btn:hover {
-  background:#fff;
-  color:#000;
+  background:var(--dark);
+  border-color:var(--dark);
 }
 .btn.outline {
   background:#fff;
-  color:#000;
+  color:var(--dark);
 }
-.btn.outline:hover {
-  background:#000;
-  color:#fff;
-}
-.btn:disabled {
-  background:#fff;
-  color:#000;
-  border:1px solid #000;
-  opacity:1;
-}
+.btn.outline:hover { background:var(--light); }
 .eyebrow {
-  color:#000;
+  color:var(--dark);
   font-size:11px;
   font-weight:700;
   letter-spacing:2.5px;
   line-height:1.8;
   text-transform:uppercase;
 }
-.muted { color:#000;line-height:1.8; }
-.designer { color:#000;font-size:13px; }
-.container {
-  max-width:1200px;
-  margin:auto;
-  padding:0 25px;
-}
+.muted { color:var(--gray);line-height:1.8; }
+.designer { color:var(--dark);font-size:13px; }
+.container { max-width:1200px;margin:auto;padding:0 25px; }
 .page { display:none;min-height:60vh; }
 .page.active { display:block; }
 
@@ -94,7 +82,7 @@ header {
   top:0;
   z-index:30;
   background:#fff;
-  border-bottom:1px solid #000;
+  border-bottom:1px solid var(--line);
 }
 .header-inner {
   max-width:1300px;
@@ -107,7 +95,7 @@ header {
   gap:18px;
 }
 .brand {
-  color:#000;
+  color:var(--dark);
   font-size:19px;
   font-weight:900;
   white-space:nowrap;
@@ -119,18 +107,17 @@ nav {
   gap:18px;
 }
 nav a {
+  padding:9px 0;
   font-size:10px;
   font-weight:700;
   letter-spacing:1px;
   text-transform:uppercase;
   white-space:nowrap;
   border-bottom:2px solid transparent;
-  padding:9px 0;
 }
-nav a:hover,
-nav a.active {
-  color:#000;
-  border-color:#000;
+nav a:hover,nav a.active {
+  color:var(--dark);
+  border-color:var(--pink);
 }
 .header-actions {
   display:flex;
@@ -154,17 +141,16 @@ nav a.active {
 }
 .icon-count {
   position:absolute;
-  right:-5px;
   top:-3px;
+  right:-5px;
   min-width:19px;
   height:19px;
   padding:2px;
-  background:#000;
-  border:1px solid #000;
-  border-radius:50%;
-  color:#fff;
   display:grid;
   place-items:center;
+  border-radius:50%;
+  background:var(--pink);
+  color:#fff;
   font-size:10px;
 }
 .menu-button {
@@ -174,7 +160,7 @@ nav a.active {
   font-size:25px;
 }
 
-/* SMALL WAFFLE PEEKING OUT OF BAG */
+/* SILENT WAFFLE SHOPPING BAG */
 .bag-icon {
   width:37px!important;
   height:42px!important;
@@ -201,16 +187,15 @@ nav a.active {
 .hero {
   min-height:calc(100vh - 72px);
   min-height:calc(100dvh - 72px);
+  padding:25px 20px;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:25px 20px;
   text-align:center;
-  background:#fff;
 }
 .hero-content {
-  width:100%;
   max-width:780px;
+  width:100%;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -222,18 +207,17 @@ nav a.active {
   max-height:25dvh;
   height:auto;
   object-fit:contain;
-  filter:grayscale(1) contrast(1000);
 }
 .hero p {
   margin:0;
-  color:#000;
   font-size:12px;
+  color:var(--gray);
   letter-spacing:2px;
 }
 .collection {
   padding:75px 20px 45px;
-  border-top:1px solid #000;
   text-align:center;
+  border-top:1px solid var(--line);
   scroll-margin-top:80px;
 }
 .collection h1 {
@@ -242,7 +226,7 @@ nav a.active {
   letter-spacing:-2px;
 }
 
-/* PRODUCTS */
+/* PRODUCT CARDS */
 .product-grid {
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -255,23 +239,15 @@ nav a.active {
   width:100%;
   aspect-ratio:4/5;
   padding:0;
+  border:1px solid var(--line);
+  background:#fff;
   display:grid;
   place-items:center;
-  background:#fff;
-  border:1px solid #000;
   overflow:hidden;
 }
-.product-image:hover {
-  outline:2px solid #000;
-  outline-offset:-5px;
-}
-.product-art {
-  width:78%;
-  height:78%;
-  filter:grayscale(1) contrast(1000);
-}
-.product-image img,
-.detail-image img {
+.product-image:hover { border-color:var(--pink); }
+.product-art { width:78%;height:78%; }
+.product-image img,.detail-image img {
   width:100%;
   height:100%;
   object-fit:contain;
@@ -280,10 +256,9 @@ nav a.active {
   position:absolute;
   top:12px;
   left:12px;
-  background:#fff;
-  color:#000;
-  border:1px solid #000;
   padding:8px;
+  background:var(--light);
+  color:var(--dark);
   font-size:9px;
   font-weight:700;
   text-transform:uppercase;
@@ -295,29 +270,29 @@ nav a.active {
   right:12px;
   width:38px;
   height:38px;
-  border:1px solid #000;
-  background:#fff;
   display:grid;
   place-items:center;
+  background:#fff;
+  border:1px solid var(--line);
 }
 .like-btn svg {
   width:22px;
   height:22px;
-  fill:#fff;
-  stroke:#000;
+  fill:none;
+  stroke:var(--dark);
   stroke-width:1.8;
 }
-.like-btn.liked svg { fill:#000; }
+.like-btn.liked svg { fill:var(--medium); }
 .product-card h3 {
   margin:21px 0 8px;
   font-size:14px;
   letter-spacing:1px;
   text-transform:uppercase;
 }
-.product-card p { color:#000;font-size:13px; }
+.product-card p { color:var(--gray);font-size:13px; }
 .product-card .btn { margin-top:10px; }
 
-/* PRODUCT DETAIL */
+/* PRODUCT DETAILS */
 .product-detail {
   max-width:1100px;
   margin:auto;
@@ -328,16 +303,16 @@ nav a.active {
 }
 .detail-image {
   aspect-ratio:4/5;
-  border:1px solid #000;
   display:grid;
   place-items:center;
+  border:1px solid var(--line);
   overflow:hidden;
 }
 .detail-info h1 {
   font-size:clamp(32px,5vw,52px);
   line-height:1.15;
 }
-.detail-info p { color:#000;line-height:1.8; }
+.detail-info p { color:var(--gray);line-height:1.8; }
 .detail-info label {
   display:block;
   margin:24px 0 10px;
@@ -345,44 +320,34 @@ nav a.active {
   font-weight:700;
   text-transform:uppercase;
 }
-.sizes {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
+.sizes { display:flex;flex-wrap:wrap;gap:8px; }
 .size-btn {
   min-width:48px;
   padding:12px;
   background:#fff;
-  color:#000;
-  border:1px solid #000;
+  border:1px solid #ddd;
 }
 .size-btn.selected {
-  background:#000;
-  color:#fff;
+  background:var(--light);
+  color:var(--dark);
+  border-color:var(--pink);
 }
 .quantity {
   width:90px;
   padding:12px;
-  border:1px solid #000;
-  background:#fff;
-  color:#000;
+  border:1px solid #ddd;
 }
 .text-link {
   border:0;
-  background:none;
   padding:0;
-  color:#000;
+  background:none;
+  color:var(--dark);
   font-size:12px;
   text-decoration:underline;
 }
-.message {
-  font-size:12px;
-  font-weight:700;
-  color:#000!important;
-}
+.message { color:var(--dark)!important;font-size:12px; }
 
-/* CONTENT PAGES */
+/* INFORMATION PAGES */
 .page-heading {
   padding:85px 20px 45px;
   text-align:center;
@@ -395,7 +360,7 @@ nav a.active {
 .page-heading p {
   max-width:650px;
   margin:15px auto;
-  color:#000;
+  color:var(--gray);
   line-height:1.9;
 }
 .content {
@@ -405,29 +370,28 @@ nav a.active {
 }
 .feature {
   padding:60px 35px;
-  background:#fff;
-  border:1px solid #000;
+  background:var(--light);
   text-align:center;
 }
 .feature h2 { font-size:34px; }
 .feature p {
   max-width:600px;
   margin:20px auto 25px;
+  color:#665560;
   line-height:1.9;
-  color:#000;
 }
 .content-block {
   padding:50px 10px;
   text-align:center;
 }
-.content-block p { color:#000;line-height:1.9; }
+.content-block p { color:var(--gray);line-height:1.9; }
 .empty {
+  grid-column:1/-1;
   padding:65px 15px;
   text-align:center;
-  grid-column:1/-1;
 }
 
-/* PLAYLIST */
+/* FOLLOW OUR PLAYLIST */
 .playlist-redesign {
   max-width:1050px;
   margin:auto;
@@ -443,29 +407,28 @@ nav a.active {
 .playlist-intro {
   max-width:550px;
   margin:0 auto 55px;
-  color:#000;
+  color:var(--gray);
   font-size:15px;
   line-height:1.9;
 }
 .playlist-showcase {
   display:grid;
   grid-template-columns:40% 60%;
-  border:1px solid #000;
+  border:1px solid var(--line);
   text-align:left;
 }
 .playlist-cover {
   min-height:350px;
   padding:35px;
-  background:#000;
-  color:#fff;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:space-between;
+  background:var(--light);
+  color:var(--dark);
   text-align:center;
 }
-.playlist-cover-small,
-.playlist-cover-bottom {
+.playlist-cover-small,.playlist-cover-bottom {
   font-size:10px;
   font-weight:800;
   letter-spacing:2px;
@@ -482,11 +445,10 @@ nav a.active {
 }
 .playlist-details {
   padding:50px 55px;
-  background:#fff;
   display:flex;
   flex-direction:column;
-  justify-content:center;
   align-items:flex-start;
+  justify-content:center;
 }
 .playlist-details h2 {
   margin:16px 0;
@@ -495,18 +457,18 @@ nav a.active {
 }
 .playlist-details p {
   margin:0 0 30px;
-  color:#000;
+  color:var(--gray);
   font-size:14px;
   line-height:1.9;
 }
 .playlist-submission {
-  margin-top:60px;
-  padding:40px 5px 0;
-  border-top:1px solid #000;
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:30px;
+  margin-top:60px;
+  padding:40px 5px 0;
+  border-top:1px solid var(--line);
   text-align:left;
 }
 .playlist-submission h2 {
@@ -514,10 +476,10 @@ nav a.active {
   font-size:26px;
 }
 .playlist-submission p {
-  color:#000;
+  margin:0;
+  color:var(--gray);
   font-size:14px;
   line-height:1.8;
-  margin:0;
 }
 .playlist-submission .btn { flex-shrink:0; }
 
@@ -526,7 +488,7 @@ nav a.active {
   max-width:700px;
   margin:0 auto 85px;
   padding:40px;
-  border:1px solid #000;
+  border:1px solid var(--line);
 }
 .field { margin-bottom:22px; }
 .field label {
@@ -537,31 +499,22 @@ nav a.active {
   letter-spacing:1px;
   text-transform:uppercase;
 }
-.field input,
-.field select,
-.field textarea {
+.field input,.field select,.field textarea {
   width:100%;
   padding:14px;
-  border:1px solid #000;
+  border:1px solid #e6dce2;
   background:#fff;
-  color:#000;
+  color:var(--ink);
 }
-.field textarea {
-  min-height:130px;
-  resize:vertical;
-}
-.note {
-  color:#000;
-  font-size:12px;
-  line-height:1.8;
-}
+.field textarea { min-height:130px;resize:vertical; }
+.note { color:var(--gray);font-size:12px;line-height:1.8; }
 .info-box {
-  margin:20px 0;
   padding:40px;
-  border:1px solid #000;
+  margin:20px 0;
+  border:1px solid var(--line);
   text-align:center;
 }
-.info-box p { color:#000;line-height:1.8; }
+.info-box p { color:var(--gray);line-height:1.8; }
 
 /* FAVORITES */
 .favorite-controls {
@@ -575,33 +528,28 @@ nav a.active {
   font-weight:700;
   text-transform:uppercase;
 }
-.favorite-controls select,
-.favorite-controls input {
+.favorite-controls select,.favorite-controls input {
+  width:100%;
   min-width:0;
-  width:100%;
   padding:10px;
-  border:1px solid #000;
   background:#fff;
-  color:#000;
+  border:1px solid var(--line);
 }
-.favorite-controls .btn {
-  width:100%;
-  margin-top:5px;
-}
+.favorite-controls .btn { width:100%;margin-top:5px; }
 .favorite-controls .message { margin:0; }
 .liked-page-card {
   padding:18px;
-  border:1px solid #000;
+  border:1px solid var(--line);
 }
 .liked-page-card .product-image { border:0; }
 
-/* CART / FAVORITES PREVIEWS */
+/* SMALL CART AND FAVORITES PREVIEWS */
 .preview-backdrop {
-  display:none;
   position:fixed;
   inset:0;
   z-index:90;
-  background:rgba(0,0,0,.5);
+  display:none;
+  background:rgba(0,0,0,.17);
 }
 .preview-backdrop.open { display:block; }
 .preview {
@@ -615,41 +563,37 @@ nav a.active {
   padding:25px;
   overflow-y:auto;
   background:#fff;
-  color:#000;
-  border:1px solid #000;
+  border:1px solid var(--line);
+  box-shadow:0 12px 45px #00000018;
 }
 .preview.open { display:block; }
 .preview-header {
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   padding-bottom:18px;
-  border-bottom:1px solid #000;
+  border-bottom:1px solid var(--line);
 }
-.preview-header h2 {
-  margin:0;
-  font-size:23px;
-}
+.preview-header h2 { margin:0;font-size:23px; }
 .close-btn {
   border:0;
-  background:#fff;
-  color:#000;
+  background:none;
   font-size:28px;
 }
 .preview-row {
   display:flex;
-  align-items:flex-start;
   gap:14px;
+  align-items:flex-start;
   padding:15px 0;
-  border-bottom:1px solid #000;
+  border-bottom:1px solid var(--line);
 }
 .preview-thumb {
   width:68px;
   height:85px;
   flex-shrink:0;
   padding:0;
-  border:1px solid #000;
   background:#fff;
+  border:1px solid var(--line);
   display:grid;
   place-items:center;
 }
@@ -658,21 +602,12 @@ nav a.active {
   height:100%;
   object-fit:contain;
 }
-.preview-thumb svg {
-  width:78%;
-  height:78%;
-}
-.preview-info {
-  flex:1;
-  min-width:0;
-}
+.preview-thumb svg { width:78%;height:78%; }
+.preview-info { flex:1;min-width:0; }
 .preview-info h3 { font-size:13px;margin:0 0 8px; }
-.preview-info p { color:#000;font-size:12px;margin:5px 0; }
+.preview-info p { color:var(--gray);font-size:12px;margin:5px 0; }
 .preview-footer { padding-top:20px; }
-.preview-footer .btn {
-  width:100%;
-  margin-top:12px;
-}
+.preview-footer .btn { width:100%;margin-top:12px; }
 
 /* FULL SHOPPING CART */
 .shopping-cart-page {
@@ -686,7 +621,7 @@ nav a.active {
   align-items:center;
   gap:20px;
   padding-bottom:28px;
-  border-bottom:1px solid #000;
+  border-bottom:1px solid var(--line);
 }
 .cart-page-top h1 {
   margin:12px 0 0;
@@ -704,7 +639,7 @@ nav a.active {
   display:flex;
   gap:25px;
   padding:25px 0;
-  border-bottom:1px solid #000;
+  border-bottom:1px solid var(--line);
 }
 .cart-picture {
   width:140px;
@@ -712,58 +647,44 @@ nav a.active {
   flex-shrink:0;
   padding:0;
   background:#fff;
-  border:1px solid #000;
+  border:1px solid var(--line);
   display:grid;
   place-items:center;
 }
-.cart-picture:hover {
-  outline:2px solid #000;
-  outline-offset:-5px;
-}
+.cart-picture:hover { border-color:var(--pink); }
 .cart-picture img {
   width:100%;
   height:100%;
   object-fit:contain;
 }
-.cart-picture svg {
-  width:78%;
-  height:78%;
-}
-.cart-row-info h3 {
-  font-size:17px;
-  margin:3px 0 12px;
-}
-.cart-row-info p {
-  color:#000;
-  font-size:13px;
-}
+.cart-picture svg { width:78%;height:78%; }
+.cart-row-info h3 { font-size:17px;margin:3px 0 12px; }
+.cart-row-info p { color:var(--gray);font-size:13px; }
 .cart-product-link {
   border:0;
   padding:0;
   background:none;
-  color:#000;
+  color:var(--ink);
   font-size:inherit;
   font-weight:700;
   text-align:left;
 }
-.cart-product-link:hover { text-decoration:underline; }
+.cart-product-link:hover {
+  color:var(--dark);
+  text-decoration:underline;
+}
 .qty-control {
   display:flex;
-  align-items:center;
   gap:12px;
+  align-items:center;
   margin:18px 0 12px;
 }
 .qty-control button {
   width:33px;
   height:33px;
   background:#fff;
-  border:1px solid #000;
-  color:#000;
+  border:1px solid var(--line);
   font-size:17px;
-}
-.qty-control button:hover {
-  background:#000;
-  color:#fff;
 }
 
 /* STICKY ORDER SUMMARY */
@@ -775,30 +696,25 @@ nav a.active {
   overflow-y:auto;
   padding:26px;
   background:#fff;
-  border:1px solid #000;
+  border:1px solid var(--line);
+  scrollbar-width:thin;
 }
-.summary h2 {
-  margin:0 0 22px;
-  font-size:23px;
-}
+.summary h2 { margin:0 0 22px;font-size:23px; }
 .summary-line {
   display:flex;
   justify-content:space-between;
   gap:14px;
   padding:18px 0;
-  border-top:1px solid #000;
+  border-top:1px solid var(--line);
   font-weight:700;
 }
-.summary .btn {
-  width:100%;
-  margin-top:13px;
-}
+.summary .btn { width:100%;margin-top:13px; }
 
-/* ANIMATED BLACK-AND-WHITE CAT */
+/* ANIMATED CAT WITH ORIGINAL ILLUSTRATION COLORS */
 .waffle-mascot {
   margin-top:24px;
   padding-top:18px;
-  border-top:1px solid #000;
+  border-top:1px solid var(--line);
   text-align:center;
   overflow:hidden;
 }
@@ -836,19 +752,16 @@ nav a.active {
   opacity:0;
   pointer-events:none;
 }
-.mascot-flying svg {
-  width:100%;
-  height:100%;
-}
+.mascot-flying svg { width:100%;height:100%; }
 .mascot-flying.fly { animation:waffleDrop .85s ease-in forwards; }
 .mascot-title {
-  color:#000;
+  margin:12px 0 5px;
+  color:var(--dark);
   font-weight:700;
   font-size:13px;
-  margin:12px 0 5px;
 }
 .mascot-count {
-  color:#000;
+  color:var(--gray);
   font-size:12px;
   margin:0 0 12px;
 }
@@ -862,8 +775,8 @@ nav a.active {
   max-height:110px;
   overflow-y:auto;
   padding:12px;
-  background:#fff;
-  border:1px solid #000;
+  background:var(--light);
+  border-radius:8px;
 }
 .mascot-waffles svg {
   width:24px;
@@ -908,42 +821,27 @@ nav a.active {
 /* FOOTER */
 footer {
   padding:55px 20px 25px;
-  border-top:1px solid #000;
+  border-top:1px solid var(--line);
   text-align:center;
 }
 .footer-brand {
-  color:#000;
-  font-size:20px;
+  color:var(--dark);
   font-weight:900;
+  font-size:20px;
   text-transform:uppercase;
 }
 .footer-links {
   display:flex;
-  justify-content:center;
   flex-wrap:wrap;
+  justify-content:center;
   gap:20px;
   margin:30px 0;
 }
-.footer-links a {
-  font-size:11px;
-  text-transform:uppercase;
-}
-.footer-links a:hover { text-decoration:underline; }
-footer small { color:#000; }
+.footer-links a { font-size:11px;text-transform:uppercase; }
+.footer-links a:hover { color:var(--dark); }
+footer small { color:var(--gray); }
 
-/* BLACK AND WHITE SVG ART */
-.product-art,
-.detail-image .product-art,
-.preview-thumb .product-art,
-.cart-picture .product-art,
-.mascot-cat,
-.mascot-flying svg,
-.mascot-waffles svg,
-.bag-icon {
-  filter:grayscale(1) contrast(1000);
-}
-
-/* RESPONSIVE */
+/* MOBILE */
 @media(max-width:1050px) {
   .header-inner { gap:12px;padding:12px 16px; }
   .brand { font-size:17px; }
@@ -961,7 +859,7 @@ footer small { color:#000; }
     right:0;
     padding:20px;
     background:#fff;
-    border-bottom:1px solid #000;
+    border-bottom:1px solid var(--line);
     flex-direction:column;
     align-items:stretch;
   }
@@ -1036,7 +934,6 @@ footer small { color:#000; }
 </head>
 
 <body>
-
 <header>
   <div class="header-inner">
     <a href="#home" class="brand">Waffles Creative</a>
@@ -1054,7 +951,7 @@ footer small { color:#000; }
         aria-label="Open liked items">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"
-            fill="none" stroke="#000" stroke-width="1.8"/>
+            fill="none" stroke="#292329" stroke-width="1.8"/>
         </svg>
         <span id="liked-count" class="icon-count">0</span>
       </button>
@@ -1062,29 +959,30 @@ footer small { color:#000; }
       <button id="bag-button" class="icon-btn"
         aria-label="Open shopping bag">
         <svg class="bag-icon" viewBox="0 0 48 52"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
           <path d="M17 25V17Q17 9 24 9Q31 9 31 17V25"
-            fill="none" stroke="#000"
+            fill="none" stroke="#292329"
             stroke-width="2.3" stroke-linecap="round"/>
 
           <g class="waffle-peek">
             <rect x="12" y="10" width="24" height="24"
-              rx="6" fill="#fff" stroke="#000"
-              stroke-width="1.5"/>
+              rx="6" fill="#f4bb77"
+              stroke="#b97839" stroke-width="1.5"/>
             <path d="M20 12V32 M28 12V32 M14 18H34 M14 26H34"
-              fill="none" stroke="#000" stroke-width="1.2"/>
-            <circle cx="20" cy="21" r="1.3" fill="#000"/>
-            <circle cx="28" cy="21" r="1.3" fill="#000"/>
+              fill="none" stroke="#c98e50" stroke-width="1.2"/>
+            <circle cx="20" cy="21" r="1.3" fill="#38251f"/>
+            <circle cx="28" cy="21" r="1.3" fill="#38251f"/>
             <path d="M22 26Q24 29 26 26"
-              fill="none" stroke="#000"
+              fill="none" stroke="#38251f"
               stroke-width="1.2" stroke-linecap="round"/>
           </g>
 
           <path d="M8 24H40L42 48H6Z"
-            fill="#fff" stroke="#000"
+            fill="white" stroke="#292329"
             stroke-width="2.3" stroke-linejoin="round"/>
         </svg>
+
         <span id="bag-count" class="icon-count">0</span>
       </button>
 
@@ -1177,10 +1075,9 @@ footer small { color:#000; }
           Payment processing has not been connected yet.
         </p>
 
-        <!-- ANIMATED BLACK & WHITE CAT -->
+        <!-- ANIMATED CAT -->
         <div class="waffle-mascot">
           <div class="mascot-scene">
-
             <div id="mascot-flying" class="mascot-flying"></div>
 
             <svg id="mascot-cat" class="mascot-cat"
@@ -1189,112 +1086,87 @@ footer small { color:#000; }
               role="img"
               aria-label="Animated cartoon cat collecting waffles">
 
-              <!-- Wagging tail -->
+              <!-- Tail -->
               <path class="tail"
                 d="M67 119C38 130 25 103 39 92C49 85 56 95 49 103"
-                fill="none"
-                stroke="#000"
-                stroke-width="17"
-                stroke-linecap="round"/>
+                fill="none" stroke="#9e766b"
+                stroke-width="17" stroke-linecap="round"/>
 
               <!-- Body -->
               <ellipse cx="91" cy="115" rx="48" ry="34"
-                fill="#fff" stroke="#000" stroke-width="3"/>
+                fill="#f9e9dc" stroke="#6e5552"
+                stroke-width="3"/>
 
               <!-- Ears -->
               <path d="M49 49L50 10L80 33Q91 29 103 33L130 10L133 53"
-                fill="#fff"
-                stroke="#000"
-                stroke-width="3.5"
-                stroke-linejoin="round"/>
+                fill="#f9e9dc" stroke="#6e5552"
+                stroke-width="3.5" stroke-linejoin="round"/>
 
               <path d="M55 39L57 20L73 36Z
                        M110 36L126 20L127 40Z"
-                fill="#000"/>
+                fill="#f6a7b9"/>
 
               <!-- Face -->
               <ellipse cx="91" cy="66" rx="46" ry="39"
-                fill="#fff"
-                stroke="#000"
+                fill="#fff7ef" stroke="#6e5552"
                 stroke-width="3"/>
 
-              <!-- Forehead marking -->
               <path d="M75 29Q91 44 106 29"
-                fill="none"
-                stroke="#000"
-                stroke-width="5"
-                stroke-linecap="round"/>
+                fill="none" stroke="#e5c3ad"
+                stroke-width="8" stroke-linecap="round"/>
 
               <!-- Eyes -->
               <path d="M64 65Q72 55 80 65
                        M102 65Q111 55 119 65"
-                fill="none"
-                stroke="#000"
-                stroke-width="3.5"
-                stroke-linecap="round"/>
+                fill="none" stroke="#6e5552"
+                stroke-width="3.5" stroke-linecap="round"/>
 
               <!-- Cheeks -->
-              <ellipse cx="60" cy="76" rx="6" ry="3"
-                fill="#000"/>
-              <ellipse cx="122" cy="76" rx="6" ry="3"
-                fill="#000"/>
+              <ellipse cx="60" cy="76" rx="9" ry="5"
+                fill="#f7a6bb"/>
+              <ellipse cx="122" cy="76" rx="9" ry="5"
+                fill="#f7a6bb"/>
 
               <!-- Nose and smile -->
-              <path d="M86 73L96 73L91 78Z" fill="#000"/>
+              <path d="M86 73L96 73L91 78Z" fill="#ef92a9"/>
               <path d="M91 78Q83 91 76 81
                        M91 78Q100 91 107 81"
-                fill="none"
-                stroke="#000"
-                stroke-width="2.5"
-                stroke-linecap="round"/>
+                fill="none" stroke="#6e5552"
+                stroke-width="2.5" stroke-linecap="round"/>
 
               <!-- Whiskers -->
               <path d="M66 80L40 76 M66 85L42 89
                        M116 80L141 76 M116 85L140 89"
-                fill="none"
-                stroke="#000"
-                stroke-width="1.8"
-                stroke-linecap="round"/>
+                fill="none" stroke="#9e766b"
+                stroke-width="1.8" stroke-linecap="round"/>
 
-              <!-- Waffle basket -->
+              <!-- Pink basket -->
               <path d="M55 112L130 112L124 146L62 146Z"
-                fill="#fff"
-                stroke="#000"
-                stroke-width="3"
-                stroke-linejoin="round"/>
+                fill="#f6a6ca" stroke="#c65a92"
+                stroke-width="3" stroke-linejoin="round"/>
 
               <path d="M75 114Q92 85 111 114"
-                fill="none"
-                stroke="#000"
-                stroke-width="3"/>
+                fill="none" stroke="#c65a92" stroke-width="3"/>
 
-              <!-- Heart on basket -->
-              <path d="M92 128
-                       C87 120 77 128 92 140
+              <path d="M92 128C87 120 77 128 92 140
                        C107 128 97 120 92 128Z"
-                fill="#000"/>
+                fill="#e65398"/>
 
               <!-- Waving paw -->
               <g class="paw">
                 <ellipse cx="131" cy="113" rx="15" ry="20"
                   transform="rotate(-22 131 113)"
-                  fill="#fff"
-                  stroke="#000"
-                  stroke-width="3"/>
+                  fill="#fff7ef"
+                  stroke="#6e5552" stroke-width="3"/>
 
-                <path d="M125 104L128 110
-                         M134 103L135 110"
-                  fill="none"
-                  stroke="#000"
-                  stroke-width="2"
-                  stroke-linecap="round"/>
+                <path d="M125 104L128 110 M134 103L135 110"
+                  fill="none" stroke="#e7b8ae"
+                  stroke-width="2" stroke-linecap="round"/>
               </g>
             </svg>
           </div>
 
-          <p class="mascot-title">
-            Your Little Waffle Collector
-          </p>
+          <p class="mascot-title">Your Little Waffle Collector</p>
 
           <p id="mascot-count" class="mascot-count"
             aria-live="polite">
@@ -1309,14 +1181,14 @@ footer small { color:#000; }
   </div>
 </section>
 
-<!-- ABOUT ARTISTS -->
+<!-- ABOUT OUR ARTISTS -->
 <section id="artists" class="page">
   <div class="page-heading">
     <div class="eyebrow">The Creatives Behind the Clothing</div>
     <h1>About Our Artists</h1>
     <p>
-      Every collection begins with an artist, an idea,
-      and a story worth sharing.
+      Every collection begins with an artist,
+      an idea, and a story worth sharing.
     </p>
   </div>
 
@@ -1335,14 +1207,14 @@ footer small { color:#000; }
     <div class="content-block">
       <h2>Made By Real Artists</h2>
       <p>
-        Original creative expression through clothing,
-        music, and design.
+        Art isn't limited to a single medium.
+        Our collections bring original creative expression into clothing.
       </p>
     </div>
 
     <div class="content-block">
       <h2>Want to Be Featured?</h2>
-      <p>Introduce yourself and share what you're creating.</p>
+      <p>Introduce yourself and what you're creating.</p>
       <a href="#pitch" class="btn outline">Pitch an Artist</a>
     </div>
   </div>
@@ -1376,18 +1248,12 @@ footer small { color:#000; }
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
           <path d="M26 44V15L52 9V38"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="4"
-            stroke-linecap="round"/>
+            fill="none" stroke="currentColor"
+            stroke-width="4" stroke-linecap="round"/>
           <ellipse cx="17" cy="46" rx="9" ry="6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="4"/>
+            fill="none" stroke="currentColor" stroke-width="4"/>
           <ellipse cx="43" cy="40" rx="9" ry="6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="4"/>
+            fill="none" stroke="currentColor" stroke-width="4"/>
         </svg>
 
         <h2>THE ARTIST<br>PLAYLIST</h2>
@@ -1430,7 +1296,6 @@ footer small { color:#000; }
         Pitch a Song
       </a>
     </div>
-
   </div>
 </section>
 
@@ -1460,9 +1325,7 @@ footer small { color:#000; }
       </div>
 
       <div class="field">
-        <label for="pitch-type">
-          What Are You Pitching? *
-        </label>
+        <label for="pitch-type">What Are You Pitching? *</label>
         <select id="pitch-type" name="type" required>
           <option value="">Select an option</option>
           <option>Music / Playlist Submission</option>
@@ -1474,9 +1337,7 @@ footer small { color:#000; }
       </div>
 
       <div class="field">
-        <label for="social">
-          Artist Website / Social Media
-        </label>
+        <label for="social">Artist Website / Social Media</label>
         <input id="social" name="social"
           type="url" placeholder="https://">
       </div>
@@ -1515,9 +1376,7 @@ footer small { color:#000; }
   <div class="page-heading">
     <div class="eyebrow">Get in Touch</div>
     <h1>Contact</h1>
-    <p>
-      Questions about clothing, music, or collaborations?
-    </p>
+    <p>Questions about clothing, music, or collaborations?</p>
   </div>
 
   <div class="content">
@@ -1527,17 +1386,13 @@ footer small { color:#000; }
         For clothing questions, collaborations,
         and business opportunities.
       </p>
-      <a id="contact-email" href="#" class="btn">
-        Send an Email
-      </a>
+      <a id="contact-email" href="#" class="btn">Send an Email</a>
     </div>
 
     <div class="info-box">
       <h2>Artist Submissions</h2>
       <p>Have music or creative work to share?</p>
-      <a href="#pitch" class="btn outline">
-        Pitch an Artist
-      </a>
+      <a href="#pitch" class="btn outline">Pitch an Artist</a>
     </div>
   </div>
 </section>
@@ -1549,8 +1404,7 @@ footer small { color:#000; }
 
 <!-- SHOPPING BAG PREVIEW -->
 <div id="cart-preview" class="preview"
-  role="dialog"
-  aria-label="Shopping bag preview">
+  role="dialog" aria-label="Shopping bag preview">
 
   <div class="preview-header">
     <h2>Your Bag</h2>
@@ -1578,8 +1432,7 @@ footer small { color:#000; }
 
 <!-- LIKED ITEMS PREVIEW -->
 <div id="liked-preview" class="preview"
-  role="dialog"
-  aria-label="Liked items preview">
+  role="dialog" aria-label="Liked items preview">
 
   <div class="preview-header">
     <h2>Liked Items</h2>
@@ -1593,7 +1446,6 @@ footer small { color:#000; }
     <button id="view-liked" class="btn">
       View All Liked Items
     </button>
-
     <button class="btn outline" data-close-preview>
       Continue Shopping
     </button>
@@ -1602,10 +1454,7 @@ footer small { color:#000; }
 
 <footer>
   <div class="footer-brand">Waffles Creative</div>
-
-  <p class="designer">
-    Designer Clothing Made By Real Artists
-  </p>
+  <p class="designer">Designer Clothing Made By Real Artists</p>
 
   <div class="footer-links">
     <a href="#home">Home</a>
@@ -1622,7 +1471,7 @@ footer small { color:#000; }
 </footer>
 
 <script>
-/* STORE CONFIGURATION */
+/* SITE CONFIGURATION */
 const CONFIG = {
   email:"YOUR_EMAIL@example.com",
   playlistUrl:"",
@@ -1655,15 +1504,15 @@ const CONFIG = {
   ]
 };
 
-const $ = id => document.getElementById(id);
-const products = CONFIG.products;
+const $=id=>document.getElementById(id);
+const products=CONFIG.products;
 
-let currentProduct = null;
-let chosenSize = "";
-let chosenPantsSize = "";
+let currentProduct=null;
+let chosenSize="";
+let chosenPantsSize="";
 let peekTimer;
 let mascotTimer;
-let previousWaffleCount = 0;
+let previousWaffleCount=0;
 
 function esc(value) {
   return String(value).replace(/[&<>"']/g,c=>({
@@ -1681,8 +1530,7 @@ function money(n) {
 
 function price(p) {
   return typeof p.price==="number"
-    ?money(p.price)
-    :"Price coming soon";
+    ?money(p.price):"Price coming soon";
 }
 
 function saved(key) {
@@ -1700,37 +1548,37 @@ function persist(key,value) {
   } catch {}
 }
 
-/* BLACK AND WHITE WAFFLE ILLUSTRATION */
-const WAFFLE_SVG = `
+/* GOLDEN ILLUSTRATED WAFFLE */
+const WAFFLE_SVG=`
 <svg viewBox="0 0 40 40"
   xmlns="http://www.w3.org/2000/svg"
   aria-hidden="true">
   <rect x="4" y="4" width="32" height="32"
-    rx="7" fill="#fff"
-    stroke="#000" stroke-width="2"/>
+    rx="7" fill="#e8a654"
+    stroke="#b96c35" stroke-width="2"/>
   <rect x="9" y="9" width="22" height="22"
-    rx="3" fill="#fff"/>
+    rx="3" fill="#f8c878"/>
   <path d="M16 9V31 M24 9V31 M9 16H31 M9 24H31"
-    fill="none" stroke="#000"
-    stroke-width="2.8" stroke-linecap="round"/>
+    fill="none"
+    stroke="#bf7a3b"
+    stroke-width="2.8"
+    stroke-linecap="round"/>
 </svg>`;
 
 $("mascot-flying").innerHTML=WAFFLE_SVG;
 
-/* SHOPPING BAG ANIMATION */
+/* SILENT BAG ANIMATION */
 function peekWaffle() {
   clearTimeout(peekTimer);
-
   $("bag-button").classList.remove("peeking");
   void $("bag-button").offsetWidth;
   $("bag-button").classList.add("peeking");
-
   peekTimer=setTimeout(()=>{
     $("bag-button").classList.remove("peeking");
   },1900);
 }
 
-/* CART CAT ANIMATION */
+/* CAT ANIMATION */
 function animateCat() {
   if(window.matchMedia(
     "(prefers-reduced-motion: reduce)"
@@ -1743,9 +1591,7 @@ function animateCat() {
 
   cat.classList.remove("celebrate");
   flying.classList.remove("fly");
-
   void cat.getBoundingClientRect();
-
   cat.classList.add("celebrate");
   flying.classList.add("fly");
 
@@ -1755,15 +1601,11 @@ function animateCat() {
   },900);
 }
 
-/* ONE WAFFLE FOR EVERY CART ITEM */
+/* ONE WAFFLE PER CART ITEM */
 function updateWaffleCollector(animate=false) {
-  const count=cart.reduce((total,item)=>{
-    return total+item.qty;
-  },0);
-
+  const count=cart.reduce((total,item)=>total+item.qty,0);
   const box=$("mascot-waffles");
   const old=previousWaffleCount;
-
   previousWaffleCount=count;
 
   $("mascot-count").textContent=
@@ -1776,73 +1618,52 @@ function updateWaffleCollector(animate=false) {
   while(box.children.length<count) {
     const wrapper=document.createElement("span");
     wrapper.innerHTML=WAFFLE_SVG;
-
-    if(animate && count>old) {
+    if(animate&&count>old) {
       wrapper.firstElementChild.classList.add("new-waffle");
     }
-
     box.appendChild(wrapper);
   }
 
-  if(animate && count>old) {
-    animateCat();
-  }
+  if(animate&&count>old) animateCat();
 }
 
-/* PRODUCT ILLUSTRATIONS */
+/* PINK CLOTHING PLACEHOLDERS */
 function art(id) {
   if(id==="pants") return `
-  <svg class="product-art" viewBox="0 0 300 350"
-    role="img" aria-label="Sweatpants illustration">
-
-    <path d="M77 32H223L250 319H173L150 162L127 319H50Z"
-      fill="#fff" stroke="#000" stroke-width="3"/>
-
-    <path d="M77 47H223"
-      stroke="#000" stroke-width="8"/>
-
-    <text x="95" y="138" fill="#000"
-      font-size="13">SWEET</text>
-
-    <text x="95" y="158" fill="#000"
-      font-size="13">&amp; DRIPPY</text>
-  </svg>`;
+    <svg class="product-art" viewBox="0 0 300 350"
+      role="img" aria-label="Pink sweatpants">
+      <path d="M77 32H223L250 319H173L150 162L127 319H50Z"
+        fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/>
+      <path d="M77 47H223" stroke="#d67ba6" stroke-width="8"/>
+      <text x="95" y="138" fill="#fff" font-size="13">SWEET</text>
+      <text x="95" y="158" fill="#fff" font-size="13">&amp; DRIPPY</text>
+    </svg>`;
 
   if(id==="set") return `
-  <svg class="product-art" viewBox="0 0 300 350"
-    role="img" aria-label="Matching set illustration">
-
-    <path d="M105 45Q150 0 195 45L245 78L275 173L230 188L211 125L214 234H86L89 125L70 188L25 173L55 78Z"
-      fill="#fff" stroke="#000" stroke-width="3"/>
-
-    <path d="M105 45Q150 110 195 45Q150 0 105 45Z"
-      fill="#fff" stroke="#000" stroke-width="3"/>
-
-    <text x="150" y="151" text-anchor="middle"
-      fill="#000" font-size="14">
-      Waffles Creative
-    </text>
-
-    <path d="M92 239H208L230 339H166L150 275L134 339H70Z"
-      fill="#fff" stroke="#000" stroke-width="3"/>
-  </svg>`;
+    <svg class="product-art" viewBox="0 0 300 350"
+      role="img" aria-label="Pink matching set">
+      <path d="M105 45Q150 0 195 45L245 78L275 173L230 188L211 125L214 234H86L89 125L70 188L25 173L55 78Z"
+        fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/>
+      <path d="M105 45Q150 110 195 45Q150 0 105 45Z"
+        fill="#f8b7d8" stroke="#db75a6" stroke-width="3"/>
+      <text x="150" y="151" text-anchor="middle"
+        fill="#fff" font-size="14">Waffles Creative</text>
+      <path d="M92 239H208L230 339H166L150 275L134 339H70Z"
+        fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/>
+    </svg>`;
 
   return `
-  <svg class="product-art" viewBox="0 0 300 350"
-    role="img" aria-label="Hoodie illustration">
-
-    <path d="M105 68Q150 9 195 68L250 96L285 245L233 260L216 167L224 324H76L84 167L67 260L15 245L50 96Z"
-      fill="#fff" stroke="#000" stroke-width="3"/>
-
-    <path d="M105 68Q150 149 195 68Q150 9 105 68Z"
-      fill="#fff" stroke="#000" stroke-width="3"/>
-
-    <text x="150" y="205" text-anchor="middle"
-      fill="#000" font-size="16">Waffles</text>
-
-    <text x="150" y="225" text-anchor="middle"
-      fill="#000" font-size="16">Creative</text>
-  </svg>`;
+    <svg class="product-art" viewBox="0 0 300 350"
+      role="img" aria-label="Pink hoodie">
+      <path d="M105 68Q150 9 195 68L250 96L285 245L233 260L216 167L224 324H76L84 167L67 260L15 245L50 96Z"
+        fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/>
+      <path d="M105 68Q150 149 195 68Q150 9 105 68Z"
+        fill="#f8b7d8" stroke="#db75a6" stroke-width="3"/>
+      <text x="150" y="205" text-anchor="middle"
+        fill="#fff" font-size="16">Waffles</text>
+      <text x="150" y="225" text-anchor="middle"
+        fill="#fff" font-size="16">Creative</text>
+    </svg>`;
 }
 
 function photo(p) {
@@ -1852,81 +1673,55 @@ function photo(p) {
 }
 
 /* FAVORITES */
-let liked=[
-  ...new Set(
-    saved("waffles-liked-v1")
-      .filter(id=>products.some(p=>p.id===id))
-  )
-];
+let liked=[...new Set(saved("waffles-liked-v1")
+  .filter(id=>products.some(p=>p.id===id)))];
 
 function heartSVG() {
-  return `
-  <svg viewBox="0 0 24 24" aria-hidden="true">
+  return `<svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>
   </svg>`;
 }
 
 function favoriteControls(p,location) {
   const prefix=location+"-"+p.id;
-
   return `
-  <div class="favorite-controls">
-
-    <label for="${prefix}-size">
-      ${p.isSet?"Hoodie Size":"Choose Size"}
-    </label>
-
-    <select id="${prefix}-size">
-      <option value="">Select size</option>
-      ${p.sizes.map(s=>`
-        <option value="${s}">${s}</option>
-      `).join("")}
-    </select>
-
-    ${p.isSet?`
-      <label for="${prefix}-pants">
-        Sweatpants Size
+    <div class="favorite-controls">
+      <label for="${prefix}-size">
+        ${p.isSet?"Hoodie Size":"Choose Size"}
       </label>
-
-      <select id="${prefix}-pants">
+      <select id="${prefix}-size">
         <option value="">Select size</option>
-        ${p.sizes.map(s=>`
-          <option value="${s}">${s}</option>
-        `).join("")}
+        ${p.sizes.map(s=>`<option value="${s}">${s}</option>`).join("")}
       </select>
-    `:""}
 
-    <label for="${prefix}-qty">Quantity</label>
+      ${p.isSet?`
+        <label for="${prefix}-pants">Sweatpants Size</label>
+        <select id="${prefix}-pants">
+          <option value="">Select size</option>
+          ${p.sizes.map(s=>`<option value="${s}">${s}</option>`).join("")}
+        </select>
+      `:""}
 
-    <input id="${prefix}-qty" type="number"
-      min="1" max="99" value="1">
+      <label for="${prefix}-qty">Quantity</label>
+      <input id="${prefix}-qty" type="number"
+        min="1" max="99" value="1">
 
-    <button class="btn"
-      data-favorite-add="${p.id}"
-      data-prefix="${prefix}">
-      Add to Cart
-    </button>
+      <button class="btn" data-favorite-add="${p.id}"
+        data-prefix="${prefix}">Add to Cart</button>
 
-    <p id="${prefix}-message"
-      class="message" role="status"></p>
-  </div>`;
+      <p id="${prefix}-message" class="message"
+        role="status"></p>
+    </div>`;
 }
 
 function productCard(p,likedPage=false) {
   const active=liked.includes(p.id);
-
   return `
   <article class="product-card ${likedPage?"liked-page-card":""}">
-
     <div class="product-wrap">
-      <button class="product-image"
-        data-product="${p.id}"
+      <button class="product-image" data-product="${p.id}"
         aria-label="View ${esc(p.name)}">
-
-        <span class="product-label">
-          Sweet and Drippy
-        </span>
-
+        <span class="product-label">Sweet and Drippy</span>
         ${photo(p)}
       </button>
 
@@ -1934,7 +1729,6 @@ function productCard(p,likedPage=false) {
         data-like="${p.id}"
         aria-pressed="${active}"
         aria-label="${active?"Unlike":"Like"} ${esc(p.name)}">
-
         ${heartSVG()}
       </button>
     </div>
@@ -1945,34 +1739,26 @@ function productCard(p,likedPage=false) {
 
     ${likedPage
       ?favoriteControls(p,"page")
-      :`<button class="btn outline"
-          data-product="${p.id}">
+      :`<button class="btn outline" data-product="${p.id}">
           View Details
-        </button>`
-    }
+        </button>`}
   </article>`;
 }
 
 function renderProducts() {
-  $("products").innerHTML=products
-    .map(p=>productCard(p))
-    .join("");
+  $("products").innerHTML=products.map(p=>productCard(p)).join("");
 }
 
 function renderLiked() {
   $("liked-count").textContent=liked.length;
-
   const list=products.filter(p=>liked.includes(p.id));
 
   $("liked-products").innerHTML=list.length
     ?list.map(p=>productCard(p,true)).join("")
-    :`
-      <div class="empty">
+    :`<div class="empty">
         <h2>No Liked Items Yet</h2>
-        <p>Tap the heart on clothing you love.</p>
-        <a href="#collection" class="btn">
-          Shop Collection
-        </a>
+        <p class="muted">Tap the heart on clothing you love.</p>
+        <a href="#collection" class="btn">Shop Collection</a>
       </div>`;
 }
 
@@ -1982,29 +1768,22 @@ function renderLikedPreview() {
   $("preview-liked-items").innerHTML=list.length
     ?list.slice(0,3).map(p=>`
       <div class="preview-row">
-
         <button class="preview-thumb"
           data-product="${p.id}"
           aria-label="View ${esc(p.name)}">
           ${photo(p)}
         </button>
-
         <div class="preview-info">
           <h3>${esc(p.name)}</h3>
           <p>${price(p)}</p>
-
-          <button class="text-link"
-            data-product="${p.id}">
+          <button class="text-link" data-product="${p.id}">
             View Details
           </button>
-
           ${favoriteControls(p,"preview")}
         </div>
-      </div>
-    `).join("")
-    :`
-      <div class="empty">
-        <p>You haven't liked any items yet.</p>
+      </div>`).join("")
+    :`<div class="empty">
+        <p class="muted">You haven't liked any items yet.</p>
       </div>`;
 }
 
@@ -2014,15 +1793,12 @@ function toggleLike(id) {
     :[...liked,id];
 
   persist("waffles-liked-v1",liked);
-
   renderProducts();
   renderLiked();
   renderLikedPreview();
 
   if(currentProduct?.id===id) {
-    const button=$("product-detail")
-      .querySelector("[data-like]");
-
+    const button=$("product-detail").querySelector("[data-like]");
     if(button) {
       button.textContent=liked.includes(id)
         ?"♥ Saved to Liked Items"
@@ -2031,15 +1807,12 @@ function toggleLike(id) {
   }
 }
 
-/* PRODUCT DETAILS */
+/* PRODUCT DETAIL */
 function sizes(p,group) {
-  return `
-  <div class="sizes">
+  return `<div class="sizes">
     ${p.sizes.map(s=>`
-      <button class="size-btn"
-        type="button"
-        data-size-group="${group}"
-        data-size="${s}"
+      <button class="size-btn" type="button"
+        data-size-group="${group}" data-size="${s}"
         aria-pressed="false">${s}</button>
     `).join("")}
   </div>`;
@@ -2055,40 +1828,25 @@ function openProduct(id) {
   closePreviews();
 
   $("product-detail").innerHTML=`
-    <div class="detail-image">
-      ${photo(p)}
-    </div>
-
+    <div class="detail-image">${photo(p)}</div>
     <div class="detail-info">
       <button class="text-link" id="back-products">
         ← Back to Collection
       </button>
 
-      <p class="eyebrow">
-        Sweet and Drippy · Collection 001
-      </p>
-
+      <p class="eyebrow">Sweet and Drippy · Collection 001</p>
       <h1>${esc(p.name)}</h1>
-
-      <p class="designer">
-        designed by Waffleswithsyruppp
-      </p>
-
+      <p class="designer">designed by Waffleswithsyruppp</p>
       <h2>${price(p)}</h2>
       <p>${esc(p.description)}</p>
 
-      <button class="btn outline"
-        data-like="${p.id}">
-
+      <button class="btn outline" data-like="${p.id}">
         ${liked.includes(p.id)
           ?"♥ Saved to Liked Items"
           :"♡ Add to Liked Items"}
       </button>
 
-      <label>
-        ${p.isSet?"Hoodie Size":"Choose Your Size"}
-      </label>
-
+      <label>${p.isSet?"Hoodie Size":"Choose Your Size"}</label>
       ${sizes(p,"main")}
 
       ${p.isSet?`
@@ -2097,20 +1855,15 @@ function openProduct(id) {
       `:""}
 
       <label for="quantity">Quantity</label>
-
       <input id="quantity" class="quantity"
-        type="number"
-        min="1" max="99" value="1">
+        type="number" min="1" max="99" value="1">
 
       <div style="margin-top:28px">
-        <button id="add-cart" class="btn"
-          style="width:100%">
+        <button class="btn" id="add-cart" style="width:100%">
           Add to Cart
         </button>
       </div>
-
-      <p id="product-message"
-        class="message" role="status"></p>
+      <p id="product-message" class="message" role="status"></p>
     </div>`;
 
   location.hash="product";
@@ -2118,19 +1871,15 @@ function openProduct(id) {
 }
 
 function selectSize(group,value) {
-  if(group==="pants") {
-    chosenPantsSize=value;
-  } else {
-    chosenSize=value;
-  }
+  if(group==="pants") chosenPantsSize=value;
+  else chosenSize=value;
 
-  document.querySelectorAll(
-    `[data-size-group="${group}"]`
-  ).forEach(button=>{
-    const active=button.dataset.size===value;
-    button.classList.toggle("selected",active);
-    button.setAttribute("aria-pressed",String(active));
-  });
+  document.querySelectorAll(`[data-size-group="${group}"]`)
+    .forEach(button=>{
+      const active=button.dataset.size===value;
+      button.classList.toggle("selected",active);
+      button.setAttribute("aria-pressed",String(active));
+    });
 }
 
 /* SHOPPING CART */
@@ -2149,7 +1898,7 @@ let cart=saved("waffles-cart-v3")
   }));
 
 function totalItems() {
-  return cart.reduce((n,item)=>n+item.qty,0);
+  return cart.reduce((total,item)=>total+item.qty,0);
 }
 
 function subtotalText() {
@@ -2157,9 +1906,7 @@ function subtotalText() {
 
   if(!cart.every(item=>
     typeof products.find(p=>p.id===item.id)?.price==="number"
-  )) {
-    return "Prices pending";
-  }
+  )) return "Prices pending";
 
   return money(cart.reduce((sum,item)=>{
     const p=products.find(x=>x.id===item.id);
@@ -2174,7 +1921,6 @@ function renderCartPreview() {
 
       return `
       <div class="preview-row">
-
         <button class="preview-thumb"
           data-product="${p.id}"
           aria-label="View ${esc(p.name)}">
@@ -2189,21 +1935,15 @@ function renderCartPreview() {
             </button>
           </h3>
 
-          <p>${p.isSet?"Hoodie":"Size"}:
-            ${esc(item.size)}</p>
-
-          ${p.isSet?`
-            <p>Pants: ${esc(item.pantsSize)}</p>
-          `:""}
-
+          <p>${p.isSet?"Hoodie":"Size"}: ${esc(item.size)}</p>
+          ${p.isSet?`<p>Pants: ${esc(item.pantsSize)}</p>`:""}
           <p>${price(p)}</p>
           <p>Qty: ${item.qty}</p>
         </div>
       </div>`;
     }).join("")
-    :`
-      <div class="empty">
-        <p>Your bag is empty.</p>
+    :`<div class="empty">
+        <p class="muted">Your bag is empty.</p>
       </div>`;
 
   $("preview-subtotal").textContent=subtotalText();
@@ -2216,17 +1956,14 @@ function renderFullCart() {
 
       return `
       <article class="cart-row">
-
         <button class="cart-picture"
           type="button"
           data-product="${p.id}"
           aria-label="View ${esc(p.name)}">
-
           ${photo(p)}
         </button>
 
         <div class="cart-row-info">
-
           <h3>
             <button class="cart-product-link"
               data-product="${p.id}">
@@ -2234,13 +1971,8 @@ function renderFullCart() {
             </button>
           </h3>
 
-          <p>${p.isSet?"Hoodie":"Size"}:
-            ${esc(item.size)}</p>
-
-          ${p.isSet?`
-            <p>Pants: ${esc(item.pantsSize)}</p>
-          `:""}
-
+          <p>${p.isSet?"Hoodie":"Size"}: ${esc(item.size)}</p>
+          ${p.isSet?`<p>Pants: ${esc(item.pantsSize)}</p>`:""}
           <p>${price(p)}</p>
 
           <div class="qty-control">
@@ -2263,10 +1995,9 @@ function renderFullCart() {
         </div>
       </article>`;
     }).join("")
-    :`
-      <div class="empty">
+    :`<div class="empty">
         <h2>Your Shopping Cart Is Empty</h2>
-        <p>Your next favorite piece is waiting.</p>
+        <p class="muted">Your next favorite piece is waiting.</p>
         <a href="#collection" class="btn">
           Shop Sweet and Drippy
         </a>
@@ -2286,13 +2017,9 @@ function addItem(id,size,pantsSize,qty) {
   const p=products.find(x=>x.id===id);
   if(!p) return false;
 
-  if(
-    !p.sizes.includes(size) ||
-    (p.isSet&&!p.sizes.includes(pantsSize)) ||
-    !Number.isInteger(qty) ||
-    qty<1 ||
-    qty>99
-  ) {
+  if(!p.sizes.includes(size) ||
+     (p.isSet&&!p.sizes.includes(pantsSize)) ||
+     !Number.isInteger(qty) || qty<1 || qty>99) {
     return false;
   }
 
@@ -2316,7 +2043,6 @@ function addItem(id,size,pantsSize,qty) {
   }
 
   persist("waffles-cart-v3",cart);
-
   renderCart(true);
   peekWaffle();
   return true;
@@ -2326,22 +2052,14 @@ function addFromProduct() {
   const message=$("product-message");
   const qty=Number($("quantity").value);
 
-  if(
-    !currentProduct ||
-    !chosenSize ||
-    (currentProduct.isSet&&!chosenPantsSize)
-  ) {
-    message.textContent="Please select all required sizes.";
+  if(!currentProduct || !chosenSize ||
+    (currentProduct.isSet&&!chosenPantsSize)) {
+    message.textContent="Please choose all required sizes.";
     return;
   }
 
-  if(!addItem(
-    currentProduct.id,
-    chosenSize,
-    chosenPantsSize,
-    qty
-  )) {
-    message.textContent="Choose a quantity between 1 and 99.";
+  if(!addItem(currentProduct.id,chosenSize,chosenPantsSize,qty)) {
+    message.textContent="Select a quantity between 1 and 99.";
     return;
   }
 
@@ -2352,7 +2070,6 @@ function addFromFavorites(button) {
   const id=button.dataset.favoriteAdd;
   const prefix=button.dataset.prefix;
   const p=products.find(x=>x.id===id);
-
   if(!p) return;
 
   const size=$(prefix+"-size").value;
@@ -2360,7 +2077,7 @@ function addFromFavorites(button) {
   const qty=Number($(prefix+"-qty").value);
   const message=$(prefix+"-message");
 
-  if(!size||(p.isSet&&!pantsSize)) {
+  if(!size || (p.isSet&&!pantsSize)) {
     message.textContent="Please choose all sizes.";
     return;
   }
@@ -2382,10 +2099,7 @@ function modifyCart(index,action) {
     cart[index].qty=Math.min(99,cart[index].qty+1);
   } else if(action==="minus") {
     cart[index].qty--;
-
-    if(cart[index].qty<=0) {
-      cart.splice(index,1);
-    }
+    if(cart[index].qty<=0) cart.splice(index,1);
   }
 
   persist("waffles-cart-v3",cart);
@@ -2397,7 +2111,6 @@ function closePreviews() {
   $("preview-backdrop").classList.remove("open");
   $("cart-preview").classList.remove("open");
   $("liked-preview").classList.remove("open");
-
   document.body.classList.remove("no-scroll");
 }
 
@@ -2408,24 +2121,15 @@ function openPreview(type) {
   if(type==="liked") renderLikedPreview();
 
   $("preview-backdrop").classList.add("open");
-
-  $(
-    type==="cart"?"cart-preview":"liked-preview"
-  ).classList.add("open");
-
+  $(type==="cart"?"cart-preview":"liked-preview")
+    .classList.add("open");
   document.body.classList.add("no-scroll");
 }
 
 /* NAVIGATION */
 const pages=[
-  "home",
-  "product",
-  "liked",
-  "shopping-cart",
-  "artists",
-  "playlist",
-  "pitch",
-  "contact"
+  "home","product","liked","shopping-cart",
+  "artists","playlist","pitch","contact"
 ];
 
 function showPage(id) {
@@ -2436,15 +2140,11 @@ function showPage(id) {
   });
 
   document.querySelectorAll("[data-nav]").forEach(link=>{
-    link.classList.toggle(
-      "active",
-      link.dataset.nav===id
-    );
+    link.classList.toggle("active",link.dataset.nav===id);
   });
 
   $("nav").classList.remove("open");
   $("menu-button").setAttribute("aria-expanded","false");
-
   closePreviews();
   window.scrollTo(0,0);
 }
@@ -2454,76 +2154,52 @@ function navigate() {
 
   if(hash==="collection") {
     showPage("home");
-
     requestAnimationFrame(()=>{
-      $("collection").scrollIntoView({
-        behavior:"smooth"
-      });
+      $("collection").scrollIntoView({behavior:"smooth"});
     });
   } else if(hash==="product"&&currentProduct) {
     showPage("product");
   } else {
-    showPage(
-      pages.includes(hash)&&hash!=="product"
-        ?hash:"home"
-    );
+    showPage(pages.includes(hash)&&hash!=="product"?hash:"home");
   }
 }
 
 window.addEventListener("hashchange",navigate);
 
-/* INTERACTIVE BUTTONS */
+/* PRODUCT AND CART BUTTONS */
 document.addEventListener("click",event=>{
   const like=event.target.closest("[data-like]");
-
   if(like) {
     toggleLike(like.dataset.like);
     return;
   }
 
-  const favorite=event.target.closest(
-    "[data-favorite-add]"
-  );
-
+  const favorite=event.target.closest("[data-favorite-add]");
   if(favorite) {
     addFromFavorites(favorite);
     return;
   }
 
   const product=event.target.closest("[data-product]");
-
   if(product) {
     openProduct(product.dataset.product);
     return;
   }
 
-  const size=event.target.closest(
-    "[data-size-group]"
-  );
-
+  const size=event.target.closest("[data-size-group]");
   if(size) {
-    selectSize(
-      size.dataset.sizeGroup,
-      size.dataset.size
-    );
+    selectSize(size.dataset.sizeGroup,size.dataset.size);
     return;
   }
 
-  const action=event.target.closest(
-    "[data-cart-action]"
-  );
-
+  const action=event.target.closest("[data-cart-action]");
   if(action) {
-    modifyCart(
-      Number(action.dataset.index),
-      action.dataset.cartAction
-    );
+    modifyCart(Number(action.dataset.index),
+      action.dataset.cartAction);
     return;
   }
 
-  if(event.target.id==="add-cart") {
-    addFromProduct();
-  }
+  if(event.target.id==="add-cart") addFromProduct();
 
   if(event.target.id==="back-products") {
     location.hash="collection";
@@ -2531,7 +2207,7 @@ document.addEventListener("click",event=>{
   }
 });
 
-/* HEADER ICONS */
+/* HEADER BUTTONS */
 $("bag-button").addEventListener("click",()=>{
   openPreview("cart");
 });
@@ -2552,23 +2228,16 @@ $("view-liked").addEventListener("click",()=>{
   navigate();
 });
 
-document.querySelectorAll(
-  "[data-close-preview]"
-).forEach(button=>{
-  button.addEventListener("click",closePreviews);
-});
+document.querySelectorAll("[data-close-preview]")
+  .forEach(button=>{
+    button.addEventListener("click",closePreviews);
+  });
 
-$("preview-backdrop").addEventListener(
-  "click",closePreviews
-);
+$("preview-backdrop").addEventListener("click",closePreviews);
 
 $("menu-button").addEventListener("click",()=>{
   const opened=$("nav").classList.toggle("open");
-
-  $("menu-button").setAttribute(
-    "aria-expanded",
-    String(opened)
-  );
+  $("menu-button").setAttribute("aria-expanded",String(opened));
 });
 
 document.addEventListener("keydown",event=>{
@@ -2579,21 +2248,16 @@ document.addEventListener("keydown",event=>{
   }
 });
 
-/* FOLLOW PLAYLIST */
+/* PLAYLIST */
 $("playlist-button").addEventListener("click",()=>{
   if(!CONFIG.playlistUrl) {
     alert("The playlist URL has not been added yet.");
     return;
   }
-
-  window.open(
-    CONFIG.playlistUrl,
-    "_blank",
-    "noopener,noreferrer"
-  );
+  window.open(CONFIG.playlistUrl,"_blank","noopener,noreferrer");
 });
 
-/* CONTACT EMAIL */
+/* CONTACT */
 $("contact-email").addEventListener("click",event=>{
   if(CONFIG.email==="YOUR_EMAIL@example.com") {
     event.preventDefault();
@@ -2603,15 +2267,12 @@ $("contact-email").addEventListener("click",event=>{
 
   event.currentTarget.href=
     "mailto:"+CONFIG.email+
-    "?subject="+encodeURIComponent(
-      "Waffles Creative Inquiry"
-    );
+    "?subject="+encodeURIComponent("Waffles Creative Inquiry");
 });
 
-/* PITCH AN ARTIST */
+/* ARTIST PITCH */
 $("pitch-form").addEventListener("submit",event=>{
   event.preventDefault();
-
   if(!event.currentTarget.reportValidity()) return;
 
   if(CONFIG.email==="YOUR_EMAIL@example.com") {
@@ -2620,7 +2281,6 @@ $("pitch-form").addEventListener("submit",event=>{
   }
 
   const d=new FormData(event.currentTarget);
-
   const body=[
     "WAFFLES CREATIVE ARTIST PITCH",
     "",
@@ -2645,9 +2305,8 @@ $("pitch-form").addEventListener("submit",event=>{
     "&body="+encodeURIComponent(body);
 });
 
-/* START WEBSITE */
+/* INITIALIZE */
 $("year").textContent=new Date().getFullYear();
-
 renderProducts();
 renderLiked();
 renderLikedPreview();
