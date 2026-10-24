@@ -1545,5 +1545,316 @@ renderFavorites();
 renderCart();
 navigate();
 </script>
+
+<!-- WAFFLES CREATIVE SHOPPING CAT -->
+<style>
+/* Animated cart mascot */
+#waffle-cat-stage {
+  position: fixed;
+  bottom: 0;
+  right: 22px;
+  width: 170px;
+  height: 165px;
+  z-index: 150;
+  pointer-events: none;
+  display: none;
+}
+
+#waffle-cat-stage.show {
+  display: block;
+}
+
+#waffle-cat {
+  position: absolute;
+  bottom: 14px;
+  left: 16px;
+  font-size: 67px;
+  line-height: 1;
+  transform-origin: bottom center;
+}
+
+#waffle-cat-bag {
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+  font-size: 54px;
+  line-height: 1;
+}
+
+#waffle-cat-message {
+  position: absolute;
+  right: 0;
+  bottom: 125px;
+  background: white;
+  border: 1px solid #f56aae;
+  padding: 9px 13px;
+  border-radius: 14px;
+  color: #d83e87;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px #00000012;
+}
+
+#waffle-cat-stage.pop #waffle-cat {
+  animation: catPop .8s ease-out both;
+}
+
+#waffle-cat-stage.pop #waffle-cat-bag {
+  animation: bagBounce .65s ease;
+}
+
+#waffle-cat-stage.sitting #waffle-cat {
+  animation: catBreathe 2s ease-in-out infinite;
+}
+
+#waffle-cat-stage.leaving {
+  animation: catLeave 2.7s ease-in forwards;
+}
+
+#waffle-cat-stage.leaving #waffle-cat {
+  animation: catWalk .28s ease-in-out infinite alternate;
+}
+
+#waffle-cat-stage.leaving #waffle-cat-bag {
+  transform: translate(-40px, -24px) rotate(-14deg);
+}
+
+#waffle-cat-stage.leaving #waffle-cat-message {
+  display: none;
+}
+
+@keyframes catPop {
+  0% { transform: translateY(80px) scale(.4); opacity:0; }
+  60% { transform: translateY(-32px) scale(1.15); opacity:1; }
+  80% { transform: translateY(8px) scale(.95); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes bagBounce {
+  0%,100% { transform: rotate(0deg); }
+  35% { transform: rotate(-16deg); }
+  70% { transform: rotate(10deg); }
+}
+
+@keyframes catBreathe {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+@keyframes catWalk {
+  from { transform: rotate(-8deg) translateY(0); }
+  to { transform: rotate(8deg) translateY(-9px); }
+}
+
+@keyframes catLeave {
+  from { transform: translateX(0); opacity:1; }
+  85% { opacity:1; }
+  to { transform: translateX(130vw); opacity:0; }
+}
+
+@media (max-width:600px) {
+  #waffle-cat-stage {
+    width:130px;
+    height:140px;
+    right:8px;
+  }
+  #waffle-cat { font-size:54px; }
+  #waffle-cat-bag { font-size:42px; }
+  #waffle-cat-message {
+    font-size:11px;
+    bottom:107px;
+  }
+}
+
+/* Remove mascot motion for reduced-motion preferences */
+@media (prefers-reduced-motion:reduce) {
+  #waffle-cat-stage,
+  #waffle-cat-stage * {
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
+
+<div id="waffle-cat-stage" aria-live="polite">
+  <div id="waffle-cat-message">Purrfect choice! ♡</div>
+  <div id="waffle-cat">🐈</div>
+  <div id="waffle-cat-bag">🛍️</div>
+</div>
+
+<script>
+(function () {
+  const stage = document.getElementById("waffle-cat-stage");
+  const message = document.getElementById("waffle-cat-message");
+  const bag = document.getElementById("waffle-cat-bag");
+  const cat = document.getElementById("waffle-cat");
+
+  let hideTimer;
+  let audioContext;
+
+  function showCat(mode, words) {
+    clearTimeout(hideTimer);
+
+    stage.className = "";
+    void stage.offsetWidth;
+
+    message.textContent = words;
+    stage.classList.add("show", mode);
+  }
+
+  function hideCat() {
+    clearTimeout(hideTimer);
+    stage.className = "";
+  }
+
+  // Soft synthetic purring sound
+  function purr() {
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+
+      audioContext = audioContext || new AC();
+      if (audioContext.state === "suspended") {
+        audioContext.resume();
+      }
+
+      const start = audioContext.currentTime;
+      const duration = 1.1;
+
+      const oscillator = audioContext.createOscillator();
+      const volume = audioContext.createGain();
+      const modulator = audioContext.createOscillator();
+      const modGain = audioContext.createGain();
+
+      oscillator.type = "sawtooth";
+      oscillator.frequency.value = 62;
+      modulator.type = "sine";
+      modulator.frequency.value = 22;
+      modGain.gain.value = 9;
+
+      modulator.connect(modGain);
+      modGain.connect(oscillator.frequency);
+      oscillator.connect(volume);
+      volume.connect(audioContext.destination);
+
+      volume.gain.setValueAtTime(.0001, start);
+      volume.gain.exponentialRampToValueAtTime(.025, start + .1);
+      volume.gain.setValueAtTime(.025, start + .8);
+      volume.gain.exponentialRampToValueAtTime(.0001, start + duration);
+
+      oscillator.start(start);
+      modulator.start(start);
+      oscillator.stop(start + duration);
+      modulator.stop(start + duration);
+    } catch (error) {
+      // Animation still works if audio is unavailable.
+    }
+  }
+
+  // Cat jumps out when item is successfully added
+  document.addEventListener("click", function (event) {
+    if (event.target.closest("#add-cart")) {
+      // Original Add to Cart handler runs first.
+      setTimeout(function () {
+        const status = document.getElementById("add-status");
+
+        if (status &&
+          /added to cart/i.test(status.textContent)) {
+          showCat("pop", "Purrfect choice! ♡");
+          purr();
+
+          hideTimer = setTimeout(function () {
+            const overlay = document.getElementById("cart-overlay");
+            if (overlay && overlay.classList.contains("open")) {
+              showCat("sitting", "Meow! More shopping?");
+            } else {
+              hideCat();
+            }
+          }, 1800);
+        }
+      }, 50);
+    }
+  });
+
+  // Cat sits next to the bag whenever the cart opens
+  const overlay = document.getElementById("cart-overlay");
+
+  if (overlay) {
+    const observer = new MutationObserver(function () {
+      if (stage.classList.contains("leaving")) return;
+
+      if (overlay.classList.contains("open")) {
+        if (!stage.classList.contains("pop")) {
+          showCat("sitting", "Meow! Your bag ♡");
+        }
+      } else {
+        hideCat();
+      }
+    });
+
+    observer.observe(overlay, {
+      attributes: true,
+      attributeFilter: ["class"]
+    });
+  }
+
+  // Checkout departure animation
+  function checkoutCatAnimation() {
+    showCat("leaving", "Thank mew! ♡");
+    cat.textContent = "🐈";
+    bag.textContent = "🛍️";
+
+    hideTimer = setTimeout(hideCat, 2900);
+  }
+
+  // Play animation when a real, enabled checkout
+  // button is clicked.
+  document.addEventListener("click", function (event) {
+    const button = event.target.closest("#checkout-button");
+
+    if (button && !button.disabled) {
+      checkoutCatAnimation();
+    }
+  });
+
+  // Replace old shopping cart graphic with shopping bag
+  const cartButton = document.getElementById("cart-button");
+
+  if (cartButton) {
+    const svg = cartButton.querySelector("svg");
+
+    if (svg) {
+      svg.innerHTML = `
+        <path d="M5 8h14l1 13H4L5 8Z"/>
+        <path d="M9 9V6a3 3 0 0 1 6 0v3"/>
+      `;
+    }
+  }
+
+  // Preview checkout animation while payment
+  // processing is not yet connected.
+  const checkout = document.getElementById("checkout-button");
+
+  if (checkout && checkout.disabled) {
+    const preview = document.createElement("button");
+
+    preview.type = "button";
+    preview.className = "btn btn-outline";
+    preview.textContent = "Preview Cat Checkout Animation";
+    preview.style.width = "100%";
+    preview.style.marginTop = "10px";
+
+    preview.addEventListener("click", function () {
+      checkoutCatAnimation();
+    });
+
+    checkout.insertAdjacentElement("afterend", preview);
+  }
+})();
+</script>
+<!-- END SHOPPING CAT -->
+
 </body>
 </html>
