@@ -1153,7 +1153,19 @@ footer small { color:var(--muted); }
   </div>
 
   <div class="form-box">
-    <form id="pitch-form">
+
+<form
+  id="pitch-form"
+  action="https://formsubmit.co/contact@wafflescreative.com"
+  method="POST"
+>
+  <input type="hidden" name="_subject"
+    value="New Artist Pitch - Waffles Creative">
+
+  <input type="hidden" name="_template" value="table">
+
+  <input type="text" name="_honey" style="display:none">
+
       <div class="field">
         <label for="artist-name">Artist Name *</label>
         <input id="artist-name" name="artistName" required>
@@ -1943,30 +1955,6 @@ $("playlist-button").addEventListener("click",()=>{
 /* ARTIST PITCH */
 $("pitch-form").addEventListener("submit",event=>{
   event.preventDefault();
-  if(!event.currentTarget.reportValidity())return;
-
-  const d=new FormData(event.currentTarget);
-  const body=[
-    "WAFFLES CREATIVE ARTIST PITCH",
-    "",
-    "Artist: "+d.get("artistName"),
-    "Email: "+d.get("email"),
-    "Pitch Type: "+d.get("type"),
-    "Social: "+d.get("social"),
-    "Work Link: "+d.get("work"),
-    "",
-    "ABOUT THE ARTIST:",
-    d.get("bio"),
-    "",
-    "THE PITCH:",
-    d.get("pitch")
-  ].join("\n");
-
-  location.href="mailto:"+CONFIG.email+
-    "?subject="+encodeURIComponent(
-      "Artist Pitch — "+d.get("artistName"))+
-    "&body="+encodeURIComponent(body);
-});
 
 /* INITIALIZE */
 $("year").textContent=new Date().getFullYear();
