@@ -166,40 +166,106 @@ nav button.active,nav button:hover{
   margin:auto;
   padding:0 25px;
 }
+  
+/* FULL-SCREEN RESPONSIVE HOMEPAGE */
 
-/* HOME */
-.hero{
-  min-height:370px;
-  width:100%;
-  padding:55px 20px;
-  background:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  overflow:hidden;
+.hero {
+  width: 100%;
+  height: calc(100vh - 85px);
+  height: calc(100dvh - 85px);
+  min-height: 0;
+  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: white;
 }
-.hero-content{
-  width:100%;
-  max-width:850px;
-  min-width:0;
-  margin:auto;
+
+.hero-content {
+  width: 100%;
+  max-width: 750px;
+  min-width: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 3vh, 28px);
 }
-.hero-logo{
-  display:block;
-  width:450px;
-  max-width:85%;
-  max-height:180px;
-  height:auto;
-  object-fit:contain;
-  margin:22px auto 27px;
+
+.hero .eyebrow {
+  margin: 0;
+  font-size: clamp(9px, 1.2vw, 12px);
+  letter-spacing: clamp(1px, 0.35vw, 3px);
+  text-align: center;
 }
-.hero-description{
-  color:var(--muted);
-  font-size:12px;
-  letter-spacing:2px;
-  margin:20px 0 30px;
+
+.hero-logo {
+  display: block;
+  width: min(480px, 85vw);
+  max-width: 100%;
+  max-height: 22vh;
+  max-height: 22dvh;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
 }
+
+.hero-description {
+  font-size: clamp(10px, 1.3vw, 13px);
+  letter-spacing: 1.5px;
+  text-align: center;
+  margin: 0;
+}
+
+.hero .btn {
+  margin: 0;
+  padding: 14px 28px;
+}
+
+/* PHONE LAYOUT */
+@media (max-width: 650px) {
+  .hero {
+    height: calc(100dvh - 115px);
+    min-height: 0;
+    padding: 20px 16px;
+  }
+
+  .hero-content {
+    gap: 22px;
+  }
+
+  .hero-logo {
+    width: 85%;
+    max-height: 130px;
+  }
+
+  .hero .eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .hero .btn {
+    padding: 13px 24px;
+  }
+}
+
+/* SMALL PHONE SCREENS */
+@media (max-height: 600px) {
+  .hero {
+    padding: 12px 16px;
+  }
+
+  .hero-content {
+    gap: 12px;
+  }
+
+  .hero-logo {
+    max-height: 90px;
+  }
+}
+
 .collection{
   border-top:1px solid var(--border);
   padding:75px 15px 43px;
