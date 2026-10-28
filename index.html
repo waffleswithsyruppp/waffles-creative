@@ -864,6 +864,60 @@ footer {
 }
 footer small { color:var(--muted); }
 
+
+/* Reference homepage: only active on the home route */
+.header-logo {display:none}
+.landing-label,.home-shop-link{display:none}
+body.home-landing{color:#111}
+.home-landing header{border-bottom:1px solid #e5e5e5}
+.home-landing .header-inner{position:relative;max-width:none;height:clamp(126px,12.35vw,240px);padding:0 clamp(18px,4.4vw,86px);justify-content:flex-end}
+.home-landing .brand{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(45vw,860px);max-width:calc(100% - 230px);line-height:0}
+.home-landing .brand-wordmark{display:none}
+.home-landing .header-logo{display:block;width:100%;max-height:180px;object-fit:contain}
+.home-landing .header-actions{margin:0;gap:clamp(2px,1.7vw,26px)}
+.home-landing .icon-btn{width:76px;height:78px}
+.home-landing .icon-btn>svg{width:56px;height:58px}
+.home-landing .icon-btn svg path{stroke:#111}
+.home-landing .icon-count{top:0;right:0;width:36px;height:36px;background:#111;font-size:18px;font-weight:700}
+.home-landing #bag-waffle{top:27px;left:26px}
+.home-landing .menu-button{display:block;position:absolute;top:50%;left:clamp(18px,4.4vw,86px);transform:translateY(-50%);font-size:47px;line-height:1;color:#111;z-index:2}
+.home-landing nav{display:none;position:absolute;top:100%;left:clamp(12px,4.4vw,86px);right:auto;width:min(340px,calc(100vw - 24px));padding:20px 24px;background:#fff;border:1px solid #e5e5e5;box-shadow:0 15px 35px #00000015;flex-direction:column;align-items:stretch;gap:12px;z-index:31}
+.home-landing nav.open{display:flex}
+.home-landing nav a{color:#111;font-size:13px}
+.home-landing #home .hero{min-height:calc(100dvh - clamp(126px,12.35vw,240px));justify-content:flex-start;gap:0;padding:clamp(56px,4.45vw,86px) 18px 62px}
+.home-landing .landing-tagline{max-width:100%;margin:0 0 clamp(43px,3.35vw,65px);color:#121212;font-size:clamp(16px,1.5vw,29px);font-weight:400;letter-spacing:clamp(2px,.42vw,8px);line-height:1.5;text-transform:uppercase;text-align:center}
+.home-landing .landing-buttons{width:min(810px,90vw);display:flex;flex-direction:column;gap:20px}
+.home-landing .landing-button{position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-height:122px;padding:24px 72px;background:#000;border:2px solid #000;color:#fff;font-size:clamp(15px,1.35vw,26px);font-weight:500;letter-spacing:4px;text-transform:uppercase}
+.home-landing .landing-button.secondary{background:#fff;color:#111}
+.home-landing .landing-button:hover{background:#242424;color:#fff}
+.home-landing .landing-arrow{position:absolute;right:60px;top:50%;transform:translateY(-50%);font-size:36px;line-height:1;letter-spacing:0;font-weight:300}
+.home-landing footer{padding:0;border-top:1px solid #e5e5e5;color:#111}
+.home-landing .footer-brand,.home-landing .footer-tagline,.home-landing .footer-playlist-link{display:none}
+.home-landing .home-shop-link{display:inline}
+.home-landing .default-label{display:none}
+.home-landing .landing-label{display:inline}
+.home-landing .footer-links{margin:0;min-height:138px;padding:24px 32px;gap:24px;justify-content:space-evenly;align-items:center;border-bottom:1px solid #e5e5e5}
+.home-landing .footer-links a{font-size:clamp(12px,1.55vw,24px);font-weight:400;letter-spacing:1.5px;line-height:1.5}
+.home-landing footer small{display:block;padding:34px 14px;color:#777;font-size:clamp(13px,1.4vw,21px);font-weight:600}
+@media(max-width:650px){
+ .home-landing .header-inner{height:118px;padding:0 10px}
+ .home-landing .brand{width:43vw;max-width:none}
+ .home-landing .header-actions{gap:0}
+ .home-landing .icon-btn{width:42px;height:48px}
+ .home-landing .icon-btn>svg{width:30px;height:35px}
+ .home-landing .icon-count{width:19px;height:19px;font-size:11px;right:0;top:0}
+ .home-landing #bag-waffle{top:17px;left:12px}
+ .home-landing .menu-button{left:12px;font-size:32px;width:35px}
+ .home-landing #home .hero{min-height:calc(100dvh - 118px);padding:64px 16px}
+ .home-landing .landing-tagline{margin-bottom:44px}
+ .home-landing .landing-buttons{width:100%;gap:14px}
+ .home-landing .landing-button{min-height:90px;padding:18px 42px 18px 20px;font-size:14px;letter-spacing:2px}
+ .home-landing .landing-arrow{right:16px;font-size:26px}
+ .home-landing .footer-links{min-height:0;padding:24px 18px;gap:18px 24px}
+ .home-landing .footer-links a{font-size:12px;letter-spacing:1px}
+ .home-landing footer small{padding:24px 12px}
+}
+
 /* RESPONSIVE */
 @media(max-width:850px) {
   .menu-button { display:block; }
@@ -947,11 +1001,11 @@ footer small { color:var(--muted); }
 </style>
 </head>
 
-<body>
+<body class="home-landing">
 
 <header>
   <div class="header-inner">
-    <a href="#home" class="brand">Waffles Creative</a>
+    <a href="#home" class="brand" aria-label="Waffles Creative Home"><span class="brand-wordmark">Waffles Creative</span><img src="WafflesCreativeLogoBlack.png" alt="" class="header-logo"></a>
 
     <nav id="nav">
       <a href="#home" data-nav="home">Home</a>
@@ -1005,13 +1059,17 @@ footer small { color:var(--muted); }
 <!-- HOME -->
 <section id="home" class="page active">
   <div class="hero">
-    <div class="eyebrow">Designer Clothing Made By Real Artists</div>
-    <img src="logo1.png" class="hero-logo" alt="Waffles Creative">
-    <p>ART. MUSIC. FASHION. CREATIVITY.</p>
-    <a href="#collection" class="btn">Shop the Collection</a>
+    <h1 class="landing-tagline">Designer Streetwear Made By Real Artists</h1>
+    <div class="landing-buttons">
+      <a href="#collection" class="landing-button">Shop the Collection <span class="landing-arrow" aria-hidden="true">&rarr;</span></a>
+      <a href="#artists" class="landing-button secondary">Meet Our Artists <span class="landing-arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
   </div>
+</section>
 
-  <div class="collection" id="collection">
+<!-- COLLECTION: existing products unchanged -->
+<section id="collection" class="page">
+  <div class="collection">
     <div class="eyebrow">COLLECTION 001</div>
     <h1>Sweet and Drippy</h1>
     <p>Designed by Waffleswithsyruppp</p>
@@ -1488,12 +1546,13 @@ footer small { color:var(--muted); }
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">Waffles Creative</div>
-  <p>Designer Clothing Made By Real Artists</p>
+  <p class="footer-tagline">Designer Clothing Made By Real Artists</p>
 
   <div class="footer-links">
     <a href="#home">Home</a>
-    <a href="#artists">About Our Artists</a>
-    <a href="#playlist">Follow Our Playlist</a>
+    <a class="home-shop-link" href="#collection">Shop the Collection</a>
+    <a href="#artists"><span class="default-label">About Our Artists</span><span class="landing-label">Meet Our Artists</span></a>
+    <a class="footer-playlist-link" href="#playlist">Follow Our Playlist</a>
     <a href="#pitch">Pitch an Artist</a>
     <a href="#contact">Contact</a>
   </div>
@@ -2192,6 +2251,7 @@ function openPreview(type) {
 /* NAVIGATION */
 const pages=[
   "home",
+  "collection",
   "product",
   "liked",
   "shopping-cart",
@@ -2203,6 +2263,7 @@ const pages=[
 
 function showPage(id) {
   if(!pages.includes(id))id="home";
+  document.body.classList.toggle("home-landing",id==="home");
 
   document.querySelectorAll(".page").forEach(p=>{
     p.classList.toggle("active",p.id===id);
@@ -2224,13 +2285,7 @@ function navigate() {
   const hash=location.hash.slice(1);
 
   if(hash==="collection") {
-    showPage("home");
-
-    requestAnimationFrame(()=>{
-      $("collection").scrollIntoView({
-        behavior:"smooth"
-      });
-    });
+    showPage("collection");
   }
   else if(hash==="product"&&currentProduct) {
     showPage("product");
