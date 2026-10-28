@@ -888,7 +888,7 @@ body.home-landing{color:#111}
 .home-landing nav{display:none;position:absolute;top:100%;left:clamp(12px,4.4vw,86px);right:auto;width:min(340px,calc(100vw - 24px));padding:20px 24px;background:#fff;border:1px solid #e5e5e5;box-shadow:0 15px 35px #00000015;flex-direction:column;align-items:stretch;gap:12px;z-index:31}
 .home-landing nav.open{display:flex}
 .home-landing nav a{color:#111;font-size:13px}
-.home-landing #home .hero{min-height:calc(100dvh - clamp(126px,12.35vw,240px));justify-content:flex-start;gap:0;padding:clamp(56px,4.45vw,86px) 18px 62px}
+.home-landing #collection .hero{min-height:calc(100dvh - clamp(126px,12.35vw,240px));justify-content:flex-start;gap:0;padding:clamp(56px,4.45vw,86px) 18px 62px}
 .home-landing .landing-tagline{max-width:100%;margin:0 0 clamp(43px,3.35vw,65px);color:#121212;font-size:clamp(16px,1.5vw,29px);font-weight:400;letter-spacing:clamp(2px,.42vw,8px);line-height:1.5;text-transform:uppercase;text-align:center}
 .home-landing .landing-buttons{width:min(810px,90vw);display:flex;flex-direction:column;gap:20px}
 .home-landing .landing-button{position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-height:122px;padding:24px 72px;background:#000;border:2px solid #000;color:#fff;font-size:clamp(15px,1.35vw,26px);font-weight:500;letter-spacing:4px;text-transform:uppercase}
@@ -912,7 +912,7 @@ body.home-landing{color:#111}
  .home-landing .icon-count{width:19px;height:19px;font-size:11px;right:0;top:0}
  .home-landing #bag-waffle{top:17px;left:12px}
  .home-landing .menu-button{left:12px;font-size:32px;width:35px}
- .home-landing #home .hero{min-height:calc(100dvh - 118px);padding:64px 16px}
+ .home-landing #collection .hero{min-height:calc(100dvh - 118px);padding:64px 16px}
  .home-landing .landing-tagline{margin-bottom:44px}
  .home-landing .landing-buttons{width:100%;gap:14px}
  .home-landing .landing-button{min-height:90px;padding:18px 42px 18px 20px;font-size:14px;letter-spacing:2px}
@@ -1012,7 +1012,7 @@ body.home-landing{color:#111}
   .home-landing .icon-btn { width:48px; height:52px; }
   .home-landing .icon-btn > svg { width:34px; height:36px; }
   .home-landing .icon-count { width:21px; height:21px; font-size:12px; }
-  .home-landing #home .hero { min-height:460px; padding:55px 20px 65px; }
+  .home-landing #collection .hero { min-height:460px; padding:55px 20px 65px; }
   .home-landing .landing-tagline { font-size:16px; letter-spacing:3px; margin-bottom:42px; }
   .home-landing .landing-buttons { width:min(520px,85vw); gap:12px; }
   .home-landing .landing-button { min-height:66px; padding:15px 50px; font-size:15px; letter-spacing:2px; }
@@ -1091,6 +1091,17 @@ body, button, input, select, textarea, nav, .btn, .landing-button {
   opacity:.96;
 }
 
+
+.home-landing #collection .hero {
+  min-height: auto;
+  padding: 40px 18px 20px;
+}
+.home-landing #collection .landing-tagline {
+  margin-bottom: 0;
+}
+.home-landing #collection .collection {
+  padding-top: 36px;
+}
 </style>
 </head>
 
@@ -1098,15 +1109,14 @@ body, button, input, select, textarea, nav, .btn, .landing-button {
 
 <header>
   <div class="header-inner">
-    <a href="#home" class="brand" aria-label="Waffles Creative Home"><span class="brand-wordmark">Waffles Creative</span><img src="WafflesCreativeLogoBlack.png" alt="" class="header-logo"></a>
+    <a href="#collection" class="brand" aria-label="Waffles Creative Home"><span class="brand-wordmark">Waffles Creative</span><img src="WafflesCreativeLogoBlack.png" alt="" class="header-logo"></a>
 
     <nav id="nav">
-      <a href="#home" data-nav="home">Home</a>
-      <a href="#artists" data-nav="artists">About Our Artists</a>
-      <a href="#playlist" data-nav="playlist">Follow Our Playlist</a>
-      <a href="#pitch" data-nav="pitch">Pitch an Artist</a>
-      <a href="#contact" data-nav="contact">Contact</a>
-    </nav>
+  <a href="#collection" data-nav="collection">Shop</a>
+  <a href="#artists" data-nav="artists">Meet Our Artists</a>
+  <a href="#pitch" data-nav="pitch">Pitch an Artist</a>
+  <a href="#contact" data-nav="contact">Contact</a>
+</nav>
 
     <div class="header-actions">
       <button id="liked-button" class="icon-btn"
@@ -1149,19 +1159,13 @@ body, button, input, select, textarea, nav, .btn, .landing-button {
 
 <main>
 
-<!-- HOME -->
-<section id="home" class="page active">
-  <div class="hero">
-    <h1 class="landing-tagline">Designer Streetwear Made By Real Artists</h1>
-    <div class="landing-buttons">
-      <a href="#collection" class="landing-button">Shop Exclusive Collections <span class="landing-arrow" aria-hidden="true">&rarr;</span></a>
-      <a href="#artists" class="landing-button secondary">Meet Our Artists <span class="landing-arrow" aria-hidden="true">&rarr;</span></a>
-    </div>
-  </div>
-</section>
+
 
 <!-- COLLECTION: existing products unchanged -->
-<section id="collection" class="page">
+<section id="collection" class="page active">
+  <div class="hero">
+    <h1 class="landing-tagline">Designer Streetwear Made By Real Artists</h1>
+  </div>
   <div class="collection">
     <div class="eyebrow">COLLECTION 001</div>
     <h1>Sweet and Drippy</h1>
@@ -1352,7 +1356,7 @@ body, button, input, select, textarea, nav, .btn, .landing-button {
 <section id="artists" class="page">
   <div class="page-heading">
     <div class="eyebrow">THE CREATIVES BEHIND THE CLOTHING</div>
-    <h1>About Our Artists</h1>
+    <h1>Meet Our Artists</h1>
     <p>
       Every collection begins with an artist,
       an idea, and a story worth sharing.
@@ -1656,13 +1660,11 @@ body, button, input, select, textarea, nav, .btn, .landing-button {
   <p class="footer-tagline">Designer Clothing Made By Real Artists</p>
 
   <div class="footer-links">
-    <a href="#home">Home</a>
-    <a class="home-shop-link" href="#collection">Shop Exclusive Collections</a>
-    <a href="#artists"><span class="default-label">About Our Artists</span><span class="landing-label">Meet Our Artists</span></a>
-    <a class="footer-playlist-link" href="#playlist">Follow Our Playlist</a>
-    <a href="#pitch">Pitch an Artist</a>
-    <a href="#contact">Contact</a>
-  </div>
+  <a href="#collection">Shop</a>
+  <a href="#artists">Meet Our Artists</a>
+  <a href="#pitch">Pitch an Artist</a>
+  <a href="#contact">Contact</a>
+</div>
 
   <small>
     &copy; <span id="year"></span> Waffles Creative.
@@ -2374,7 +2376,6 @@ function openPreview(type) {
 
 /* NAVIGATION */
 const pages=[
-  "home",
   "collection",
   "product",
   "liked",
@@ -2386,8 +2387,8 @@ const pages=[
 ];
 
 function showPage(id) {
-  if(!pages.includes(id))id="home";
-  document.body.classList.toggle("home-landing",id==="home");
+  if(!pages.includes(id))id="collection";
+  document.body.classList.toggle("home-landing",id==="collection");
 
   document.querySelectorAll(".page").forEach(p=>{
     p.classList.toggle("active",p.id===id);
@@ -2424,7 +2425,7 @@ function navigate() {
   else {
     showPage(
       pages.includes(hash)&&hash!=="product"
-        ?hash:"home"
+        ?hash:"collection"
     );
   }
 }
@@ -2566,3 +2567,4 @@ navigate();
 
 </body>
 </html>
+
