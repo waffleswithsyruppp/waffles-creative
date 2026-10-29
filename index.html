@@ -244,13 +244,13 @@ nav a:hover,nav a.active {
   width:100%;
   aspect-ratio:4/5;
   background:white;
-  border:none;
+  border:1px solid var(--border);
   display:grid;
   place-items:center;
   padding:0;
   overflow:hidden;
 }
-
+.product-image:hover { border-color:var(--purple); }
 .product-image img,.detail-image img,.thumb img {
   width:100%;
   height:100%;
@@ -1149,6 +1149,22 @@ body .header-logo {
     max-height: 45px;
   }
 }
+
+/* CENTERED HEADER NAVIGATION */
+@media (min-width: 851px) {
+  .header-inner {
+    position: relative;
+  }
+  #nav {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+}
 </style>
 </head>
 
@@ -1156,7 +1172,7 @@ body .header-logo {
 
 <header>
   <div class="header-inner">
-    <a href="#collection" class="brand" aria-label="Waffles Creative Home"><span class="brand-wordmark">Waffles Creative</span><img src="WafflesCreativeLogoBlack.png" alt="" class="header-logo"></a>
+    <a href="#collection" class="brand" aria-label="Waffles Creative Home"><span class="brand-wordmark">Waffles Creative</span><img src="waffles_creative_transparent.png" alt="" class="header-logo"></a>
 
     <nav id="nav">
   <a href="#collection" data-nav="collection">Shop</a>
@@ -1224,16 +1240,16 @@ body .header-logo {
   <div class="container">
     <div id="products" class="product-grid">
       <article class="product-card">
-        <div class="product-wrap"><a href="#product" class="product-image" data-product="hoodie" aria-label="View No Saints Society Hoodie"><svg class="product-art" viewBox="0 0 300 350" aria-hidden="true"><path d="M105 68Q150 9 195 68L250 96L285 245L233 260L216 167L224 324H76L84 167L67 260L15 245L50 96Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/><path d="M105 68Q150 149 195 68Q150 9 105 68Z" fill="#f8b7d8" stroke="#db75a6" stroke-width="3"/></svg></a></div>
-        <h3>No Saints Society Hoodie</h3><p>Pink oversized hoodie</p><p>Price coming soon</p><a href="#product" class="btn outline" data-product="hoodie">View Item</a>
+        <div class="product-wrap"><a href="#product" class="product-image" data-product="hoodie" aria-label="View Sweet and Drippy Hoodie"><svg class="product-art" viewBox="0 0 300 350" aria-hidden="true"><path d="M105 68Q150 9 195 68L250 96L285 245L233 260L216 167L224 324H76L84 167L67 260L15 245L50 96Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/><path d="M105 68Q150 149 195 68Q150 9 105 68Z" fill="#f8b7d8" stroke="#db75a6" stroke-width="3"/></svg></a><span class="product-label">Waffles Creative</span></div>
+        <h3>Sweet and Drippy Hoodie</h3><p>Pink oversized hoodie</p><p>Price coming soon</p><a href="#product" class="btn outline" data-product="hoodie">View Item</a>
       </article>
       <article class="product-card">
-        <div class="product-wrap"><a href="#product" class="product-image" data-product="pants" aria-label="View No Saints Society Sweatpants"><svg class="product-art" viewBox="0 0 300 350" aria-hidden="true"><path d="M77 32H223L250 319H173L150 162L127 319H50Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/><path d="M77 47H223" stroke="#d67ba6" stroke-width="8"/></svg></a></div>
-        <h3>No Saints Society Sweatpants</h3><p>Pink relaxed-fit sweatpants</p><p>Price coming soon</p><a href="#product" class="btn outline" data-product="pants">View Item</a>
+        <div class="product-wrap"><a href="#product" class="product-image" data-product="pants" aria-label="View Sweet and Drippy Sweatpants"><svg class="product-art" viewBox="0 0 300 350" aria-hidden="true"><path d="M77 32H223L250 319H173L150 162L127 319H50Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/><path d="M77 47H223" stroke="#d67ba6" stroke-width="8"/></svg></a><span class="product-label">Waffles Creative</span></div>
+        <h3>Sweet and Drippy Sweatpants</h3><p>Pink relaxed-fit sweatpants</p><p>Price coming soon</p><a href="#product" class="btn outline" data-product="pants">View Item</a>
       </article>
       <article class="product-card">
-        <div class="product-wrap"><a href="#product" class="product-image" data-product="set" aria-label="View No Saints Society Matching Set"><svg class="product-art" viewBox="0 0 300 350" aria-hidden="true"><path d="M105 45Q150 0 195 45L245 78L275 173L230 188L211 125L214 234H86L89 125L70 188L25 173L55 78Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/><path d="M92 239H208L230 339H166L150 275L134 339H70Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/></svg></a><span class="product-label">BUNDLE · SAVE 10%</span></div>
-        <h3>No Saints Society Matching Set</h3><p>Hoodie and sweatpants together, 10% bundle savings</p><p>Price coming soon</p><a href="#product" class="btn outline" data-product="set">View Item</a>
+        <div class="product-wrap"><a href="#product" class="product-image" data-product="set" aria-label="View Sweet and Drippy Matching Set"><svg class="product-art" viewBox="0 0 300 350" aria-hidden="true"><path d="M105 45Q150 0 195 45L245 78L275 173L230 188L211 125L214 234H86L89 125L70 188L25 173L55 78Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/><path d="M92 239H208L230 339H166L150 275L134 339H70Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/></svg></a><span class="product-label">BUNDLE · SAVE 10%</span></div>
+        <h3>Sweet and Drippy Matching Set</h3><p>Hoodie and sweatpants together, 10% bundle savings</p><p>Price coming soon</p><a href="#product" class="btn outline" data-product="set">View Item</a>
       </article>
     </div>
   </div>
@@ -1425,7 +1441,7 @@ body .header-logo {
         <div class="artist-feature-image">
           <img
             src="featured-artist.jpg"
-            alt="Waffleswithsyruppp wearing the No Saints Society collection"
+            alt="Waffleswithsyruppp wearing the Sweet and Drippy collection"
             onerror="this.hidden=true;this.nextElementSibling.hidden=false"
           >
           <div class="artist-photo-placeholder" hidden>
@@ -1736,7 +1752,7 @@ const CONFIG = {
   products:[
     {
       id:"hoodie",
-      name:"No Saints Society Hoodie",
+      name:"Sweet and Drippy Hoodie",
       description:"Pink oversized hoodie",
       price:null,
       image:"",
@@ -1744,7 +1760,7 @@ const CONFIG = {
     },
     {
       id:"pants",
-      name:"No Saints Society Sweatpants",
+      name:"Sweet and Drippy Sweatpants",
       description:"Pink relaxed-fit sweatpants",
       price:null,
       image:"",
@@ -1752,7 +1768,7 @@ const CONFIG = {
     },
     {
       id:"set",
-      name:"No Saints Society Matching Set",
+      name:"Sweet and Drippy Matching Set",
       description:"Matching pink hoodie and sweatpants. Save 10% as a set.",
       price:null,
       bundleDiscount:0.10,
@@ -1929,7 +1945,7 @@ function productCard(p,withControls=false,prefix="fav") {
         ${photo(p)}
       </button>
 
-      ${p.isSet ? '<span class="product-label">BUNDLE · SAVE 10%</span>' : ""}
+      <span class="product-label">${p.isSet ? "BUNDLE · SAVE 10%" : "Waffles Creative"}</span>
 
       <button class="like-btn ${liked.includes(p.id)?"liked":""}"
         data-like="${p.id}" aria-label="Like ${esc(p.name)}">
@@ -2024,7 +2040,7 @@ function openProduct(id) {
     <div class="detail-image">${photo(p)}</div>
 
     <div class="detail-info">
-      <div class="eyebrow">No Saints Society Collection</div>
+      <div class="eyebrow">Sweet and Drippy Collection</div>
       <h1>${esc(p.name)}</h1>
       <p>${esc(p.description)}</p>
       <p class="product-designer">Designed by <a class="artist-name-link" href="#artist-waffleswithsyruppp">Waffleswithsyruppp</a></p>
