@@ -244,13 +244,13 @@ nav a:hover,nav a.active {
   width:100%;
   aspect-ratio:4/5;
   background:white;
-  border:1px solid var(--border);
+  border:0;
   display:grid;
   place-items:center;
   padding:0;
   overflow:hidden;
 }
-.product-image:hover { border-color:var(--purple); }
+
 .product-image img,.detail-image img,.thumb img {
   width:100%;
   height:100%;
@@ -1179,6 +1179,120 @@ header .header-inner {
     padding-right: 14px !important;
   }
 }
+
+/* APPROVED HEADER AND PRODUCT STYLES */
+
+/* Equal spacing on both sides of the header */
+header .header-inner {
+  max-width: none !important;
+  width: 100%;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+/* Remove extra blank space inside the logo box */
+header .brand {
+  margin: 0 !important;
+  justify-content: flex-start !important;
+}
+
+header .header-logo {
+  width: auto !important;
+  height: 60px !important;
+  max-width: 100% !important;
+  max-height: 60px !important;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Keep navigation centered */
+@media (min-width: 851px) {
+  header .header-inner {
+    position: relative;
+  }
+  header #nav {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Restore black Shop header */
+body.home-landing header {
+  background: #000 !important;
+  border-bottom: 1px solid #333 !important;
+}
+
+/* White version of the logo on black */
+body.home-landing header .header-logo {
+  filter: brightness(0) invert(1) !important;
+}
+
+body.home-landing header #nav {
+  background: #000 !important;
+}
+
+body.home-landing header #nav a,
+body.home-landing header .menu-button {
+  color: #fff !important;
+}
+
+body.home-landing header #nav a:hover,
+body.home-landing header #nav a.active {
+  color: #fff !important;
+  border-bottom-color: #fff !important;
+}
+
+/* White heart and shopping bag */
+body.home-landing header .icon-btn {
+  background: #000 !important;
+}
+
+body.home-landing header .icon-btn > svg path {
+  stroke: #fff !important;
+}
+
+body.home-landing header #bag-button > svg path[fill="white"] {
+  fill: #000 !important;
+}
+
+body.home-landing header .icon-count {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+/* Restore black tagline strip */
+body.home-landing #collection > .hero {
+  background: #000 !important;
+  border-bottom: 1px solid #333 !important;
+}
+
+body.home-landing #collection > .hero .landing-tagline {
+  color: #fff !important;
+}
+
+/* Keep product images borderless */
+.product-card .product-image,
+.product-card .product-image:hover {
+  border: 0 !important;
+  outline: none;
+}
+
+/* Mobile spacing */
+@media (max-width: 850px) {
+  header .header-inner {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+  header .header-logo {
+    height: 45px !important;
+    max-height: 45px !important;
+  }
+  body.home-landing header #nav {
+    border: 1px solid #333;
+  }
+}
 </style>
 </head>
 
@@ -1254,11 +1368,11 @@ header .header-inner {
   <div class="container">
     <div id="products" class="product-grid">
       <article class="product-card">
-        <div class="product-wrap"><a href="#product" class="product-image" data-product="hoodie" aria-label="View Sweet and Drippy Hoodie"><svg class="product-art" viewBox="0 0 300 350" aria-hidden="true"><path d="M105 68Q150 9 195 68L250 96L285 245L233 260L216 167L224 324H76L84 167L67 260L15 245L50 96Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/><path d="M105 68Q150 149 195 68Q150 9 105 68Z" fill="#f8b7d8" stroke="#db75a6" stroke-width="3"/></svg></a><span class="product-label">Waffles Creative</span></div>
+        <div class="product-wrap"><a href="#product" class="product-image" data-product="hoodie" aria-label="View Sweet and Drippy Hoodie"><svg class="product-art" viewBox="0 0 300 350" aria-hidden="true"><path d="M105 68Q150 9 195 68L250 96L285 245L233 260L216 167L224 324H76L84 167L67 260L15 245L50 96Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/><path d="M105 68Q150 149 195 68Q150 9 105 68Z" fill="#f8b7d8" stroke="#db75a6" stroke-width="3"/></svg></a></div>
         <h3>Sweet and Drippy Hoodie</h3><p>Pink oversized hoodie</p><p>Price coming soon</p><a href="#product" class="btn outline" data-product="hoodie">View Item</a>
       </article>
       <article class="product-card">
-        <div class="product-wrap"><a href="#product" class="product-image" data-product="pants" aria-label="View Sweet and Drippy Sweatpants"><svg class="product-art" viewBox="0 0 300 350" aria-hidden="true"><path d="M77 32H223L250 319H173L150 162L127 319H50Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/><path d="M77 47H223" stroke="#d67ba6" stroke-width="8"/></svg></a><span class="product-label">Waffles Creative</span></div>
+        <div class="product-wrap"><a href="#product" class="product-image" data-product="pants" aria-label="View Sweet and Drippy Sweatpants"><svg class="product-art" viewBox="0 0 300 350" aria-hidden="true"><path d="M77 32H223L250 319H173L150 162L127 319H50Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/><path d="M77 47H223" stroke="#d67ba6" stroke-width="8"/></svg></a></div>
         <h3>Sweet and Drippy Sweatpants</h3><p>Pink relaxed-fit sweatpants</p><p>Price coming soon</p><a href="#product" class="btn outline" data-product="pants">View Item</a>
       </article>
       <article class="product-card">
@@ -1959,7 +2073,7 @@ function productCard(p,withControls=false,prefix="fav") {
         ${photo(p)}
       </button>
 
-      <span class="product-label">${p.isSet ? "BUNDLE · SAVE 10%" : "Waffles Creative"}</span>
+      ${p.isSet ? '<span class="product-label">BUNDLE · SAVE 10%</span>' : ""}
 
       <button class="like-btn ${liked.includes(p.id)?"liked":""}"
         data-like="${p.id}" aria-label="Like ${esc(p.name)}">
@@ -2655,6 +2769,7 @@ navigate();
 
 </body>
 </html>
+
 
 
 
