@@ -1102,6 +1102,53 @@ body, button, input, select, textarea, nav, .btn, .landing-button {
 .home-landing #collection .collection {
   padding-top: 36px;
 }
+
+/* COMPACT COLLECTION */
+.home-landing #collection .hero {
+  min-height: 0 !important;
+  padding: 18px 18px 14px !important;
+}
+.home-landing #collection .landing-tagline {
+  font-size: clamp(12px, 1.1vw, 18px);
+  letter-spacing: clamp(1.5px, .25vw, 3px);
+  line-height: 1.5;
+  margin: 0 !important;
+}
+.home-landing #collection .collection {
+  padding: 22px 18px 10px !important;
+}
+.home-landing #collection .collection h1 {
+  font-size: clamp(36px, 4.4vw, 58px) !important;
+  line-height: 1.12;
+  margin: 9px 0 12px;
+}
+.home-landing #collection .collection p {
+  font-size: 14px;
+  margin: 0;
+}
+.home-landing #collection .product-grid {
+  padding-top: 18px;
+}
+.set-saving {
+  color: #34134f;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 11px !important;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  margin: 8px 0 14px;
+}
+@media (max-width: 640px) {
+  .home-landing #collection .hero {
+    padding: 14px 14px 12px !important;
+  }
+  .home-landing #collection .collection {
+    padding: 18px 14px 8px !important;
+  }
+  .home-landing #collection .collection h1 {
+    font-size: clamp(34px, 9vw, 46px) !important;
+  }
+}
 </style>
 </head>
 
@@ -1170,8 +1217,8 @@ body, button, input, select, textarea, nav, .btn, .landing-button {
     <div class="eyebrow">COLLECTION 001</div>
     <h1>Sweet and Drippy</h1>
     <p>Designed by <a class="artist-name-link" href="#artist-waffleswithsyruppp">Waffleswithsyruppp</a></p>
-    <p class="muted">Stay Sweet. Stay Drippy. Keep Creating.</p>
-    <p class="muted">Choose the hoodie or sweatpants separately, or save 10% with the matching set.</p>
+    
+    
   </div>
 
   <div class="container">
@@ -1884,6 +1931,7 @@ function productCard(p,withControls=false,prefix="fav") {
     <h3>${esc(p.name)}</h3>
     <p>${esc(p.description)}</p>
     <p>${price(p)}</p>
+    ${p.isSet ? '<p class="set-saving">SAVE 10% WHEN YOU BUY THE MATCHING SET</p>' : ""}
     <p class="product-designer">Designed by <a class="artist-name-link" href="#artist-waffleswithsyruppp">Waffleswithsyruppp</a></p>
 
     <button class="btn outline" data-product="${p.id}">
@@ -1972,6 +2020,7 @@ function openProduct(id) {
       <p>${esc(p.description)}</p>
       <p class="product-designer">Designed by <a class="artist-name-link" href="#artist-waffleswithsyruppp">Waffleswithsyruppp</a></p>
       <h2>${price(p)}</h2>
+      ${p.isSet ? '<p class="set-saving">SAVE 10% WHEN YOU BUY THE MATCHING SET</p>' : ""}
 
       <label>${p.isSet?"Hoodie Size":"Select Size"}</label>
       <div class="sizes">
@@ -2567,4 +2616,5 @@ navigate();
 
 </body>
 </html>
+
 
