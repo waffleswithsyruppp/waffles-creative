@@ -1293,6 +1293,108 @@ body.home-landing #collection > .hero .landing-tagline {
     border: 1px solid #333;
   }
 }
+
+/* GLOBAL BLACK HEADER AND TWO-COLUMN MOBILE SHOP */
+
+header {
+  background: #000 !important;
+  border-bottom: 1px solid #333 !important;
+}
+
+/* White logo on every page */
+header .header-logo,
+body.home-landing header .header-logo {
+  filter: none !important;
+}
+
+/* White navigation */
+header #nav {
+  background: #000 !important;
+}
+
+header #nav a,
+header .menu-button {
+  color: #fff !important;
+}
+
+header #nav a:hover,
+header #nav a.active,
+header #nav a:focus-visible {
+  color: #fff !important;
+  border-bottom-color: #fff !important;
+}
+
+/* White icons on black */
+header .icon-btn {
+  background: #000 !important;
+}
+
+header .icon-btn > svg path {
+  stroke: #fff !important;
+}
+
+header #bag-button > svg path[fill="white"] {
+  fill: #000 !important;
+}
+
+/* Black numbers on white badges */
+header .icon-count {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+/* Mobile navigation */
+@media (max-width: 850px) {
+  header #nav {
+    background: #000 !important;
+    border: 1px solid #333 !important;
+  }
+}
+
+/* Two products per row on phones */
+@media (max-width: 650px) {
+  .product-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  .product-card {
+    min-width: 0;
+  }
+
+  .product-card h3 {
+    font-size: clamp(14px, 3.5vw, 18px) !important;
+    line-height: 1.3;
+    margin: 12px 0 6px;
+  }
+
+  .product-card .product-label {
+    left: 7px;
+    top: 7px;
+    max-width: calc(100% - 54px);
+    font-size: 8px;
+    padding: 5px;
+  }
+
+  .product-card .like-btn {
+    right: 7px;
+    top: 7px;
+    width: 32px;
+    height: 32px;
+    font-size: 21px;
+  }
+
+  .product-card .btn {
+    font-size: 10px;
+    padding: 12px 8px;
+  }
+
+  .product-card .product-image,
+  .product-card .product-image:hover {
+    border: 0 !important;
+  }
+}
 </style>
 </head>
 
@@ -1300,7 +1402,7 @@ body.home-landing #collection > .hero .landing-tagline {
 
 <header>
   <div class="header-inner">
-    <a href="#collection" class="brand" aria-label="Waffles Creative Home"><span class="brand-wordmark">Waffles Creative</span><img src="waffles_creative_transparent.png" alt="" class="header-logo"></a>
+    <a href="#collection" class="brand" aria-label="Waffles Creative Home"><span class="brand-wordmark">Waffles Creative</span><img src="waffles_creative_white.png" alt="" class="header-logo"></a>
 
     <nav id="nav">
   <a href="#collection" data-nav="collection">Shop</a>
@@ -2769,7 +2871,3 @@ navigate();
 
 </body>
 </html>
-
-
-
-
