@@ -244,13 +244,13 @@ nav a:hover,nav a.active {
   width:100%;
   aspect-ratio:4/5;
   background:white;
-  border:1px solid var(--border);
+  border:none;
   display:grid;
   place-items:center;
   padding:0;
   overflow:hidden;
 }
-.product-image:hover { border-color:var(--purple); }
+
 .product-image img,.detail-image img,.thumb img {
   width:100%;
   height:100%;
@@ -1224,11 +1224,11 @@ body .header-logo {
   <div class="container">
     <div id="products" class="product-grid">
       <article class="product-card">
-        <div class="product-wrap"><a href="#product" class="product-image" data-product="hoodie" aria-label="View Sweet and Drippy Hoodie"><svg class="product-art" viewBox="0 0 300 350" aria-hidden="true"><path d="M105 68Q150 9 195 68L250 96L285 245L233 260L216 167L224 324H76L84 167L67 260L15 245L50 96Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/><path d="M105 68Q150 149 195 68Q150 9 105 68Z" fill="#f8b7d8" stroke="#db75a6" stroke-width="3"/></svg></a><span class="product-label">Waffles Creative</span></div>
+        <div class="product-wrap"><a href="#product" class="product-image" data-product="hoodie" aria-label="View Sweet and Drippy Hoodie"><svg class="product-art" viewBox="0 0 300 350" aria-hidden="true"><path d="M105 68Q150 9 195 68L250 96L285 245L233 260L216 167L224 324H76L84 167L67 260L15 245L50 96Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/><path d="M105 68Q150 149 195 68Q150 9 105 68Z" fill="#f8b7d8" stroke="#db75a6" stroke-width="3"/></svg></a></div>
         <h3>Sweet and Drippy Hoodie</h3><p>Pink oversized hoodie</p><p>Price coming soon</p><a href="#product" class="btn outline" data-product="hoodie">View Item</a>
       </article>
       <article class="product-card">
-        <div class="product-wrap"><a href="#product" class="product-image" data-product="pants" aria-label="View Sweet and Drippy Sweatpants"><svg class="product-art" viewBox="0 0 300 350" aria-hidden="true"><path d="M77 32H223L250 319H173L150 162L127 319H50Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/><path d="M77 47H223" stroke="#d67ba6" stroke-width="8"/></svg></a><span class="product-label">Waffles Creative</span></div>
+        <div class="product-wrap"><a href="#product" class="product-image" data-product="pants" aria-label="View Sweet and Drippy Sweatpants"><svg class="product-art" viewBox="0 0 300 350" aria-hidden="true"><path d="M77 32H223L250 319H173L150 162L127 319H50Z" fill="#f5a0cb" stroke="#db75a6" stroke-width="3"/><path d="M77 47H223" stroke="#d67ba6" stroke-width="8"/></svg></a></div>
         <h3>Sweet and Drippy Sweatpants</h3><p>Pink relaxed-fit sweatpants</p><p>Price coming soon</p><a href="#product" class="btn outline" data-product="pants">View Item</a>
       </article>
       <article class="product-card">
@@ -1929,7 +1929,7 @@ function productCard(p,withControls=false,prefix="fav") {
         ${photo(p)}
       </button>
 
-      <span class="product-label">${p.isSet ? "BUNDLE · SAVE 10%" : "Waffles Creative"}</span>
+      ${p.isSet ? '<span class="product-label">BUNDLE · SAVE 10%</span>' : ""}
 
       <button class="like-btn ${liked.includes(p.id)?"liked":""}"
         data-like="${p.id}" aria-label="Like ${esc(p.name)}">
@@ -2625,4 +2625,5 @@ navigate();
 
 </body>
 </html>
+
 
