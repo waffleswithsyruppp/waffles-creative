@@ -2837,6 +2837,18 @@ $("menu-button").addEventListener("click",()=>{
   $("menu-button").setAttribute("aria-expanded",String(open));
 });
 
+/* CLOSE MOBILE MENU WHEN TAPPING ANYWHERE */
+document.addEventListener("click", event => {
+  const nav = $("nav");
+
+  if (!nav.classList.contains("open")) return;
+  if (event.target.closest("#menu-button")) return;
+
+  nav.classList.remove("open");
+  $("menu-button").setAttribute("aria-expanded", "false");
+});
+
+
 document.addEventListener("keydown",event=>{
   if(event.key==="Escape") {
     closePreviews();
