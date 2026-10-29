@@ -1166,61 +1166,17 @@ body .header-logo {
   }
 }
 
-/* BLACK SHOP HEADER AND TAGLINE */
-body.home-landing header {
-  background: #000 !important;
-  border-bottom: 1px solid #333 !important;
+/* FULL-WIDTH HEADER ALIGNMENT */
+header .header-inner {
+  max-width: none !important;
+  width: 100%;
+  padding-left: clamp(16px, 2vw, 40px) !important;
+  padding-right: clamp(16px, 2vw, 40px) !important;
 }
-
-body.home-landing header .header-logo {
-  filter: invert(1);
-}
-
-body.home-landing header .brand,
-body.home-landing header #nav a,
-body.home-landing header .menu-button {
-  color: #fff !important;
-}
-
-body.home-landing header #nav {
-  background: #000;
-}
-
-body.home-landing header #nav a:hover,
-body.home-landing header #nav a.active {
-  color: #fff !important;
-  border-bottom-color: #fff !important;
-}
-
-body.home-landing header .icon-btn {
-  background: #000 !important;
-}
-
-body.home-landing header .icon-btn > svg path {
-  stroke: #fff !important;
-}
-
-body.home-landing header #bag-button > svg path[fill="white"] {
-  fill: #000 !important;
-}
-
-body.home-landing header .icon-count {
-  background: #fff !important;
-  color: #000 !important;
-}
-
-body.home-landing #collection .hero {
-  background: #000 !important;
-  border-bottom: 1px solid #333;
-}
-
-body.home-landing #collection .landing-tagline {
-  color: #fff !important;
-}
-
 @media (max-width: 850px) {
-  body.home-landing header #nav {
-    border: 1px solid #333;
+  header .header-inner {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
   }
 }
 </style>
