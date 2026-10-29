@@ -1556,8 +1556,8 @@ footer small {
   border: 0 !important;
 }
 
-/* Tablet and phone: slogan gets its own line */
-@media (max-width: 1050px) {
+/* Move slogan below only when products switch to two columns */
+@media (max-width: 850px) {
   header .header-inner {
     grid-template-columns: minmax(0,1fr) auto !important;
     grid-template-rows: auto auto;
@@ -1624,6 +1624,27 @@ footer small {
   header .menu-button {
     width: 32px;
     flex-basis: 32px;
+  }
+}
+
+/* RESPONSIVE SLOGAN ALIGNMENT */
+@media (min-width: 851px) {
+  header .header-inner {
+    align-items: center !important;
+  }
+
+  header .header-slogan {
+    align-self: center !important;
+    grid-row: 1 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+@media (min-width: 851px) and (max-width: 1100px) {
+  header .header-slogan {
+    font-size: clamp(10px, 1vw, 12px);
+    letter-spacing: .8px;
   }
 }
 </style>
@@ -1693,7 +1714,7 @@ footer small {
     <h1 class="landing-tagline">Designer Streetwear Made By Real Artists</h1>
   </div>
   <div class="collection">
-    <div class="eyebrow">COLLECTION 001</div>
+    
     <h1>No Saints Society</h1>
     <p>Designed by <a class="artist-name-link" href="#artist-waffleswithsyruppp">Waffleswithsyruppp</a></p>
     
