@@ -873,21 +873,6 @@ footer small { color:var(--muted); }
 .header-logo {display:none}
 .landing-label,.home-shop-link{display:none}
 body.home-landing{color:#111}
-.home-landing header{border-bottom:1px solid #e5e5e5}
-.home-landing .header-inner{position:relative;max-width:none;height:clamp(126px,12.35vw,240px);padding:0 clamp(18px,4.4vw,86px);justify-content:flex-end}
-.home-landing .brand{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(45vw,860px);max-width:calc(100% - 230px);line-height:0}
-.home-landing .brand-wordmark{display:none}
-.home-landing .header-logo{display:block;width:100%;max-height:180px;object-fit:contain}
-.home-landing .header-actions{margin:0;gap:clamp(2px,1.7vw,26px)}
-.home-landing .icon-btn{width:76px;height:78px}
-.home-landing .icon-btn>svg{width:56px;height:58px}
-.home-landing .icon-btn svg path{stroke:#111}
-.home-landing .icon-count{top:0;right:0;width:36px;height:36px;background:#111;font-size:18px;font-weight:700}
-.home-landing #bag-waffle{top:27px;left:26px}
-.home-landing .menu-button{display:block;position:absolute;top:50%;left:clamp(18px,4.4vw,86px);transform:translateY(-50%);font-size:47px;line-height:1;color:#111;z-index:2}
-.home-landing nav{display:none;position:absolute;top:100%;left:clamp(12px,4.4vw,86px);right:auto;width:min(340px,calc(100vw - 24px));padding:20px 24px;background:#fff;border:1px solid #e5e5e5;box-shadow:0 15px 35px #00000015;flex-direction:column;align-items:stretch;gap:12px;z-index:31}
-.home-landing nav.open{display:flex}
-.home-landing nav a{color:#111;font-size:13px}
 .home-landing #collection .hero{min-height:calc(100dvh - clamp(126px,12.35vw,240px));justify-content:flex-start;gap:0;padding:clamp(56px,4.45vw,86px) 18px 62px}
 .home-landing .landing-tagline{max-width:100%;margin:0 0 clamp(43px,3.35vw,65px);color:#121212;font-size:clamp(16px,1.5vw,29px);font-weight:400;letter-spacing:clamp(2px,.42vw,8px);line-height:1.5;text-transform:uppercase;text-align:center}
 .home-landing .landing-buttons{width:min(810px,90vw);display:flex;flex-direction:column;gap:20px}
@@ -904,14 +889,6 @@ body.home-landing{color:#111}
 .home-landing .footer-links a{font-size:clamp(12px,1.55vw,24px);font-weight:400;letter-spacing:1.5px;line-height:1.5}
 .home-landing footer small{display:block;padding:34px 14px;color:#777;font-size:clamp(13px,1.4vw,21px);font-weight:600}
 @media(max-width:650px){
- .home-landing .header-inner{height:118px;padding:0 10px}
- .home-landing .brand{width:43vw;max-width:none}
- .home-landing .header-actions{gap:0}
- .home-landing .icon-btn{width:42px;height:48px}
- .home-landing .icon-btn>svg{width:30px;height:35px}
- .home-landing .icon-count{width:19px;height:19px;font-size:11px;right:0;top:0}
- .home-landing #bag-waffle{top:17px;left:12px}
- .home-landing .menu-button{left:12px;font-size:32px;width:35px}
  .home-landing #collection .hero{min-height:calc(100dvh - 118px);padding:64px 16px}
  .home-landing .landing-tagline{margin-bottom:44px}
  .home-landing .landing-buttons{width:100%;gap:14px}
@@ -1005,13 +982,6 @@ body.home-landing{color:#111}
 
 /* LAPTOP HOMEPAGE FIX */
 @media (min-width: 651px) {
-  .home-landing .header-inner { height:135px; min-height:135px; padding:0 35px; }
-  .home-landing .brand { width:min(480px,42vw); }
-  .home-landing .header-logo { max-height:110px; }
-  .home-landing .menu-button { left:35px; font-size:32px; }
-  .home-landing .icon-btn { width:48px; height:52px; }
-  .home-landing .icon-btn > svg { width:34px; height:36px; }
-  .home-landing .icon-count { width:21px; height:21px; font-size:12px; }
   .home-landing #collection .hero { min-height:460px; padding:55px 20px 65px; }
   .home-landing .landing-tagline { font-size:16px; letter-spacing:3px; margin-bottom:42px; }
   .home-landing .landing-buttons { width:min(520px,85vw); gap:12px; }
@@ -1151,11 +1121,11 @@ body, button, input, select, textarea, nav, .btn, .landing-button {
 }
 
 /* LOGO ON INNER PAGE HEADERS */
-body:not(.home-landing) .brand-wordmark {
+body .brand-wordmark {
   display: none !important;
 }
 
-body:not(.home-landing) .brand {
+body .brand {
   display: flex;
   align-items: center;
   width: clamp(150px, 15vw, 235px);
@@ -1163,7 +1133,7 @@ body:not(.home-landing) .brand {
   line-height: 0;
 }
 
-body:not(.home-landing) .header-logo {
+body .header-logo {
   display: block !important;
   width: 100%;
   height: auto;
@@ -1172,10 +1142,10 @@ body:not(.home-landing) .header-logo {
 }
 
 @media (max-width: 640px) {
-  body:not(.home-landing) .brand {
+  body .brand {
     width: 135px;
   }
-  body:not(.home-landing) .header-logo {
+  body .header-logo {
     max-height: 45px;
   }
 }
@@ -2655,6 +2625,7 @@ navigate();
 
 </body>
 </html>
+
 
 
 
