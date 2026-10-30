@@ -1770,98 +1770,97 @@ header .header-actions {
   header .header-slogan { font-size: clamp(9px,2.35vw,11px) !important; }
 }
 
-/* Sidebar remains left-sliding on every screen, never a top dropdown. */
-header #nav {
+
+/* CANONICAL LEFT SIDEBAR */
+body.menu-open { overflow: hidden; }
+
+#nav {
   display: flex !important;
   position: fixed !important;
   inset: 0 auto 0 0 !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: auto !important;
-  bottom: 0 !important;
-  width: min(390px,88vw) !important;
-  max-width: none !important;
+  width: min(380px, 88vw) !important;
   height: 100vh !important;
   height: 100dvh !important;
-  padding: 38px 35px 35px !important;
   margin: 0 !important;
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
-  flex-direction: column !important;
-  align-items: stretch !important;
-  gap: 0 !important;
+  padding: 65px 30px 30px !important;
   background: #000 !important;
   border: 0 !important;
-  box-shadow: 8px 0 30px rgba(0,0,0,.23);
+  flex-direction: column !important;
+  overflow-y: auto !important;
   transform: translateX(-105%) !important;
   visibility: hidden !important;
   pointer-events: none !important;
   transition: transform .3s ease, visibility .3s ease !important;
-  z-index: 210 !important;
+  z-index: 5000 !important;
 }
-header #nav.open {
-  display: flex !important;
+
+#nav.open {
   transform: translateX(0) !important;
   visibility: visible !important;
   pointer-events: auto !important;
 }
-header #nav .sidebar-inner {
+
+#nav .sidebar-inner {
   display: flex !important;
   flex-direction: column !important;
-  align-items: stretch !important;
-  padding-top: 18px !important;
   width: 100% !important;
+  padding: 0 !important;
 }
-header #nav a {
+
+#nav .sidebar-inner a {
   display: block !important;
   margin: 0 !important;
-  padding: 24px 22px !important;
-  color: #fff !important;
-  background: #000 !important;
-  font-family: Montserrat,Arial,sans-serif !important;
-  font-size: clamp(20px,2vw,26px) !important;
+  padding: 24px 16px !important;
+  color: white !important;
+  background: transparent !important;
+  font-family: Montserrat, Arial, sans-serif !important;
+  font-size: 23px !important;
   font-weight: 700 !important;
-  letter-spacing: .3px !important;
   text-align: left !important;
-  line-height: 1.45 !important;
-  white-space: normal !important;
   border: 0 !important;
-  border-bottom: 1px solid #fff !important;
+  border-bottom: 1px solid white !important;
 }
-header #nav a:hover, header #nav a:focus-visible {
-  background: #161616 !important;
-  border-bottom: 1px solid #fff !important;
+
+#nav #sidebar-close {
+  position: absolute !important;
+  top: 12px !important;
+  right: 16px !important;
+  width: 42px !important;
+  height: 42px !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  color: white !important;
+  font-size: 32px !important;
 }
-header #nav .sidebar-close {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  display: grid;
-  place-items: center;
-  width: 46px;
-  height: 46px;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: #fff;
-  font-size: 34px;
-  cursor: pointer;
-}
-header #nav-backdrop {
+
+#nav-backdrop {
   position: fixed !important;
   inset: 0 !important;
-  background: rgba(0,0,0,.57) !important;
+  background: rgba(0,0,0,.55) !important;
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
-  transition: opacity .3s ease, visibility .3s ease;
-  z-index: 200 !important;
+  z-index: 4999 !important;
 }
-header #nav-backdrop.open {
+
+#nav-backdrop.open {
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: auto !important;
 }
+
+@media (max-width: 650px) {
+  #nav { width: min(360px,90vw) !important; }
+  #nav .sidebar-inner a { font-size: 21px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #nav, #nav-backdrop { transition: none !important; }
+}
+
 #artist-submissions { max-width: 850px; margin: 0 auto; padding: 12px 20px 75px; scroll-margin-top: 130px; }
 #artist-submissions > h2 { font-family: Playfair Display,serif; font-size: clamp(26px,3vw,38px); text-align: center; margin: 0 0 12px; }
 #artist-submissions > p { text-align: center; line-height: 1.65; margin: 0 auto 28px; max-width: 600px; }
@@ -1873,4 +1872,168 @@ header #nav-backdrop.open {
 }
 @media (prefers-reduced-motion: reduce) {
   header #nav, header #nav-backdrop { transition: none !important; }
+}
+
+/* WC_FINAL_SINGLE_ROW_HEADER */
+
+header .header-inner {
+  display: grid !important;
+  grid-template-columns:
+    minmax(0,1fr) minmax(0,2fr) minmax(0,1fr)
+    !important;
+  grid-template-rows: auto !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 10px 14px !important;
+}
+
+header .header-left {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-self: start !important;
+  gap: 8px !important;
+  min-width: 0 !important;
+}
+
+header .header-left .brand {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  width: min(150px,calc(100% - 40px)) !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+header .header-left #menu-button {
+  display: block !important;
+  position: static !important;
+  flex: 0 0 30px !important;
+  width: 30px !important;
+  height: 38px !important;
+  padding: 0 !important;
+  color: white !important;
+  background: transparent !important;
+  border: 0 !important;
+  font-size: 26px !important;
+  order: 0 !important;
+}
+
+header .header-slogan {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  justify-self: center !important;
+  align-self: center !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: white !important;
+  text-align: center !important;
+  font-size: clamp(10px,1.1vw,15px) !important;
+  letter-spacing: .6px !important;
+  line-height: 1.3 !important;
+  white-space: normal !important;
+}
+
+header .header-actions {
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+  justify-self: end !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* Phones: same row, no second-row slogan. */
+@media (max-width: 650px) {
+  header .header-inner {
+    grid-template-columns:
+      minmax(0,1fr) minmax(100px,1.2fr) minmax(0,1fr)
+      !important;
+    grid-template-rows: auto !important;
+    gap: 4px !important;
+    padding: 8px !important;
+  }
+
+  header .header-left {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    gap: 3px !important;
+  }
+
+  header .header-left .brand {
+    width: min(70px,calc(100% - 30px)) !important;
+  }
+
+  header .header-left #menu-button {
+    flex-basis: 27px !important;
+    width: 27px !important;
+    font-size: 23px !important;
+  }
+
+  header .header-slogan {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    font-size: clamp(6px,1.7vw,9px) !important;
+    letter-spacing: .1px !important;
+    line-height: 1.2 !important;
+    padding: 0 !important;
+  }
+
+  header .header-actions {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    gap: 0 !important;
+  }
+
+  header .header-actions .icon-btn {
+    width: 30px !important;
+    height: 35px !important;
+  }
+
+  header .header-actions .icon-btn > svg {
+    width: 21px !important;
+    height: 23px !important;
+  }
+}
+
+/* PRODUCT COLOR SELECTION */
+.color-options {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:10px 0 22px;
+}
+
+.color-choice {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  min-height:44px;
+  padding:7px 12px;
+  border:1px solid #aaa;
+  background:#fff;
+  color:#111;
+  cursor:pointer;
+}
+
+.color-choice.selected {
+  border:2px solid #000;
+  font-weight:700;
+}
+
+.color-dot {
+  display:inline-block;
+  width:23px;
+  height:23px;
+  flex-shrink:0;
+  border:1px solid #777;
+  border-radius:50%;
+}
+
+#add-cart,
+.favorite-controls [data-favorite-add] {
+  transition:background-color .2s ease,
+             color .2s ease,
+             border-color .2s ease;
 }

@@ -6,6 +6,7 @@ const CONFIG = {
   products:[
     {
       id:"hoodie",
+      colors:[{name:"Pink",hex:"#f5a0cb"}],
       name:"Sweet and Drippy Hoodie",
       description:"Pink oversized hoodie",
       price:null,
@@ -47,6 +48,7 @@ const products = CONFIG.products;
 let currentProduct = null;
 let chosenSize = "";
 let chosenPantsSize = "";
+let chosenColor = "";
 let previousWaffleCount = 0;
 
 function esc(s) {
@@ -165,6 +167,58 @@ function photo(p) {
     : art(p.id);
 }
 
+
+/* OPTIONAL PRODUCT COLOR VARIANTS */
+function productColors(p) {
+  const colors = Array.isArray(p?.colors) ? p.colors : [];
+  return colors.filter(c =>
+    c && typeof c.name === "string" &&
+    typeof c.hex === "string" &&
+    /^#[0-9a-fA-F]{6}$/.test(c.hex)
+  );
+}
+
+function colorInk(hex) {
+  const rgb = [1,3,5].map(i =>
+    parseInt(hex.slice(i,i+2),16)/255
+  ).map(v =>
+    v <= .04045 ? v/12.92 : ((v+.055)/1.055)**2.4
+  );
+  const luminance =
+    .2126*rgb[0] + .7152*rgb[1] + .0722*rgb[2];
+  return luminance > .179 ? "#111" : "#fff";
+}
+
+function tintCartButton(button, color) {
+  if (!button) return;
+  const hex = color?.hex || "";
+  button.style.backgroundColor = hex;
+  button.style.borderColor =
+    hex.toLowerCase() === "#ffffff" ? "#111" : hex;
+  button.style.color = hex ? colorInk(hex) : "";
+}
+
+function chooseProductColor(name) {
+  const selected = productColors(currentProduct)
+    .find(c => c.name === name);
+
+  chosenColor = selected?.name || "";
+
+  document.querySelectorAll("[data-color-choice]")
+    .forEach(button => {
+      const active =
+        button.dataset.colorChoice === chosenColor;
+      button.classList.toggle("selected",active);
+      button.setAttribute("aria-pressed",String(active));
+    });
+
+  const label = $("selected-color-label");
+  if (label) label.textContent =
+    chosenColor || "Select a color";
+
+  tintCartButton($("add-cart"), selected);
+}
+
 /* FAVORITES */
 let liked = [...new Set(
   load("waffles-liked-v1")
@@ -195,6 +249,19 @@ function favoriteControls(p,prefix) {
         `).join("")}
       </select>
     `:""}
+
+    ${productColors(p).length ? `
+      <label for="${key}-color">Color</label>
+      <select id="${key}-color"
+        data-favorite-color="${key}">
+        <option value="">Select color</option>
+        ${productColors(p).map(c=>`
+          <option value="${esc(c.name)}">
+            ${esc(c.name)}
+          </option>
+        `).join("")}
+      </select>
+    ` : ""}
 
     <label for="${key}-qty">Quantity</label>
     <input id="${key}-qty" type="number"
@@ -308,6 +375,7 @@ function openProduct(id) {
   currentProduct=p;
   chosenSize="";
   chosenPantsSize="";
+  chosenColor="";
 
   $("product-detail").innerHTML=`
     <div class="detail-image">${photo(p)}</div>
@@ -339,6 +407,24 @@ function openProduct(id) {
           `).join("")}
         </div>
       `:""}
+
+      ${productColors(p).length ? `
+        <label>Color:
+          <span id="selected-color-label">Select a color</span>
+        </label>
+        <div class="color-options" role="group"
+          aria-label="Available colors">
+          ${productColors(p).map(c=>`
+            <button type="button" class="color-choice"
+              data-color-choice="${esc(c.name)}"
+              aria-pressed="false">
+              <span class="color-dot"
+                style="background:${c.hex}"></span>
+              ${esc(c.name)}
+            </button>
+          `).join("")}
+        </div>
+      ` : ""}
 
       <label for="quantity">Quantity</label>
       <input id="quantity" class="quantity"
@@ -422,6 +508,7 @@ function renderCartPreview() {
           </h3>
 
           <p>${p.isSet?"Hoodie":"Size"}: ${esc(i.size)}</p>
+          ${i.color ? `<p>Color: ${esc(i.color)}</p>` : ""}
           ${p.isSet?`<p>Pants: ${esc(i.pantsSize)}</p>`:""}
           <p>${price(p)}</p>
           <p>Qty: ${i.qty}</p>
@@ -453,6 +540,7 @@ function renderFullCart() {
           </h3>
 
           <p>${p.isSet?"Hoodie":"Size"}: ${esc(i.size)}</p>
+          ${i.color ? `<p>Color: ${esc(i.color)}</p>` : ""}
           ${p.isSet?`<p>Pants: ${esc(i.pantsSize)}</p>`:""}
           <p>${price(p)}</p>
 
@@ -564,7 +652,7 @@ function renderCart(animate=false) {
   updateWaffleCollector(animate);
 }
 
-function addItem(id,size,pantsSize,qty) {
+function addItem(id,size,pantsSize,qty,color="") {
   const p=products.find(x=>x.id===id);
 
   if(!p ||
@@ -576,8 +664,13 @@ function addItem(id,size,pantsSize,qty) {
     return false;
   }
 
+  const colors = productColors(p);
+  if (colors.length && !colors.some(c=>c.name===color))
+    return false;
+
   const item={
     id,
+    color:colors.length ? color : "",
     size,
     pantsSize:p.isSet?pantsSize:"",
     qty
@@ -586,7 +679,8 @@ function addItem(id,size,pantsSize,qty) {
   const existing=cart.find(x=>
     x.id===item.id &&
     x.size===item.size &&
-    x.pantsSize===item.pantsSize
+    x.pantsSize===item.pantsSize &&
+    (x.color || "")===item.color
   );
 
   const before=totalItems();
@@ -620,11 +714,17 @@ function addFromProduct() {
     return;
   }
 
+  if(productColors(currentProduct).length && !chosenColor) {
+    msg.textContent="Please choose a color.";
+    return;
+  }
+
   if(addItem(
     currentProduct.id,
     chosenSize,
     chosenPantsSize,
-    qty
+    qty,
+    chosenColor
   )) {
     msg.textContent="Added to your bag!";
   } else {
@@ -642,6 +742,8 @@ function addFromFavorites(button) {
   const size=$(prefix+"-size").value;
   const pants=p.isSet?$(prefix+"-pants").value:"";
   const qty=Number($(prefix+"-qty").value);
+  const colorField=$(prefix+"-color");
+  const color=colorField ? colorField.value : "";
   const msg=$(prefix+"-message");
 
   if(!size||(p.isSet&&!pants)) {
@@ -649,7 +751,12 @@ function addFromFavorites(button) {
     return;
   }
 
-  const added=addItem(id,size,pants,qty);
+  if(productColors(p).length && !color) {
+    msg.textContent="Please choose a color.";
+    return;
+  }
+
+  const added=addItem(id,size,pants,qty,color);
 
   if(msg) {
     msg.textContent=added
@@ -819,6 +926,12 @@ document.addEventListener("click",event=>{
     return;
   }
 
+  const colorChoice=event.target.closest("[data-color-choice]");
+  if(colorChoice) {
+    chooseProductColor(colorChoice.dataset.colorChoice);
+    return;
+  }
+
   const size=event.target.closest("[data-size-group]");
 
   if(size) {
@@ -847,6 +960,22 @@ document.addEventListener("click",event=>{
     location.hash="collection";
     navigate();
   }
+});
+
+/* Keep favorite-page buttons synced with color selection. */
+document.addEventListener("change",event=>{
+  const select=event.target.closest("[data-favorite-color]");
+  if(!select) return;
+  const button=document.querySelector(
+    `[data-prefix="${select.dataset.favoriteColor}"]`
+  );
+  const product=products.find(
+    p=>p.id===button?.dataset.favoriteAdd
+  );
+  const color=productColors(product).find(
+    c=>c.name===select.value
+  );
+  tintCartButton(button,color);
 });
 
 /* HEADER BUTTONS */
