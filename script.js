@@ -1072,3 +1072,35 @@ renderLiked();
 renderLikedPreview();
 renderCart();
 navigate();
+
+/* WC_ONE_LINE_SLOGAN_FIT */
+function fitWafflesHeaderSlogan() {
+  const slogan = document.querySelector(".header-slogan");
+  if (!slogan) return;
+
+  let size = 15;
+  slogan.style.setProperty("font-size", size + "px", "important");
+
+  for (let i = 0; i < 5; i++) {
+    if (slogan.scrollWidth <= slogan.clientWidth) break;
+    if (slogan.clientWidth <= 0) break;
+
+    const ratio =
+      (slogan.clientWidth - 3) / slogan.scrollWidth;
+
+    size = Math.max(5, size * ratio);
+    slogan.style.setProperty(
+      "font-size", size + "px", "important"
+    );
+  }
+}
+
+fitWafflesHeaderSlogan();
+
+window.addEventListener("resize", () => {
+  requestAnimationFrame(fitWafflesHeaderSlogan);
+});
+
+if (document.fonts) {
+  document.fonts.ready.then(fitWafflesHeaderSlogan);
+}

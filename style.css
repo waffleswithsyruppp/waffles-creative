@@ -1874,12 +1874,12 @@ body.menu-open { overflow: hidden; }
   header #nav, header #nav-backdrop { transition: none !important; }
 }
 
-/* WC_FINAL_SINGLE_ROW_HEADER */
 
+/* WC_FINAL_SINGLE_ROW_HEADER */
 header .header-inner {
   display: grid !important;
   grid-template-columns:
-    minmax(0,1fr) minmax(0,2fr) minmax(0,1fr)
+    minmax(82px,1fr) minmax(0,3fr) minmax(82px,1fr)
     !important;
   grid-template-rows: auto !important;
   align-items: center !important;
@@ -1893,30 +1893,42 @@ header .header-left {
   display: flex !important;
   align-items: center !important;
   justify-self: start !important;
-  gap: 8px !important;
+  gap: 6px !important;
   min-width: 0 !important;
-}
-
-header .header-left .brand {
-  grid-column: auto !important;
-  grid-row: auto !important;
-  width: min(150px,calc(100% - 40px)) !important;
-  min-width: 0 !important;
-  margin: 0 !important;
 }
 
 header .header-left #menu-button {
   display: block !important;
   position: static !important;
-  flex: 0 0 30px !important;
-  width: 30px !important;
+  order: 0 !important;
+  flex: 0 0 32px !important;
+  width: 32px !important;
   height: 38px !important;
   padding: 0 !important;
-  color: white !important;
   background: transparent !important;
   border: 0 !important;
-  font-size: 26px !important;
-  order: 0 !important;
+  color: white !important;
+  font-size: 29px !important;
+  line-height: 1 !important;
+}
+
+header .header-left .brand {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  order: 1 !important;
+  flex: 0 0 42px !important;
+  width: 42px !important;
+  height: 40px !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+header .header-left .brand .header-logo {
+  display: block !important;
+  width: 100% !important;
+  height: 40px !important;
+  max-height: 40px !important;
+  object-fit: contain !important;
 }
 
 header .header-slogan {
@@ -1924,35 +1936,45 @@ header .header-slogan {
   grid-row: 1 !important;
   justify-self: center !important;
   align-self: center !important;
+  min-width: 0 !important;
   width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
   color: white !important;
   text-align: center !important;
-  font-size: clamp(10px,1.1vw,15px) !important;
-  letter-spacing: .6px !important;
-  line-height: 1.3 !important;
-  white-space: normal !important;
+  white-space: nowrap !important;
+  font-size: clamp(6px,1.6vw,15px) !important;
+  letter-spacing: 0 !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
 }
 
 header .header-actions {
   grid-column: 3 !important;
   grid-row: 1 !important;
   justify-self: end !important;
+  align-self: center !important;
   display: flex !important;
+  flex-wrap: nowrap !important;
   align-items: center !important;
   gap: 4px !important;
+  margin: 0 !important;
 }
 
-/* Phones: same row, no second-row slogan. */
+header .header-actions .icon-btn {
+  flex: 0 0 36px !important;
+  width: 36px !important;
+  height: 40px !important;
+}
+
 @media (max-width: 650px) {
   header .header-inner {
     grid-template-columns:
-      minmax(0,1fr) minmax(100px,1.2fr) minmax(0,1fr)
+      minmax(64px,1fr) minmax(0,3fr) minmax(64px,1fr)
       !important;
     grid-template-rows: auto !important;
     gap: 4px !important;
-    padding: 8px !important;
+    padding: 8px 6px !important;
   }
 
   header .header-left {
@@ -1961,39 +1983,48 @@ header .header-actions {
     gap: 3px !important;
   }
 
-  header .header-left .brand {
-    width: min(70px,calc(100% - 30px)) !important;
-  }
-
   header .header-left #menu-button {
     flex-basis: 27px !important;
     width: 27px !important;
-    font-size: 23px !important;
+    height: 34px !important;
+    font-size: 25px !important;
+  }
+
+  header .header-left .brand {
+    flex-basis: 34px !important;
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  header .header-left .brand .header-logo {
+    height: 34px !important;
+    max-height: 34px !important;
   }
 
   header .header-slogan {
     grid-column: 2 !important;
     grid-row: 1 !important;
-    font-size: clamp(6px,1.7vw,9px) !important;
-    letter-spacing: .1px !important;
-    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    font-size: clamp(6px,1.7vw,10px) !important;
+    letter-spacing: 0 !important;
     padding: 0 !important;
   }
 
   header .header-actions {
     grid-column: 3 !important;
     grid-row: 1 !important;
-    gap: 0 !important;
+    gap: 2px !important;
   }
 
   header .header-actions .icon-btn {
-    width: 30px !important;
-    height: 35px !important;
+    flex-basis: 29px !important;
+    width: 29px !important;
+    height: 34px !important;
   }
 
   header .header-actions .icon-btn > svg {
-    width: 21px !important;
-    height: 23px !important;
+    width: 22px !important;
+    height: 24px !important;
   }
 }
 
