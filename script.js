@@ -729,7 +729,6 @@ const pages=[
   "shopping-cart",
   "artists",
   "playlist",
-  "pitch",
   "contact"
 ];
 
@@ -748,8 +747,7 @@ function showPage(id) {
     );
   });
 
-  $("nav").classList.remove("open");
-  $("menu-button").setAttribute("aria-expanded","false");
+  closeSidebar();
   closePreviews();
   window.scrollTo(0,0);
 }
@@ -757,7 +755,14 @@ function showPage(id) {
 function navigate() {
   const hash=location.hash.slice(1);
 
-  if(hash==="collection") {
+  if(hash==="pitch") {
+    // Old links still work but now go to the form on the Contact page.
+    showPage("contact");
+    requestAnimationFrame(() => {
+      $("artist-submissions").scrollIntoView({behavior:"smooth",block:"start"});
+    });
+  }
+  else if(hash==="collection") {
     showPage("collection");
   }
   else if(hash.startsWith("artist-") && document.getElementById(hash)) {
@@ -785,7 +790,7 @@ document.addEventListener("click",event=>{
   if(!anchor)return;
   const target=anchor.getAttribute("href").slice(1);
   if(target==="product")return;
-  if(!pages.includes(target) && !(target.startsWith("artist-") && document.getElementById(target))) return;
+  if(!pages.includes(target) && target!=="pitch" && !(target.startsWith("artist-") && document.getElementById(target))) return;
   event.preventDefault();
   if(location.hash!=="#"+target)location.hash=target;
   navigate();
@@ -875,27 +880,43 @@ $("preview-backdrop").addEventListener(
   closePreviews
 );
 
-$("menu-button").addEventListener("click",()=>{
-  const open=$("nav").classList.toggle("open");
-  $("menu-button").setAttribute("aria-expanded",String(open));
+/* Single sidebar state for every breakpoint. */
+function setSidebar(open) {
+  $("nav").classList.toggle("open", open);
+  $("nav-backdrop").classList.toggle("open", open);
+  $("menu-button").setAttribute("aria-expanded", String(open));
+  $("nav").setAttribute("aria-hidden", String(!open));
+  document.body.classList.toggle("menu-open", open);
+}
+function closeSidebar(restoreFocus=false) {
+  if (!$('nav').classList.contains('open')) return;
+  setSidebar(false);
+  if (restoreFocus) $("menu-button").focus();
+}
+$("menu-button").addEventListener("click", () => {
+  const open = !$("nav").classList.contains("open");
+  setSidebar(open);
+  if (open) $("sidebar-close").focus();
 });
-
-/* CLOSE MOBILE MENU WHEN TAPPING ANYWHERE */
+$("sidebar-close").addEventListener("click", () => closeSidebar(true));
+$("nav-backdrop").addEventListener("click", () => closeSidebar(true));
 document.addEventListener("click", event => {
-  const nav = $("nav");
-
-  if (!nav.classList.contains("open")) return;
-  if (event.target.closest("#menu-button")) return;
-
-  nav.classList.remove("open");
-  $("menu-button").setAttribute("aria-expanded", "false");
+  if (!$("nav").classList.contains("open")) return;
+  if (event.target.closest("#nav, #menu-button")) return;
+  closeSidebar();
 });
-
-
-document.addEventListener("keydown",event=>{
-  if(event.key==="Escape") {
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    const wasOpen = $("nav").classList.contains("open");
+    closeSidebar(wasOpen);
     closePreviews();
-    $("nav").classList.remove("open");
+  }
+  if (event.key === "Tab" && $("nav").classList.contains("open")) {
+    const focusables = [...$("nav").querySelectorAll('button:not([disabled]),a[href]')];
+    if (!focusables.length) return;
+    const first = focusables[0], last = focusables[focusables.length-1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
   }
 });
 

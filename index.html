@@ -22,14 +22,14 @@
 
     <div class="header-slogan">DESIGNER STREETWEAR MADE BY REAL ARTISTS</div>
 
-    <nav id="nav">
-  <div class="sidebar-inner">
-    <a href="#collection" data-nav="collection">Shop</a>
-    <a href="#artists" data-nav="artists">Meet Artists</a>
-    <a href="#pitch" data-nav="pitch">Pitch an Artist</a>
-    <a href="#contact" data-nav="contact">Contact</a>
-  </div>
-</nav>
+    <nav id="nav" aria-label="Main navigation" aria-hidden="true">
+      <button id="sidebar-close" class="sidebar-close" type="button" aria-label="Close menu">&times;</button>
+      <div class="sidebar-inner">
+        <a href="#collection" data-nav="collection">SHOP</a>
+        <a href="#artists" data-nav="artists">ARTISTS</a>
+        <a href="#contact" data-nav="contact">CONTACT</a>
+      </div>
+    </nav>
 
     <div class="header-actions">
       <button id="liked-button" class="icon-btn"
@@ -68,6 +68,7 @@
         aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav">&#9776;</button>
     </div>
   </div>
+  <div id="nav-backdrop" aria-hidden="true"></div>
 </header>
 
 <main>
@@ -439,17 +440,23 @@
   </div>
 </section>
 
-<!-- PITCH AN ARTIST -->
-<section id="pitch" class="page">
+<!-- CONTACT -->
+<section id="contact" class="page">
   <div class="page-heading">
-    <div class="eyebrow">ARTIST SUBMISSIONS</div>
-    <h1>Pitch an Artist</h1>
-    <p>
-      Tell us who you are, what you create,
-      and why we should hear your work.
-    </p>
+    <div class="eyebrow">GET IN TOUCH</div>
+    <h1>Contact</h1>
+    <p>Questions about clothing, music, artist submissions, or collaborations?</p>
   </div>
-
+  <div class="content">
+    <div class="info-box">
+      <h2>General Inquiries</h2>
+      <p>For clothing questions, collaborations, and business opportunities.</p>
+      <a href="mailto:contact@wafflescreative.com" class="btn">Send an Email</a>
+    </div>
+  </div>
+  <section id="artist-submissions" aria-labelledby="artist-submissions-heading">
+    <h2 id="artist-submissions-heading">Artist Submissions</h2>
+    <p>Submit your music, pitch an artist feature, or propose a creative collaboration.</p>
   <div class="form-box">
     <form
       id="pitch-form"
@@ -516,37 +523,7 @@
       </p>
     </form>
   </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="page">
-  <div class="page-heading">
-    <div class="eyebrow">GET IN TOUCH</div>
-    <h1>Contact</h1>
-    <p>Questions about clothing, music, or collaborations?</p>
-  </div>
-
-  <div class="content">
-    <div class="info-box">
-      <h2>General Inquiries</h2>
-      <p>
-        For clothing questions, collaborations,
-        and business opportunities.
-      </p>
-      <a
-        href="mailto:contact@wafflescreative.com"
-        class="btn"
-      >Send an Email</a>
-    </div>
-
-    <div class="info-box">
-      <h2>Artist Submissions</h2>
-      <p>Have music or creative work to share?</p>
-      <a href="#pitch" class="btn outline">
-        Pitch an Artist
-      </a>
-    </div>
-  </div>
+  </section>
 </section>
 
 </main>
@@ -605,8 +582,7 @@
 
   <div class="footer-links">
   <a href="#collection">Shop</a>
-  <a href="#artists">Meet Artists</a>
-  <a href="#pitch">Pitch an Artist</a>
+  <a href="#artists">Artists</a>
   <a href="#contact">Contact</a>
 </div>
 
