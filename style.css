@@ -1914,9 +1914,9 @@ header .header-left .brand {
   grid-column: auto !important;
   grid-row: auto !important;
   order: 1 !important;
-  flex: 0 0 42px !important;
-  width: 42px !important;
-  height: 40px !important;
+  flex: 0 0 48px !important;
+  width: 48px !important;
+  height: 44px !important;
   min-width: 0 !important;
   margin: 0 !important;
 }
@@ -1924,8 +1924,8 @@ header .header-left .brand {
 header .header-left .brand .header-logo {
   display: block !important;
   width: 100% !important;
-  height: 40px !important;
-  max-height: 40px !important;
+  height: 44px !important;
+  max-height: 44px !important;
   object-fit: contain !important;
 }
 
@@ -1989,14 +1989,14 @@ header .header-actions .icon-btn {
   }
 
   header .header-left .brand {
-    flex-basis: 34px !important;
-    width: 34px !important;
-    height: 34px !important;
+    flex-basis: 40px !important;
+    width: 40px !important;
+    height: 40px !important;
   }
 
   header .header-left .brand .header-logo {
-    height: 34px !important;
-    max-height: 34px !important;
+    height: 40px !important;
+    max-height: 40px !important;
   }
 
   header .header-slogan {
