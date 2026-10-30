@@ -847,14 +847,16 @@ function showPage(id) {
     p.classList.toggle("active",p.id===id);
   });
 
-  document.querySelectorAll("[data-nav]").forEach(a=>{
-    a.classList.toggle(
-      "active",
-      a.dataset.nav===id
-    );
-  });
+  const selected = ["product","liked","shopping-cart"]
+    .includes(id) ? "collection" : id;
 
-  closeSidebar();
+  document.querySelectorAll(".footer-links [data-nav]")
+    .forEach(a=>{
+      const active = a.dataset.nav === selected;
+      a.classList.toggle("active", active);
+      if(active) a.setAttribute("aria-current","page");
+      else a.removeAttribute("aria-current");
+    });
   closePreviews();
   window.scrollTo(0,0);
 }
@@ -1009,44 +1011,8 @@ $("preview-backdrop").addEventListener(
   closePreviews
 );
 
-/* Single sidebar state for every breakpoint. */
-function setSidebar(open) {
-  $("nav").classList.toggle("open", open);
-  $("nav-backdrop").classList.toggle("open", open);
-  $("menu-button").setAttribute("aria-expanded", String(open));
-  $("nav").setAttribute("aria-hidden", String(!open));
-  document.body.classList.toggle("menu-open", open);
-}
-function closeSidebar(restoreFocus=false) {
-  if (!$('nav').classList.contains('open')) return;
-  setSidebar(false);
-  if (restoreFocus) $("menu-button").focus();
-}
-$("menu-button").addEventListener("click", () => {
-  const open = !$("nav").classList.contains("open");
-  setSidebar(open);
-  if (open) $("sidebar-close").focus();
-});
-$("sidebar-close").addEventListener("click", () => closeSidebar(true));
-$("nav-backdrop").addEventListener("click", () => closeSidebar(true));
-document.addEventListener("click", event => {
-  if (!$("nav").classList.contains("open")) return;
-  if (event.target.closest("#nav, #menu-button")) return;
-  closeSidebar();
-});
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape") {
-    const wasOpen = $("nav").classList.contains("open");
-    closeSidebar(wasOpen);
-    closePreviews();
-  }
-  if (event.key === "Tab" && $("nav").classList.contains("open")) {
-    const focusables = [...$("nav").querySelectorAll('button:not([disabled]),a[href]')];
-    if (!focusables.length) return;
-    const first = focusables[0], last = focusables[focusables.length-1];
-    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-  }
+document.addEventListener("keydown",event=>{
+  if(event.key==="Escape") closePreviews();
 });
 
 /* PLAYLIST */

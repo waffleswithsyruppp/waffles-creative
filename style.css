@@ -1509,9 +1509,7 @@ header .icon-count {
 }
 
 /* Remove duplicated footer menu on Shop only */
-body:has(#collection.page.active) footer .footer-links {
-  display: none !important;
-}
+
 
 /* Strict black and white UI accents */
 body,
@@ -2067,4 +2065,49 @@ header .header-actions .icon-btn {
   transition:background-color .2s ease,
              color .2s ease,
              border-color .2s ease;
+}
+
+/* WC_SMALL_FOOTER_LINKS */
+footer .footer-links,
+body.home-landing footer .footer-links {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  width: auto !important;
+  min-height: 0 !important;
+  margin: 12px auto 4px !important;
+  padding: 0 10px !important;
+  gap: clamp(12px,4vw,30px) !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+footer .footer-links a,
+body.home-landing footer .footer-links a {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 36px !important;
+  padding: 7px 0 !important;
+  color: #111 !important;
+  background: transparent !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: .6px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  text-decoration: none !important;
+}
+
+footer .footer-links a.active {
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+}
+
+body.home-landing footer small {
+  display: block !important;
+  padding: 8px 10px 16px !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
 }
