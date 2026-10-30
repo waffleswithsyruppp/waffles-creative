@@ -1289,11 +1289,6 @@ body.home-landing #collection > .hero .landing-tagline {
   }
 }
 
-/* Two products per row on phones */
-@media (max-width: 650px) {
-
-
-
 /* GLOBAL BLACK HEADER AND TWO-COLUMN MOBILE SHOP */
 
 header {
@@ -1748,7 +1743,7 @@ header .header-actions {
   gap: clamp(2px,.5vw,8px) !important;
   margin: 0 !important;
 }
-@media (max-width: 1150px) {
+@media (max-width: 760px) {
   header .header-inner {
     grid-template-columns: minmax(0,1fr) auto !important;
     grid-template-rows: auto auto !important;
