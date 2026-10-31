@@ -2111,3 +2111,32 @@ body.home-landing footer small {
   font-size: 12px !important;
   font-weight: 400 !important;
 }
+
+/* WC_FOOTER_POSITION_FIX */
+footer .footer-links,
+body.home-landing footer .footer-links {
+  position: static !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  margin: 12px auto 6px !important;
+  padding: 0 10px !important;
+  gap: 24px !important;
+  transform: none !important;
+  border: none !important;
+}
+
+footer .footer-links a,
+body.home-landing footer .footer-links a {
+  position: static !important;
+  font-size: 11px !important;
+  white-space: nowrap !important;
+}
+
+footer small {
+  display: block !important;
+}
