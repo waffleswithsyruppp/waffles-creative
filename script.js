@@ -93,9 +93,12 @@ function load(key) {
 }
 
 function save(key,data) {
-  try {
-    localStorage.setItem(key,JSON.stringify(data));
-  } catch {}
+  // The anonymous cart remains on this device. Signed-in data is saved
+  // to the authenticated user's Firestore document, not guest storage.
+  if (!window.WaffleGangAuthenticated) {
+    try { localStorage.setItem(key,JSON.stringify(data)); } catch {}
+  }
+  window.dispatchEvent(new CustomEvent("waffle:shop-changed", {detail:{key}}));
 }
 
 /* WAFFLE DRAWING */
@@ -838,7 +841,8 @@ const pages=[
   "playlist",
   "contact",
   "initiation",
-  "login"
+  "login",
+  "member"
 ];
 
 function showPage(id) {
@@ -1097,27 +1101,36 @@ if (document.fonts) {
   document.fonts.ready.then(fitWafflesHeaderSlogan);
 }
 
-/* WAFFLE GANG EARLY ACCESS */
-document.getElementById("waffle-gang-form")
-  .addEventListener("submit", function(event) {
-    const email = document.getElementById("gang-email")
-      .value.trim();
-    const phone = document.getElementById("gang-phone")
-      .value.trim();
-    const message = document.getElementById("gang-message");
 
-    message.textContent = "";
-
-    if (!email && !phone) {
-      event.preventDefault();
-      message.textContent =
-        "Please enter an email address or phone number.";
-      return;
-    }
-
-    if (phone && phone.replace(/\D/g,"").length < 7) {
-      event.preventDefault();
-      message.textContent =
-        "Please enter a valid phone number.";
-    }
-  });
+/* WC_ACCOUNT_SHOP_BRIDGE */
+// Never let the browser submit a fallback form POST if the Firebase module
+// fails to load. Account submissions are handled by Firebase only.
+for (const formId of ["gang-login-form", "waffle-gang-form"]) {
+  document.getElementById(formId)?.addEventListener("submit", e => e.preventDefault());
+}
+// The auth module uses these functions instead of directly accessing private
+// script variables. Restore cart, variants and liked items together.
+window.WaffleGangShop = {
+  read() {
+    return {cart: cart.map(item => ({...item})), liked: [...liked]};
+  },
+  apply(data) {
+    const safeLiked = Array.isArray(data?.liked) ? data.liked : [];
+    liked = [...new Set(safeLiked.filter(id => products.some(p => p.id === id)))];
+    const safeCart = Array.isArray(data?.cart) ? data.cart : [];
+    cart = safeCart.filter(i => {
+      const p = products.find(p => p.id === i?.id);
+      if (!p || !p.sizes.includes(i.size) || !Number.isInteger(i.qty) ||
+          i.qty < 1 || i.qty > 99) return false;
+      if (p.isSet && !p.sizes.includes(i.pantsSize)) return false;
+      const colors = productColors(p);
+      if (colors.length && !colors.some(c => c.name === i.color)) return false;
+      return true;
+    }).map(i => ({
+      id: i.id, size: i.size, pantsSize: i.pantsSize || '',
+      color: i.color || '', qty: i.qty
+    }));
+    $("liked-count").textContent = liked.length;
+    renderProducts(); renderLiked(); renderLikedPreview(); renderCart(false);
+  }
+};

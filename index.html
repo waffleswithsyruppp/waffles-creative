@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css?v=initiation-serif-1">
+<link rel="stylesheet" href="style.css?v=waffle-member-auth-1">
 </head>
 
 <body class="home-landing">
@@ -530,43 +530,39 @@
   <div class="page-heading">
     <h1>WAFFLE GANG</h1>
   </div>
-
   <div class="form-box gang-form-box">
-    <div class="field">
-      <label for="gang-login-contact">Email or Phone Number</label>
-      <input id="gang-login-contact" type="text"
-        autocomplete="username"
-        placeholder="Enter email or phone number"
-        >
+    <form id="gang-login-form" method="post">
+      <div class="field">
+        <label for="gang-login-contact">Email Address</label>
+        <input id="gang-login-contact" name="email" type="email"
+          autocomplete="username" placeholder="you@example.com" required>
+      </div>
+      <div class="field">
+        <label for="gang-login-password">Password</label>
+        <input id="gang-login-password" name="password" type="password"
+          autocomplete="current-password" placeholder="Enter password" required>
+      </div>
+      <button id="gang-login-submit" class="btn gang-submit" type="submit">LOGIN</button>
+      <p id="gang-login-status" class="note" role="status" aria-live="polite"></p>
+      <p class="gang-forgot"><a href="#" id="gang-reset-password">Forgot password?</a></p>
+    </form>
+    <p class="gang-switch">New Here? <a href="#initiation">Sign Up</a></p>
+  </div>
+</section>
+
+<section id="member" class="page">
+  <div class="page-heading"><h1>WAFFLE GANG</h1><p>YOUR ACCOUNT</p></div>
+  <div class="form-box gang-form-box gang-member-box">
+    <p class="gang-member-label">SIGNED IN AS</p>
+    <p id="gang-member-email" class="gang-member-email"></p>
+    <p id="gang-member-verification" class="note" role="status"></p>
+    <div class="gang-member-links">
+      <a href="#liked" class="btn outline">SAVED ITEMS</a>
+      <a href="#shopping-cart" class="btn outline">YOUR BAG</a>
+      <a href="#collection" class="btn outline">CONTINUE SHOPPING</a>
     </div>
-
-    <div class="field">
-      <label for="gang-login-password">Password</label>
-      <input id="gang-login-password"
-        type="password"
-        autocomplete="current-password"
-        placeholder="Enter password"
-        >
-    </div>
-
-    <button class="btn gang-submit" type="button" disabled
-      aria-describedby="gang-login-status">
-      LOGIN
-    </button>
-
-    <p id="gang-login-status" class="note"
-      style="text-align:center">
-      Secure member login is coming soon.
-    </p>
-
-    <p class="gang-switch">
-      New Here? <a href="#initiation">Sign Up</a>
-    </p>
-
-    <p class="note" style="margin-top:20px;text-align:center">
-      Registration currently collects early-access requests.
-      Member accounts will be activated separately.
-    </p>
+    <p id="gang-member-sync" class="note" role="status" aria-live="polite"></p>
+    <button id="gang-logout" type="button" class="btn gang-submit">LOG OUT</button>
   </div>
 </section>
 
@@ -584,22 +580,12 @@
   </div>
 
   <div class="form-box gang-form-box">
-    <form id="waffle-gang-form"
-      action="https://formsubmit.co/contact@wafflescreative.com"
-      method="POST">
-
-      <input type="hidden" name="_subject"
-        value="New Waffle Gang Signup Request">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="signup_type"
-        value="Waffle Gang Early Access">
-      <input type="text" name="_honey"
-        style="display:none" tabindex="-1" autocomplete="off">
+    <form id="waffle-gang-form" method="post">
 
       <div class="field">
         <label for="gang-email">Email Address</label>
         <input id="gang-email" name="email" type="email"
-          autocomplete="email" placeholder="you@example.com">
+          autocomplete="email" placeholder="you@example.com" required>
       </div>
 
       <div class="field">
@@ -607,18 +593,30 @@
         <input id="gang-phone" name="phone" type="tel"
           autocomplete="tel" placeholder="+1 (555) 555-5555">
       </div>
+      <div class="field">
+        <label for="gang-signup-password">Create Password</label>
+        <input id="gang-signup-password" type="password"
+          autocomplete="new-password" minlength="6"
+          placeholder="At least 6 characters" required>
+      </div>
+      <div class="field">
+        <label for="gang-signup-confirm">Confirm Password</label>
+        <input id="gang-signup-confirm" type="password"
+          autocomplete="new-password" minlength="6"
+          placeholder="Repeat your password" required>
+      </div>
 
       <p class="note">
-        Enter your email, phone number, or both.
+        Email is required to create your account. Phone number is optional.
       </p>
 
       <label class="gang-option">
-        <input type="checkbox" name="email_updates" value="Yes">
+        <input id="gang-email-updates" type="checkbox" name="email_updates" value="Yes">
         Sign me up for Email (Recommended).
       </label>
 
       <label class="gang-option">
-        <input type="checkbox" name="sms_interest" value="Yes">
+        <input id="gang-sms-interest" type="checkbox" name="sms_interest" value="Yes">
         Sign me up for Text.
       </label>
 
@@ -629,14 +627,13 @@
       <p id="gang-message" class="message"
         role="alert"></p>
 
-      <button class="btn gang-submit" type="submit">
+      <button id="gang-signup-submit" class="btn gang-submit" type="submit">
         JOIN THE WAFFLE GANG
       </button>
 
       <p class="note gang-disclaimer">
-        Early-access signup only. Accounts are not active yet.
-        Your information is sent to Waffles Creative
-        through our form service.
+        Your account will be created securely. Check your email
+        for a verification link. Text alerts are not active yet.
       </p>
       <p class="gang-switch">
         <a href="#login">Back to Log In</a>
@@ -713,7 +710,8 @@
   </small>
 </footer>
 
-<script src="script.js?v=initiation-1"></script>
+<script src="script.js?v=waffle-member-auth-1"></script>
+<script type="module" src="waffle-gang-auth.js?v=waffle-member-auth-1"></script>
 
 </body>
 </html>

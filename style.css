@@ -2323,3 +2323,20 @@ header #account-button svg {
   font-family: var(--font-luxury);
   font-weight: 600;
 }
+
+/* WC_FIREBASE_MEMBER_STYLES */
+#login .gang-form-box { max-width: 510px; }
+#login .gang-forgot { text-align:right; margin: 6px 0 18px; font-size:12px; }
+#login .gang-forgot a { text-decoration: underline; text-underline-offset:3px; }
+#login #gang-login-status, #initiation #gang-message {
+  min-height: 1.4em; margin: 10px 0; text-align:center;
+}
+#member .gang-member-box { text-align:center; }
+#member .gang-member-label { font-size:11px; font-weight:700; letter-spacing:1.3px; }
+#member .gang-member-email { overflow-wrap:anywhere; font-size:16px; }
+#member .gang-member-links { display:grid; gap:10px; margin: 28px 0; }
+#member .gang-member-links .btn { display:block; width:100%; }
+#member #gang-member-sync { margin: 18px 0; min-height: 1.5em; }
+#initiation .page-heading .gang-initiation-tagline {
+  font-family: var(--font-luxury);
+}
