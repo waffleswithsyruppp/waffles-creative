@@ -860,7 +860,18 @@ function showPage(id) {
       else a.removeAttribute("aria-current");
     });
   closePreviews();
-  window.scrollTo(0,0);
+  if(id==="login" || id==="waffle-gang") {
+    const root=document.documentElement;
+    const previous=root.style.scrollBehavior;
+    root.style.scrollBehavior="auto";
+    window.scrollTo(0,0);
+    requestAnimationFrame(()=>{
+      window.scrollTo(0,0);
+      root.style.scrollBehavior=previous;
+    });
+  } else {
+    window.scrollTo(0,0);
+  }
 }
 
 function navigate() {
@@ -894,6 +905,7 @@ function navigate() {
 }
 
 window.addEventListener("hashchange",navigate);
+window.addEventListener("popstate",navigate);
 
 /* RELIABLE INTERNAL LINK NAVIGATION */
 document.addEventListener("click",event=>{
@@ -901,6 +913,14 @@ document.addEventListener("click",event=>{
   if(!anchor)return;
   const target=anchor.getAttribute("href").slice(1);
   if(target==="product")return;
+  if(target==="login" || target==="waffle-gang") {
+    event.preventDefault();
+    if(location.hash !== "#" + target) {
+      history.pushState(null, "", "#" + target);
+    }
+    navigate();
+    return;
+  }
   if(!pages.includes(target) && target!=="pitch" && !(target.startsWith("artist-") && document.getElementById(target))) return;
   event.preventDefault();
   if(location.hash!=="#"+target)location.hash=target;
