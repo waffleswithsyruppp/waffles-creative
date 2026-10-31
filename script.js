@@ -1134,3 +1134,23 @@ window.WaffleGangShop = {
     renderProducts(); renderLiked(); renderLikedPreview(); renderCart(false);
   }
 };
+
+/* WAFFLE_PASSWORD_VISIBILITY */
+document.addEventListener("click", event => {
+  const button = event.target.closest("[data-password-toggle]");
+  if (!button) return;
+
+  const input = document.getElementById(
+    button.dataset.passwordToggle
+  );
+  if (!input) return;
+
+  const showing = input.type === "password";
+  input.type = showing ? "text" : "password";
+  button.textContent = showing ? "HIDE" : "SHOW";
+  button.setAttribute("aria-pressed", String(showing));
+  button.setAttribute(
+    "aria-label",
+    showing ? "Hide password" : "Show password"
+  );
+});

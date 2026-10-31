@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css?v=waffle-member-auth-1">
+<link rel="stylesheet" href="style.css?v=password-toggle-1">
 </head>
 
 <body class="home-landing">
@@ -539,8 +539,14 @@
       </div>
       <div class="field">
         <label for="gang-login-password">Password</label>
+        <div class="gang-password-wrap">
         <input id="gang-login-password" name="password" type="password"
           autocomplete="current-password" placeholder="Enter password" required>
+        <button type="button" class="gang-password-toggle"
+          data-password-toggle="gang-login-password"
+          aria-controls="gang-login-password" aria-pressed="false"
+          aria-label="Show password">SHOW</button>
+      </div>
       </div>
       <button id="gang-login-submit" class="btn gang-submit" type="submit">LOGIN</button>
       <p id="gang-login-status" class="note" role="status" aria-live="polite"></p>
@@ -595,15 +601,27 @@
       </div>
       <div class="field">
         <label for="gang-signup-password">Create Password</label>
+        <div class="gang-password-wrap">
         <input id="gang-signup-password" type="password"
           autocomplete="new-password" minlength="6"
           placeholder="At least 6 characters" required>
+        <button type="button" class="gang-password-toggle"
+          data-password-toggle="gang-signup-password"
+          aria-controls="gang-signup-password" aria-pressed="false"
+          aria-label="Show password">SHOW</button>
+      </div>
       </div>
       <div class="field">
         <label for="gang-signup-confirm">Confirm Password</label>
+        <div class="gang-password-wrap">
         <input id="gang-signup-confirm" type="password"
           autocomplete="new-password" minlength="6"
           placeholder="Repeat your password" required>
+        <button type="button" class="gang-password-toggle"
+          data-password-toggle="gang-signup-confirm"
+          aria-controls="gang-signup-confirm" aria-pressed="false"
+          aria-label="Show password">SHOW</button>
+      </div>
       </div>
 
       <p class="note">
@@ -710,7 +728,7 @@
   </small>
 </footer>
 
-<script src="script.js?v=waffle-member-auth-1"></script>
+<script src="script.js?v=password-toggle-1"></script>
 <script type="module" src="waffle-gang-auth.js?v=waffle-member-auth-1"></script>
 
 </body>
