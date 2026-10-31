@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css?v=password-toggle-1">
+<link rel="stylesheet" href="style.css?v=member-name-1">
 </head>
 
 <body class="home-landing">
@@ -557,7 +557,28 @@
 </section>
 
 <section id="member" class="page">
-  <div class="page-heading"><h1>WAFFLE GANG</h1><p>YOUR ACCOUNT</p></div>
+  <div class="page-heading gang-personal-heading">
+    <p class="gang-welcome">Welcome back</p>
+    <h1 id="gang-member-name">Member</h1>
+    <button id="gang-name-edit" class="gang-name-edit"
+      type="button" aria-expanded="false"
+      aria-controls="gang-name-editor">EDIT NAME</button>
+
+    <div id="gang-name-editor" class="gang-name-editor" hidden>
+      <label for="gang-name-input">DISPLAY NAME</label>
+      <input id="gang-name-input" type="text"
+        maxlength="50" autocomplete="nickname"
+        placeholder="How should we address you?">
+      <div class="gang-name-actions">
+        <button id="gang-name-save" class="btn"
+          type="button">SAVE NAME</button>
+        <button id="gang-name-cancel" class="btn outline"
+          type="button">CANCEL</button>
+      </div>
+      <p id="gang-name-status" class="message"
+        role="status" aria-live="polite"></p>
+    </div>
+  </div>
   <div class="form-box gang-form-box gang-member-box">
     <p class="gang-member-label">SIGNED IN AS</p>
     <p id="gang-member-email" class="gang-member-email"></p>
@@ -587,6 +608,13 @@
 
   <div class="form-box gang-form-box">
     <form id="waffle-gang-form" method="post">
+
+      <div class="field">
+        <label for="gang-signup-name">Display Name (Optional)</label>
+        <input id="gang-signup-name" type="text"
+          maxlength="50" autocomplete="nickname"
+          placeholder="How should we address you?">
+      </div>
 
       <div class="field">
         <label for="gang-email">Email Address</label>
@@ -729,7 +757,7 @@
 </footer>
 
 <script src="script.js?v=password-toggle-1"></script>
-<script type="module" src="waffle-gang-auth.js?v=waffle-member-auth-1"></script>
+<script type="module" src="waffle-gang-auth.js?v=member-name-1"></script>
 
 </body>
 </html>

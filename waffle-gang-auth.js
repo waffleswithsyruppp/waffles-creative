@@ -3,7 +3,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/13.1.0/firebas
 import {
   getAuth, onAuthStateChanged, createUserWithEmailAndPassword,
   signInWithEmailAndPassword, signOut, sendPasswordResetEmail,
-  sendEmailVerification
+  sendEmailVerification, updateProfile
 } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js';
 import {
   getFirestore, doc, getDoc, setDoc, serverTimestamp
@@ -95,6 +95,18 @@ function setMemberUI(user) {
   if (accountLink) {
     accountLink.href = user ? '#member' : '#login';
     accountLink.setAttribute('aria-label', user ? 'Waffle Gang My Account' : 'Waffle Gang Login');
+  }
+  if ($('gang-member-name')) {
+    $('gang-member-name').textContent =
+      user?.displayName?.trim() || 'Member';
+  }
+  const editor = $('gang-name-editor');
+  if (editor) editor.hidden = true;
+  if ($('gang-name-edit')) {
+    $('gang-name-edit').setAttribute('aria-expanded', 'false');
+  }
+  if (!user && $('gang-name-input')) {
+    $('gang-name-input').value = '';
   }
   if ($('gang-member-email')) $('gang-member-email').textContent = user?.email || '';
   if ($('gang-member-verification')) {
@@ -204,6 +216,7 @@ $('gang-login-form')?.addEventListener('submit', async event => {
 $('waffle-gang-form')?.addEventListener('submit', async event => {
   event.preventDefault();
   const email = $('gang-email').value.trim();
+  const displayName = $('gang-signup-name').value.trim();
   const phone = $('gang-phone').value.trim();
   const password = $('gang-signup-password').value;
   const confirm = $('gang-signup-confirm').value;
@@ -216,6 +229,14 @@ $('waffle-gang-form')?.addEventListener('submit', async event => {
   status('gang-message', 'Creating your account...');
   try {
     const result = await createUserWithEmailAndPassword(auth, email, password);
+    if (displayName) {
+      try {
+        await updateProfile(result.user, { displayName });
+        setMemberUI(result.user);
+      } catch (error) {
+        console.warn('Display name could not be saved:', error.code);
+      }
+    }
     try {
       await setDoc(memberDocument(result.user.uid), {
         email: result.user.email,
@@ -262,4 +283,58 @@ $('gang-logout')?.addEventListener('click', async () => {
   } catch (error) {
     status('gang-member-sync', errorMessage(error), true);
   } finally { setPending('gang-logout', false); }
+});
+
+/* WC_MEMBER_DISPLAY_NAME */
+$('gang-name-edit')?.addEventListener('click', () => {
+  const user = auth.currentUser;
+  if (!user) return;
+  const editor = $('gang-name-editor');
+  editor.hidden = false;
+  $('gang-name-input').value = user.displayName || '';
+  $('gang-name-edit').setAttribute('aria-expanded', 'true');
+  status('gang-name-status', '');
+  $('gang-name-input').focus();
+});
+
+function closeNameEditor() {
+  $('gang-name-editor').hidden = true;
+  $('gang-name-edit').setAttribute('aria-expanded', 'false');
+}
+
+$('gang-name-cancel')?.addEventListener('click', closeNameEditor);
+
+async function saveDisplayName() {
+  const user = auth.currentUser;
+  if (!user) return status('gang-name-status', 'Please log in first.', true);
+
+  const name = $('gang-name-input').value.trim();
+  if (!name || name.length > 50) {
+    return status('gang-name-status', 'Enter a name of up to 50 characters.', true);
+  }
+
+  const uid = user.uid;
+  const button = $('gang-name-save');
+  button.disabled = true;
+  status('gang-name-status', 'Saving your name...');
+
+  try {
+    await updateProfile(user, { displayName: name });
+    if (auth.currentUser?.uid !== uid) return;
+    setMemberUI(user);
+  } catch (error) {
+    status('gang-name-status', errorMessage(error), true);
+  } finally {
+    button.disabled = false;
+  }
+}
+
+$('gang-name-save')?.addEventListener('click', saveDisplayName);
+
+$('gang-name-input')?.addEventListener('keydown', event => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    void saveDisplayName();
+  }
+  if (event.key === 'Escape') closeNameEditor();
 });
