@@ -2140,3 +2140,79 @@ body.home-landing footer .footer-links a {
 footer small {
   display: block !important;
 }
+
+/* WC_WAFFLE_GANG_ACCOUNT */
+header .header-actions #account-button {
+  display: grid !important;
+  place-items: center !important;
+  flex: 0 0 36px !important;
+  width: 36px !important;
+  height: 40px !important;
+  background: #000 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+header #account-button svg {
+  width: 26px !important;
+  height: 28px !important;
+}
+
+.gang-form-box {
+  max-width: 620px;
+  margin-bottom: 90px;
+}
+
+.gang-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 18px 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.gang-option input {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #000;
+}
+
+.gang-submit {
+  width: 100%;
+  margin: 20px 0 12px;
+}
+
+@media (max-width: 650px) {
+  header .header-inner {
+    grid-template-columns:
+      44px minmax(0,1fr) 96px !important;
+    grid-template-rows: auto !important;
+  }
+
+  header .header-actions {
+    gap: 1px !important;
+  }
+
+  header .header-actions #account-button {
+    flex-basis: 29px !important;
+    width: 29px !important;
+    height: 34px !important;
+  }
+
+  header #account-button svg {
+    width: 22px !important;
+    height: 24px !important;
+  }
+
+  header .header-slogan {
+    white-space: nowrap !important;
+  }
+
+  .gang-form-box {
+    margin: 0 14px 65px;
+    padding: 24px 18px;
+  }
+}

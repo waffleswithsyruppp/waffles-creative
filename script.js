@@ -836,7 +836,8 @@ const pages=[
   "shopping-cart",
   "artists",
   "playlist",
-  "contact"
+  "contact",
+  "waffle-gang"
 ];
 
 function showPage(id) {
@@ -1070,3 +1071,28 @@ window.addEventListener("resize", () => {
 if (document.fonts) {
   document.fonts.ready.then(fitWafflesHeaderSlogan);
 }
+
+/* WAFFLE GANG EARLY ACCESS */
+document.getElementById("waffle-gang-form")
+  .addEventListener("submit", function(event) {
+    const email = document.getElementById("gang-email")
+      .value.trim();
+    const phone = document.getElementById("gang-phone")
+      .value.trim();
+    const message = document.getElementById("gang-message");
+
+    message.textContent = "";
+
+    if (!email && !phone) {
+      event.preventDefault();
+      message.textContent =
+        "Please enter an email address or phone number.";
+      return;
+    }
+
+    if (phone && phone.replace(/\D/g,"").length < 7) {
+      event.preventDefault();
+      message.textContent =
+        "Please enter a valid phone number.";
+    }
+  });

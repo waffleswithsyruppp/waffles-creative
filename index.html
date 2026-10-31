@@ -29,6 +29,17 @@
     
 
     <div class="header-actions">
+      <a id="account-button" class="icon-btn"
+         href="#waffle-gang" aria-label="Join Waffle Gang">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="7" r="4"
+            fill="none" stroke="#fff" stroke-width="1.8"/>
+          <path d="M4 21v-2c0-4 3.5-7 8-7s8 3 8 7v2"
+            fill="none" stroke="#fff" stroke-width="1.8"
+            stroke-linecap="round"/>
+        </svg>
+      </a>
+
       <button id="liked-button" class="icon-btn"
         aria-label="Liked items">
         <svg viewBox="0 0 24 24">
@@ -510,6 +521,80 @@
     </form>
   </div>
   </section>
+</section>
+
+
+<section id="waffle-gang" class="page">
+  <div class="page-heading">
+    <div class="eyebrow">WAFFLES CREATIVE MEMBERSHIP</div>
+    <h1>Join the Waffle Gang</h1>
+    <p>Get early access to fashion, music, artists,
+       and future member experiences.</p>
+  </div>
+
+  <div class="form-box gang-form-box">
+    <form id="waffle-gang-form"
+      action="https://formsubmit.co/contact@wafflescreative.com"
+      method="POST">
+
+      <input type="hidden" name="_subject"
+        value="New Waffle Gang Signup Request">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="signup_type"
+        value="Waffle Gang Early Access">
+      <input type="text" name="_honey"
+        style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="field">
+        <label for="gang-email">Email Address</label>
+        <input id="gang-email" name="email" type="email"
+          autocomplete="email" placeholder="you@example.com">
+      </div>
+
+      <div class="field">
+        <label for="gang-phone">Phone Number</label>
+        <input id="gang-phone" name="phone" type="tel"
+          autocomplete="tel" placeholder="+1 (555) 555-5555">
+      </div>
+
+      <p class="note">
+        Enter your email, phone number, or both.
+      </p>
+
+      <label class="gang-option">
+        <input type="checkbox" name="email_updates" value="Yes">
+        I want email updates about clothing and music.
+      </label>
+
+      <label class="gang-option">
+        <input type="checkbox" name="sms_interest" value="Yes">
+        I'm interested in future text updates.
+        No automated texts are being sent yet.
+      </label>
+
+      <label class="gang-option">
+        <input type="checkbox" name="personalization_interest"
+          value="Yes">
+        I'm interested in personalized clothing
+        and artist recommendations.
+      </label>
+
+      <p id="gang-message" class="message"
+        role="alert"></p>
+
+      <button class="btn gang-submit" type="submit">
+        JOIN THE WAFFLE GANG
+      </button>
+
+      <p class="note">
+        This is an early-access signup request, not
+        an active account. Your details are sent to
+        Waffles Creative through our form service.
+        Secure member sign-in, verification, and
+        AI profiles will be added separately.
+      </p>
+    </form>
+  </div>
 </section>
 
 </main>
