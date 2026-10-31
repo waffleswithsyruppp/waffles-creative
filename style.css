@@ -2310,10 +2310,16 @@ header #account-button svg {
 
 #initiation .page-heading .gang-initiation-tagline {
   max-width: 1200px;
+  font-family: var(--font-luxury);
   font-size: clamp(28px, 4.5vw, 64px);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.15;
   letter-spacing: -1.5px;
   margin: 24px auto 30px;
   text-align: center;
+}
+
+#initiation .gang-initiation-tagline strong {
+  font-family: var(--font-luxury);
+  font-weight: 600;
 }
