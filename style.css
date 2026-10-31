@@ -2219,12 +2219,12 @@ header #account-button svg {
 
 /* WAFFLE_GANG_LAYOUT_V2 */
 #login .page-heading,
-#waffle-gang .page-heading {
+#initiation .page-heading {
   padding: 48px 20px 12px;
 }
 
 #login .page-heading h1,
-#waffle-gang .page-heading h1 {
+#initiation .page-heading h1 {
   max-width: 980px;
   margin: 14px auto 18px;
   font-size: clamp(30px, 4vw, 48px);
@@ -2234,7 +2234,7 @@ header #account-button svg {
 }
 
 #login .page-heading p,
-#waffle-gang .page-heading p {
+#initiation .page-heading p {
   max-width: 640px;
   margin: 12px auto;
   font-size: 15px;
@@ -2242,7 +2242,7 @@ header #account-button svg {
 }
 
 #login .gang-form-box,
-#waffle-gang .gang-form-box {
+#initiation .gang-form-box {
   width: calc(100% - 32px);
   max-width: 520px;
   margin: 28px auto 64px !important;
@@ -2250,12 +2250,12 @@ header #account-button svg {
 }
 
 #login .gang-form-box .field,
-#waffle-gang .gang-form-box .field {
+#initiation .gang-form-box .field {
   margin-bottom: 18px;
 }
 
 #login .gang-form-box input,
-#waffle-gang .gang-form-box input:not([type="checkbox"]) {
+#initiation .gang-form-box input:not([type="checkbox"]) {
   min-height: 45px;
 }
 
@@ -2278,19 +2278,38 @@ header #account-button svg {
 
 @media (max-width:650px) {
   #login .page-heading,
-  #waffle-gang .page-heading {
+  #initiation .page-heading {
     padding: 38px 18px 10px;
   }
 
   #login .page-heading h1,
-  #waffle-gang .page-heading h1 {
+  #initiation .page-heading h1 {
     font-size: clamp(28px, 7vw, 38px);
   }
 
   #login .gang-form-box,
-  #waffle-gang .gang-form-box {
+  #initiation .gang-form-box {
     width: calc(100% - 28px);
     padding: 24px 20px !important;
     margin: 20px auto 50px !important;
   }
+}
+
+/* WAFFLE GANG INITIATION */
+#login .gang-switch {
+  margin: 26px 0 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+#login .gang-switch a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+#initiation .page-heading .gang-initiation-tagline {
+  max-width: 760px;
+  font-size: clamp(17px, 2.2vw, 22px);
+  line-height: 1.3;
 }

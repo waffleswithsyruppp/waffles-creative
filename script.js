@@ -837,7 +837,7 @@ const pages=[
   "artists",
   "playlist",
   "contact",
-  "waffle-gang",
+  "initiation",
   "login"
 ];
 
@@ -860,7 +860,7 @@ function showPage(id) {
       else a.removeAttribute("aria-current");
     });
   closePreviews();
-  if(id==="login" || id==="waffle-gang") {
+  if(id==="login" || id==="initiation") {
     const root=document.documentElement;
     const previous=root.style.scrollBehavior;
     root.style.scrollBehavior="auto";
@@ -877,7 +877,11 @@ function showPage(id) {
 function navigate() {
   const hash=location.hash.slice(1);
 
-  if(hash==="pitch") {
+  if(hash==="waffle-gang") {
+    history.replaceState(null, "", "#login");
+    showPage("login");
+  }
+  else if(hash==="pitch") {
     // Old links still work but now go to the form on the Contact page.
     showPage("contact");
     requestAnimationFrame(() => {
@@ -913,7 +917,7 @@ document.addEventListener("click",event=>{
   if(!anchor)return;
   const target=anchor.getAttribute("href").slice(1);
   if(target==="product")return;
-  if(target==="login" || target==="waffle-gang") {
+  if(target==="login" || target==="initiation") {
     event.preventDefault();
     if(location.hash !== "#" + target) {
       history.pushState(null, "", "#" + target);
