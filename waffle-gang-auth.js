@@ -102,7 +102,10 @@ function setMemberUI(user) {
   }
   const editor = $('gang-name-editor');
   if (editor) editor.hidden = true;
+  if ($('gang-member-name')) $('gang-member-name').hidden = false;
+  if ($('gang-name-input')) $('gang-name-input').hidden = true;
   if ($('gang-name-edit')) {
+    $('gang-name-edit').hidden = false;
     $('gang-name-edit').setAttribute('aria-expanded', 'false');
   }
   if (!user && $('gang-name-input')) {
@@ -290,15 +293,27 @@ $('gang-name-edit')?.addEventListener('click', () => {
   const user = auth.currentUser;
   if (!user) return;
   const editor = $('gang-name-editor');
+  const input = $('gang-name-input');
+  const heading = $('gang-member-name');
+  const editButton = $('gang-name-edit');
+
+  input.value = user.displayName || 'Member';
+  heading.hidden = true;
+  input.hidden = false;
+  editButton.hidden = true;
   editor.hidden = false;
-  $('gang-name-input').value = user.displayName || '';
-  $('gang-name-edit').setAttribute('aria-expanded', 'true');
+  editButton.setAttribute('aria-expanded', 'true');
   status('gang-name-status', '');
-  $('gang-name-input').focus();
+
+  input.focus();
+  input.select();
 });
 
 function closeNameEditor() {
   $('gang-name-editor').hidden = true;
+  $('gang-name-input').hidden = true;
+  $('gang-member-name').hidden = false;
+  $('gang-name-edit').hidden = false;
   $('gang-name-edit').setAttribute('aria-expanded', 'false');
 }
 

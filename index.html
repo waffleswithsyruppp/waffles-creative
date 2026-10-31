@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css?v=member-name-1">
+<link rel="stylesheet" href="style.css?v=inline-name-1">
 </head>
 
 <body class="home-landing">
@@ -560,15 +560,14 @@
   <div class="page-heading gang-personal-heading">
     <p class="gang-welcome">Welcome back</p>
     <h1 id="gang-member-name">Member</h1>
+    <input id="gang-name-input" class="gang-name-inline-input"
+      type="text" maxlength="50" autocomplete="nickname"
+      aria-label="Edit display name" hidden>
     <button id="gang-name-edit" class="gang-name-edit"
       type="button" aria-expanded="false"
       aria-controls="gang-name-editor">EDIT NAME</button>
 
     <div id="gang-name-editor" class="gang-name-editor" hidden>
-      <label for="gang-name-input">DISPLAY NAME</label>
-      <input id="gang-name-input" type="text"
-        maxlength="50" autocomplete="nickname"
-        placeholder="How should we address you?">
       <div class="gang-name-actions">
         <button id="gang-name-save" class="btn"
           type="button">SAVE NAME</button>
@@ -757,7 +756,7 @@
 </footer>
 
 <script src="script.js?v=password-toggle-1"></script>
-<script type="module" src="waffle-gang-auth.js?v=member-name-1"></script>
+<script type="module" src="waffle-gang-auth.js?v=inline-name-1"></script>
 
 </body>
 </html>

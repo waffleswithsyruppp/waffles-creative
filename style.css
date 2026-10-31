@@ -2449,3 +2449,48 @@ header #account-button svg {
     padding: 18px;
   }
 }
+
+/* WC_INLINE_NAME_EDIT */
+#member .gang-personal-heading .gang-name-inline-input {
+  display: block;
+  width: min(96%, 980px);
+  max-width: 100%;
+  font-family: var(--font-luxury);
+  font-size: clamp(42px, 6vw, 76px);
+  font-weight: 600;
+  line-height: 1.12;
+  text-align: center;
+  color: #000;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #000;
+  border-radius: 0;
+  padding: 0 8px 6px;
+  margin: 12px auto;
+  outline: none;
+}
+
+#member .gang-name-inline-input:focus {
+  outline: none;
+  border-bottom: 2px solid #000;
+}
+
+#member .gang-personal-heading
+#gang-member-name[hidden],
+#member .gang-name-inline-input[hidden],
+#member .gang-name-edit[hidden] {
+  display: none !important;
+}
+
+#member .gang-name-editor {
+  width: min(100%, 380px);
+  margin: 10px auto 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: center;
+}
+
+#member .gang-name-actions {
+  margin-top: 0;
+}
