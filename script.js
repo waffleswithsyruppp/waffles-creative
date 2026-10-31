@@ -837,7 +837,8 @@ const pages=[
   "artists",
   "playlist",
   "contact",
-  "waffle-gang"
+  "waffle-gang",
+  "login"
 ];
 
 function showPage(id) {
